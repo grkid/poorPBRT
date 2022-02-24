@@ -1,6 +1,6 @@
 #include "Metal.h"
 
-Metal::Metal(const vec3& a, float f) : albedo(a)
+Metal::Metal(const vec3& a, double f) : albedo(a)
 {
     fuzz = f < 1 ? f : 1;
 }

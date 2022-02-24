@@ -1,22 +1,22 @@
 #include "Sphere.h"
 
 Sphere::Sphere() {};
-Sphere::Sphere(vec3 cen, float r, Material* m) :
+Sphere::Sphere(vec3 cen, double r, Material* m) :
     center(cen),
     radius(r),
     mat_ptr(m)
 {}
 
-bool Sphere::hit(const Ray& r, float t_min, float t_max, HitRecord& rec) const
+bool Sphere::hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const
 {
     vec3 oc = r.origin() - center;
-    float a = dot(r.direction(), r.direction());
-    float b = dot(oc, r.direction());
-    float c = dot(oc, oc) - radius * radius;
-    float discriminant = b * b - a * c;
+    double a = dot(r.direction(), r.direction());
+    double b = dot(oc, r.direction());
+    double c = dot(oc, oc) - radius * radius;
+    double discriminant = b * b - a * c;
     if (discriminant > 0)
     {
-        float temp = (-b - sqrt(discriminant)) / a; //小实数根
+        double temp = (-b - sqrt(discriminant)) / a; //小实数根
         if (temp < t_max && temp > t_min)
         {
             rec.t = temp;

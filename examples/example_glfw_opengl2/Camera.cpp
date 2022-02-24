@@ -1,11 +1,11 @@
 #include "Camera.h"
 
-Camera::Camera(vec3 lookfrom, vec3 lookat, vec3 vup, float vfov, float aspect, float aperture, float focus_dist)
+Camera::Camera(vec3 lookfrom, vec3 lookat, vec3 vup, double vfov, double aspect, double aperture, double focus_dist)
 {
     lens_radius = aperture / 2;
-    float theta = vfov * M_PI / 180;
-    float half_height = tan(theta / 2);
-    float half_width = aspect * half_height;
+    double theta = vfov * M_PI / 180;
+    double half_height = tan(theta / 2);
+    double half_width = aspect * half_height;
     origin = lookfrom;
     w = unit_vector(lookfrom - lookat);
     u = unit_vector(cross(vup, w));
@@ -15,7 +15,7 @@ Camera::Camera(vec3 lookfrom, vec3 lookat, vec3 vup, float vfov, float aspect, f
     vertical = 2 * half_height * focus_dist * v;
 }
 
-Ray Camera::getRay(float s, float t)
+Ray Camera::getRay(double s, double t)
 {
     vec3 rd = lens_radius * random_in_unit_disk();
     vec3 offset = u * rd.x() + v * rd.y();

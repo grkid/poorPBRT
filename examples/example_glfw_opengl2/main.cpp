@@ -47,12 +47,12 @@ static void glfw_error_callback(int error, const char* description)
 
 long curTime;
 long totTime;
-float timeRemaining;
+double timeRemaining;
 
 //全局变量
 
 ImVec4 clear_color = ImVec4(0.0f, 0.0f, 0.00f, 1.00f);
-float progressDone = 0.0f, progressDir = 1.0f;
+double progressDone = 0.0f, progressDir = 1.0f;
 bool gRayTracingBegin = false;
 
 
@@ -69,8 +69,8 @@ int gFov = 20;
 
 vec3 lookfrom(13, 2, 3);
 vec3 lookat(0, 0, 0);
-float dist_to_focus = 10.0;
-float aperture = 0.1;
+double dist_to_focus = 10.0;
+double aperture = 0.1;
 
 static int speedFactor = 1;
 
@@ -89,7 +89,7 @@ void DrawFrame(int* fb)
         for (int j = 0; j < display_w; j++)
         {
             Color2RGB(fb[i * display_w + j], r, g, b);
-            glColor3f((float)r / 255, (float)g / 255, (float)b / 255);
+            glColor3f((double)r / 255, (double)g / 255, (double)b / 255);
             glVertex3f(j + 20, display_h - i - 300, 0);
         }
     }
@@ -99,7 +99,7 @@ void DrawFrame(int* fb)
 //记录进度和时间
 void RecordProgressAndTime()
 {
-    progressDone = float(numPixelRendered) / (numPixelTotal);
+    progressDone = double(numPixelRendered) / (numPixelTotal);
     // totTime = (GetCurrentTimeMs() - curTime);
     // timeRemaining = totTime * (1 - progressDone) / progressDone / 1000; //根据过去的平均时间来计算剩余时间 x/t=pTodo/pDone -> x= t*pTodo/pDone = t*(1-pDone) /pDone
 }
@@ -124,7 +124,7 @@ vec3 sampleOnce(const Ray& r, Hittable* world, int depth) {
     {
         // 取背景色。TODO：图片背景
         vec3 unit_direction = unit_vector(r.direction());
-        float t = 0.5 * (unit_direction.y() + 1.0);
+        double t = 0.5 * (unit_direction.y() + 1.0);
         return (1.0 - t) * vec3(1.0, 1.0, 1.0) + t * vec3(0.5, 0.7, 1.0);
     }
 }
@@ -139,7 +139,7 @@ Hittable* random_scene() {
     int i = 1;
     for (int a = -11; a < 11; a++) {
         for (int b = -11; b < 11; b++) {
-            float choose_mat = random_float();
+            double choose_mat = random_float();
             vec3 center(a + 0.9 * random_float(), 0.2, b + 0.9 * random_float());
             if ((center - vec3(4, 0.2, 0)).length() > 0.9) {
                 if (choose_mat < 0.8) {  // diffuse
@@ -174,9 +174,9 @@ Hittable* world;
 
 void RayTracingInOneThread(int k)
 {
-    float R = cos(M_PI / 4);
+    double R = cos(M_PI / 4);
 
-    Camera cam(lookfrom, lookat, vec3(0, 1, 0), 20, float(nx) / float(ny), aperture, dist_to_focus);
+    Camera cam(lookfrom, lookat, vec3(0, 1, 0), 20, double(nx) / double(ny), aperture, dist_to_focus);
 
     for (int j = ny - k; j >= 0; j -= numThread)
     {
@@ -187,12 +187,12 @@ void RayTracingInOneThread(int k)
             for (int s = 0; s < samplesPerPixel; s++)
             {
                 // TODO：采样噪声
-                float u = float(i + random_float()) / float(nx);
-                float v = float(j + random_float()) / float(ny);
+                double u = double(i + random_float()) / double(nx);
+                double v = double(j + random_float()) / double(ny);
                 Ray r = cam.getRay(u, v);
                 col += sampleOnce(r, world, 0);
             }
-            col /= float(samplesPerPixel);
+            col /= double(samplesPerPixel);
             col = vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
 
             int ir = int(255.99 * col[0]);
@@ -320,7 +320,7 @@ int main(int, char**)
 
         // 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
         {
-            static float f = 0.0f;
+            static double f = 0.0f;
             static int counter = 0;
 
             ImGui::Begin("Ray Tracing"); // Create a window called "Hello, world!" and append into it.
@@ -337,11 +337,11 @@ int main(int, char**)
             ImGui::Text("Thread Num: %d ", numThread);
             ImGui::Text("Image Size:  %d x %d ", nx, ny);
             ImGui::Text("Camera fov:  %d ", gFov);
-            ImGui::Text("Camera aperture: %.3f ", (float)aperture);
-            ImGui::Text("Camera dist to focus: %.3f ", (float)dist_to_focus);
+            ImGui::Text("Camera aperture: %.3f ", (double)aperture);
+            ImGui::Text("Camera dist to focus: %.3f ", (double)dist_to_focus);
 
             // ImGui::Text("Progress Bar");
-            ImGui::Text("Total time %.3f s", (float)totTime / 1000);
+            ImGui::Text("Total time %.3f s", (double)totTime / 1000);
             ImGui::Text("timeRemaining time %.3f s", timeRemaining);
             ImGui::End();
         }

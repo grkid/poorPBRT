@@ -48,11 +48,11 @@ void Color2RGB(const int &c, int &r, int &g, int &b)
 }
 
 
-void Framebuffer2File(int nx, int ny, int ns, int *fb, ofstream &outFile, float &progressDone)
+void Framebuffer2File(int nx, int ny, int ns, int *fb, ofstream &outFile, double &progressDone)
 {
     for (int j = (ny - 1); j >= 0; j--)
     {
-        progressDone = float(ny - 1 - j) / (ny - 1);
+        progressDone = double(ny - 1 - j) / (ny - 1);
         for (int i = 0; i < nx; i++)
         {
             int x = i;

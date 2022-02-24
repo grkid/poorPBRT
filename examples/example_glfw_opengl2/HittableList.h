@@ -11,5 +11,5 @@ public:
     HittableList() {}
     HittableList(Hittable** l, int n);
     //如果命中了，命中记录保存到rec
-    virtual bool hit(const Ray& r, float t_min, float t_max, HitRecord& rec) const;
+    virtual bool hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const;
 };

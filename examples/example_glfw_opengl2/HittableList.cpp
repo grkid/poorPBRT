@@ -6,11 +6,11 @@ HittableList::HittableList(Hittable** l, int n)
     list_size = n;
 }
 //如果命中了，命中记录保存到rec
-bool HittableList::hit(const Ray& r, float t_min, float t_max, HitRecord& rec) const
+bool HittableList::hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const
 {
     HitRecord temp_rec;
     bool hit_anything = false;
-    float closest_so_far = t_max; //记录目前最近的t值
+    double closest_so_far = t_max; //记录目前最近的t值
     for (int i = 0; i < list_size; i++)
     {
         if (list[i]->hit(r, t_min, closest_so_far, temp_rec))

@@ -1,16 +1,16 @@
 #include "Dielectric.h"
 
-Dielectric::Dielectric(float ri) : ref_idx(ri) {} //n2/n1
+Dielectric::Dielectric(double ri) : ref_idx(ri) {} //n2/n1
 bool Dielectric::scatter(const Ray& r_in, const HitRecord& rec, vec3& attenuation, Ray& scattered) const
 {
     vec3 outward_normal;
     vec3 reflected = reflect(r_in.direction(), rec.normal);
-    float ni_over_nt;
+    double ni_over_nt;
     attenuation = vec3(1.0, 1.0, 1.0);
     vec3 refracted;
 
-    float reflect_prob; //反射概率
-    float cosine;
+    double reflect_prob; //反射概率
+    double cosine;
 
     if (dot(r_in.direction(), rec.normal) > 0) //从里到外，即入射向量在法向量另外一侧的情况
     {

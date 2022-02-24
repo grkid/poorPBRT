@@ -5,9 +5,9 @@ class Metal : public Material
 {
 public:
     vec3 albedo;
-    float fuzz;
+    double fuzz;
 
-    Metal(const vec3& a, float f);
+    Metal(const vec3& a, double f);
 
     virtual bool scatter(const Ray& r_in, const HitRecord& rec, vec3& attenuation, Ray& scattered) const;
 };
