@@ -135,7 +135,7 @@ vec3 sampleOnce(const Ray& r, Hittable* world, int depth) {
 Hittable* random_scene() {
     int n = 500;
     Hittable** list = new Hittable * [n + 1];
-    list[0] = new Sphere(vec3(0, -1000, 0), 1000, new Lambertian(vec3(0.5, 0.5, 0.5)));
+    list[0] = new Sphere(vec3(0, -1000, 0), 1000, std::shared_ptr<Lambertian>(new Lambertian(vec3(0.5, 0.5, 0.5))));
     int i = 1;
     for (int a = -11; a < 11; a++) {
         for (int b = -11; b < 11; b++) {
@@ -144,29 +144,29 @@ Hittable* random_scene() {
             if ((center - vec3(4, 0.2, 0)).length() > 0.9) {
                 if (choose_mat < 0.8) {  // diffuse
                     list[i++] = new Sphere(center, 0.2,
-                        new Lambertian(vec3(random_float() * random_float(),
+                        std::shared_ptr<Lambertian>(new Lambertian(vec3(random_float() * random_float(),
                             random_float() * random_float(),
-                            random_float() * random_float())
+                            random_float() * random_float()))
                         )
                     );
                 }
                 else if (choose_mat < 0.95) { // metal
                     list[i++] = new Sphere(center, 0.2,
-                        new Metal(vec3(0.5 * (1 + random_float()),
+                        std::shared_ptr<Metal>(new Metal(vec3(0.5 * (1 + random_float()),
                             0.5 * (1 + random_float()),
                             0.5 * (1 + random_float())),
-                            0.5 * random_float()));
+                            0.5 * random_float())));
                 }
                 else {  // glass
-                    list[i++] = new Sphere(center, 0.2, new Dielectric(1.5));
+                    list[i++] = new Sphere(center, 0.2, std::shared_ptr<Dielectric> (new Dielectric(1.5)));
                 }
             }
         }
     }
 
-    list[i++] = new Sphere(vec3(0, 1, 0), 1.0, new Dielectric(1.5));
-    list[i++] = new Sphere(vec3(-4, 1, 0), 1.0, new Lambertian(vec3(0.4, 0.2, 0.1)));
-    list[i++] = new Sphere(vec3(4, 1, 0), 1.0, new Metal(vec3(0.7, 0.6, 0.5), 0.0));
+    list[i++] = new Sphere(vec3(0, 1, 0), 1.0, std::shared_ptr<Dielectric>(new Dielectric(1.5)));
+    list[i++] = new Sphere(vec3(-4, 1, 0), 1.0, std::shared_ptr<Lambertian>(new Lambertian(vec3(0.4, 0.2, 0.1))));
+    list[i++] = new Sphere(vec3(4, 1, 0), 1.0, std::shared_ptr<Metal>(new Metal(vec3(0.7, 0.6, 0.5), 0.0)));
 
     return new HittableList(list, i);
 }
@@ -287,7 +287,7 @@ int main(int, char**)
     glfwSwapInterval(1); // Enable vsync
 
     // Setup Dear ImGui context
-    IMGUI_CHECKVERSION();
+    //IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO();
     (void)io;

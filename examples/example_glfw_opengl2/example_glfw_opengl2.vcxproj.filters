@@ -13,9 +13,6 @@
     <Filter Include="sources">
       <UniqueIdentifier>{2e3b09e7-97dc-4cca-aca6-520f71d4e183}</UniqueIdentifier>
     </Filter>
-    <Filter Include="sources\imguiImpl">
-      <UniqueIdentifier>{d36478ad-ac62-4de3-b31b-dab001bf5aa3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="sources\Hittable">
       <UniqueIdentifier>{2ab18463-2380-4f56-8e8d-c568ac314de0}</UniqueIdentifier>
     </Filter>
@@ -33,6 +30,9 @@
     </Filter>
     <Filter Include="sources\BxDF\BSDF">
       <UniqueIdentifier>{4f0cfc4c-a93f-4444-9f5a-edd4801b5ff0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui\imguiImpl">
+      <UniqueIdentifier>{d36478ad-ac62-4de3-b31b-dab001bf5aa3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,10 +52,10 @@
       <Filter>sources</Filter>
     </ClCompile>
     <ClCompile Include="..\imgui_impl_glfw.cpp">
-      <Filter>sources\imguiImpl</Filter>
+      <Filter>imgui\imguiImpl</Filter>
     </ClCompile>
     <ClCompile Include="..\imgui_impl_opengl2.cpp">
-      <Filter>sources\imguiImpl</Filter>
+      <Filter>imgui\imguiImpl</Filter>
     </ClCompile>
     <ClCompile Include="Hittable.cpp">
       <Filter>sources\Hittable</Filter>
@@ -105,10 +105,10 @@
       <Filter>sources</Filter>
     </ClInclude>
     <ClInclude Include="..\imgui_impl_opengl2.h">
-      <Filter>sources\imguiImpl</Filter>
+      <Filter>imgui\imguiImpl</Filter>
     </ClInclude>
     <ClInclude Include="..\imgui_impl_glfw.h">
-      <Filter>sources\imguiImpl</Filter>
+      <Filter>imgui\imguiImpl</Filter>
     </ClInclude>
     <ClInclude Include="Hittable.h">
       <Filter>sources\Hittable</Filter>

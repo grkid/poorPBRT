@@ -1,7 +1,7 @@
 #include "Sphere.h"
 
 Sphere::Sphere() {};
-Sphere::Sphere(vec3 cen, double r, Material* m) :
+Sphere::Sphere(vec3 cen, double r, std::shared_ptr<Material> m) :
     center(cen),
     radius(r),
     mat_ptr(m)
