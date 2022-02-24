@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <iostream>
 
+static constexpr float M_PI = 3.1415926f;
 
 class vec3  {
     public:
@@ -157,7 +158,6 @@ inline vec3 reflect(const vec3& v, const vec3& n) {
 
 
 
-// #endif
 inline bool refract(const vec3& v, const vec3& n, float ni_over_nt, vec3& refracted) {
     vec3 uv = unit_vector(v);
     float dt = dot(uv, n);
@@ -178,15 +178,27 @@ inline float schlick(float cosine, float n1_over_n2) {
     return r0 + (1-r0)*pow((1 - cosine),5);
 }
 
-inline double random_double()
+inline float random_float()
 {
     return rand() / (RAND_MAX + 1.0);
+}
+
+inline float random_float(float a, float b)
+{
+    return (rand() / (RAND_MAX + 1.0)) * (b - a) + a;
 }
 
 inline vec3 random_in_unit_disk() {
     vec3 p;
     do {
-        p = 2.0*vec3(random_double(),random_double(),0) - vec3(1,1,0);
+        p = 2.0*vec3(random_float(),random_float(),0) - vec3(1,1,0);
     } while (dot(p,p) >= 1.0);
     return p;
+}
+
+inline vec3 random_unit_vector() {
+    auto a = random_float(0, 2 * M_PI);
+    auto z = random_float(-1, 1);
+    auto r = sqrt(1 - z * z);
+    return vec3(r * cos(a), r * sin(a), z);
 }

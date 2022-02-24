@@ -3,3 +3,10 @@
 ################################################################################
 
 /examples/.vs/imgui_examples/v16/ipch/AutoPCH
+/examples/.vs/imgui_examples/v16
+/examples/example_glfw_opengl2/archive
+/examples/example_glfw_opengl2/Debug
+/examples/example_glfw_opengl2/output_640x480.ppm
+/examples/example_glfw_opengl2/output_300x200.ppm
+/examples/example_glfw_opengl2/output_300x150.ppm
+/examples/example_glfw_opengl2/output_1280x720.ppm

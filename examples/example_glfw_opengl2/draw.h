@@ -3,14 +3,16 @@
 
 #include <iostream>
 #include <fstream>
-using namespace std;
+// using namespace std;
+using std::ofstream;
+using std::endl;
 // int nx = 1200;
 // int ny = 600;
 // int nx = 600;
 // int ny = 300;
-int nx = 300;
-int ny = 150;
-int ns = 100;
+const int nx = 640;
+const int ny = 480;
+const int samplesPerPixel = 16;
 int *framebuffer;
 int display_w, display_h;
 

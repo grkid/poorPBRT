@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\README.txt" />
     <None Include="..\..\misc\natvis\imgui.natvis">
-      <Filter>sources</Filter>
+      <Filter>imgui</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -12,6 +12,27 @@
     </Filter>
     <Filter Include="sources">
       <UniqueIdentifier>{2e3b09e7-97dc-4cca-aca6-520f71d4e183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\imguiImpl">
+      <UniqueIdentifier>{d36478ad-ac62-4de3-b31b-dab001bf5aa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Hittable">
+      <UniqueIdentifier>{2ab18463-2380-4f56-8e8d-c568ac314de0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Ray">
+      <UniqueIdentifier>{9b5f71cf-dc49-48d8-ade4-76533ce189c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\HitRecord">
+      <UniqueIdentifier>{3795b951-6851-4f53-abe8-83d9c4227767}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Camera">
+      <UniqueIdentifier>{86361046-0c45-4ba7-8575-407cd827fc4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\BxDF">
+      <UniqueIdentifier>{4326bd99-c714-47e6-b4d4-124e97098cb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\BxDF\BSDF">
+      <UniqueIdentifier>{4f0cfc4c-a93f-4444-9f5a-edd4801b5ff0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,14 +48,44 @@
     <ClCompile Include="..\..\imgui_widgets.cpp">
       <Filter>imgui</Filter>
     </ClCompile>
-    <ClCompile Include="..\imgui_impl_glfw.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\imgui_impl_opengl2.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\imgui_impl_glfw.cpp">
+      <Filter>sources\imguiImpl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\imgui_impl_opengl2.cpp">
+      <Filter>sources\imguiImpl</Filter>
+    </ClCompile>
+    <ClCompile Include="Hittable.cpp">
+      <Filter>sources\Hittable</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>sources\Hittable</Filter>
+    </ClCompile>
+    <ClCompile Include="HittableList.cpp">
+      <Filter>sources\Hittable</Filter>
+    </ClCompile>
+    <ClCompile Include="Ray.cpp">
+      <Filter>sources\Ray</Filter>
+    </ClCompile>
+    <ClCompile Include="HitRecord.cpp">
+      <Filter>sources\HitRecord</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>sources\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Dielectric.cpp">
+      <Filter>sources\BxDF\BSDF</Filter>
+    </ClCompile>
+    <ClCompile Include="Lambertian.cpp">
+      <Filter>sources\BxDF\BSDF</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>sources\BxDF\BSDF</Filter>
+    </ClCompile>
+    <ClCompile Include="Metal.cpp">
+      <Filter>sources\BxDF\BSDF</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -47,17 +98,47 @@
     <ClInclude Include="..\..\imgui_internal.h">
       <Filter>imgui</Filter>
     </ClInclude>
-    <ClInclude Include="..\imgui_impl_glfw.h">
-      <Filter>sources</Filter>
-    </ClInclude>
-    <ClInclude Include="..\imgui_impl_opengl2.h">
-      <Filter>sources</Filter>
-    </ClInclude>
     <ClInclude Include="draw.h">
       <Filter>sources</Filter>
     </ClInclude>
     <ClInclude Include="vec3.h">
       <Filter>sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\imgui_impl_opengl2.h">
+      <Filter>sources\imguiImpl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\imgui_impl_glfw.h">
+      <Filter>sources\imguiImpl</Filter>
+    </ClInclude>
+    <ClInclude Include="Hittable.h">
+      <Filter>sources\Hittable</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>sources\Hittable</Filter>
+    </ClInclude>
+    <ClInclude Include="HittableList.h">
+      <Filter>sources\Hittable</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>sources\Ray</Filter>
+    </ClInclude>
+    <ClInclude Include="HitRecord.h">
+      <Filter>sources\HitRecord</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>sources\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Dielectric.h">
+      <Filter>sources\BxDF\BSDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Lambertian.h">
+      <Filter>sources\BxDF\BSDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>sources\BxDF\BSDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Metal.h">
+      <Filter>sources\BxDF\BSDF</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
