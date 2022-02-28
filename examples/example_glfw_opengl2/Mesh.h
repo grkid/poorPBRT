@@ -1,0 +1,16 @@
+#pragma once
+#include "Hittable.h"
+class Mesh :
+    public Hittable
+{
+    vec3 p0, p1, p2;    // 三点位置
+    vec3 n; //法线
+    std::shared_ptr<Material> matPtr;
+    //double time0, time1;
+
+public:
+    Mesh();
+    Mesh(const vec3& _p0, const vec3& _p1, const vec3& _p2, std::shared_ptr<Material> mp);
+    virtual bool hit(const Ray& r, HitRecord& rec);
+};
+

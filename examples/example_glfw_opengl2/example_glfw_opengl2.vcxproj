@@ -30,6 +30,7 @@
     <ClCompile Include="..\imgui_impl_opengl2.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ConstTexture.cpp" />
+    <ClCompile Include="Cuboid.cpp" />
     <ClCompile Include="Dielectric.cpp" />
     <ClCompile Include="HitRecord.cpp" />
     <ClCompile Include="Hittable.cpp" />
@@ -38,10 +39,13 @@
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Material.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Metal.cpp" />
+    <ClCompile Include="Moving.cpp" />
     <ClCompile Include="MovingSphere.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Sphere.cpp" />
+    <ClCompile Include="Surface.cpp" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +56,7 @@
     <ClInclude Include="..\imgui_impl_opengl2.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ConstTexture.h" />
+    <ClInclude Include="Cuboid.h" />
     <ClInclude Include="Dielectric.h" />
     <ClInclude Include="draw.h" />
     <ClInclude Include="HitRecord.h" />
@@ -60,10 +65,13 @@
     <ClInclude Include="Lambertian.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Material.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="Metal.h" />
+    <ClInclude Include="Moving.h" />
     <ClInclude Include="MovingSphere.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Sphere.h" />
+    <ClInclude Include="Surface.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="vec3.h" />
   </ItemGroup>

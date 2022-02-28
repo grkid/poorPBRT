@@ -148,8 +148,8 @@ HittableList random_scene() {
                     // diffuse
                     auto albedo = vec3::random() * vec3::random();
                     world.add(std::make_shared<MovingSphere>(
-                        center, center + vec3(0, random_double(0, .5), 0), 0.0, 1.0, 0.2,
-                        std::make_shared<Lambertian>(albedo)));
+                        center, center + vec3(0, random_double(0, .5), 0), 0.2,
+                        std::make_shared<Lambertian>(albedo),0.0, 1.0));
                 }
                 else if (choose_mat < 0.95) {
                     // metal
@@ -426,10 +426,14 @@ int main(int, char**)
 * BVH加速结构
 * json场景定义
 * 导出PNG
+* 几个噪声算法
+* 背景
 * 
 * 原则：
 * 不导入任何平台相关的动态库和静态库
 * 仅仅引入header-only库
 * 
 * 争取在一年之内做得差不离。 2022.2.23
+* 
+* Moving需要做解耦。
 */

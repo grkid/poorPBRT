@@ -40,6 +40,15 @@
     <Filter Include="sources\Texture">
       <UniqueIdentifier>{c8a27200-0840-4a2c-876a-8751e80a061b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sources\Object\SimpleObject">
+      <UniqueIdentifier>{7e06d103-018f-4d55-a985-a0095f3f9fa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Object\Moving">
+      <UniqueIdentifier>{f10caa65-dfae-4cf4-a787-0dee0f327163}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\vec3">
+      <UniqueIdentifier>{cf14c84d-fbf6-47d9-adeb-670a7f9fb8bc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\imgui.cpp">
@@ -66,9 +75,6 @@
     <ClCompile Include="Hittable.cpp">
       <Filter>sources\Object</Filter>
     </ClCompile>
-    <ClCompile Include="Sphere.cpp">
-      <Filter>sources\Object</Filter>
-    </ClCompile>
     <ClCompile Include="HittableList.cpp">
       <Filter>sources\Object</Filter>
     </ClCompile>
@@ -93,15 +99,32 @@
     <ClCompile Include="Metal.cpp">
       <Filter>sources\BxDF\BSDF</Filter>
     </ClCompile>
-    <ClCompile Include="Light.cpp" />
-    <ClCompile Include="MovingSphere.cpp">
-      <Filter>sources\Object</Filter>
-    </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>sources\Texture</Filter>
     </ClCompile>
     <ClCompile Include="ConstTexture.cpp">
       <Filter>sources\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>sources\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>sources\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Surface.cpp">
+      <Filter>sources\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Cuboid.cpp">
+      <Filter>sources\Object\SimpleObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>sources\Object\SimpleObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Moving.cpp">
+      <Filter>sources\Object\Moving</Filter>
+    </ClCompile>
+    <ClCompile Include="MovingSphere.cpp">
+      <Filter>sources\Object\Moving</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -117,9 +140,6 @@
     <ClInclude Include="draw.h">
       <Filter>sources</Filter>
     </ClInclude>
-    <ClInclude Include="vec3.h">
-      <Filter>sources</Filter>
-    </ClInclude>
     <ClInclude Include="..\imgui_impl_opengl2.h">
       <Filter>imgui\imguiImpl</Filter>
     </ClInclude>
@@ -127,9 +147,6 @@
       <Filter>imgui\imguiImpl</Filter>
     </ClInclude>
     <ClInclude Include="Hittable.h">
-      <Filter>sources\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Sphere.h">
       <Filter>sources\Object</Filter>
     </ClInclude>
     <ClInclude Include="HittableList.h">
@@ -156,15 +173,35 @@
     <ClInclude Include="Metal.h">
       <Filter>sources\BxDF\BSDF</Filter>
     </ClInclude>
-    <ClInclude Include="Light.h" />
-    <ClInclude Include="MovingSphere.h">
-      <Filter>sources\Object</Filter>
-    </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>sources\Texture</Filter>
     </ClInclude>
     <ClInclude Include="ConstTexture.h">
       <Filter>sources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>sources\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>sources\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Surface.h">
+      <Filter>sources\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Cuboid.h">
+      <Filter>sources\Object\SimpleObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>sources\Object\SimpleObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Moving.h">
+      <Filter>sources\Object\Moving</Filter>
+    </ClInclude>
+    <ClInclude Include="MovingSphere.h">
+      <Filter>sources\Object\Moving</Filter>
+    </ClInclude>
+    <ClInclude Include="vec3.h">
+      <Filter>sources\vec3</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

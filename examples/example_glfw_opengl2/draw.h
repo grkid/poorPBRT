@@ -10,9 +10,9 @@ using std::endl;
 // int ny = 600;
 // int nx = 600;
 // int ny = 300;
-const int nx = 640;
-const int ny = 480;
-const int samplesPerPixel = 32;
+const int nx = 320;
+const int ny = 240;
+const int samplesPerPixel = 16;
 int *framebuffer;
 int display_w, display_h;
 
