@@ -32,8 +32,11 @@
 #include "Hittable.h"
 #include "HittableList.h"
 #include "Sphere.h"
+#include "MovingSphere.h"
 
 #include "Camera.h"
+
+#include "Texture.h"
 
 
 
@@ -105,9 +108,9 @@ void RecordProgressAndTime()
 }
 
 //发射一条射线，并采样该射线最终输出到屏幕的颜色值
-vec3 sampleOnce(const Ray& r, Hittable* world, int depth) {
+vec3 sampleOnce(const Ray& r, HittableList world, int depth) {
     HitRecord rec;
-    if (world->hit(r, 0.001, FLT_MAX, rec)) //射线命中物体
+    if (world.hit(r, 0.001, FLT_MAX, rec)) //射线命中物体
     {
         Ray scattered; //散射光线
         vec3 attenuation; //反射率
@@ -129,54 +132,62 @@ vec3 sampleOnce(const Ray& r, Hittable* world, int depth) {
     }
 }
 
+HittableList random_scene() {
+    HittableList world;
 
+    world.add(std::make_shared<Sphere>(
+        vec3(0, -1000, 0), 1000, std::make_shared<Lambertian>(vec3(0.5, 0.5, 0.5))));
 
-
-Hittable* random_scene() {
-    int n = 500;
-    Hittable** list = new Hittable * [n + 1];
-    list[0] = new Sphere(vec3(0, -1000, 0), 1000, std::shared_ptr<Lambertian>(new Lambertian(vec3(0.5, 0.5, 0.5))));
     int i = 1;
-    for (int a = -11; a < 11; a++) {
-        for (int b = -11; b < 11; b++) {
-            double choose_mat = random_float();
-            vec3 center(a + 0.9 * random_float(), 0.2, b + 0.9 * random_float());
-            if ((center - vec3(4, 0.2, 0)).length() > 0.9) {
-                if (choose_mat < 0.8) {  // diffuse
-                    list[i++] = new Sphere(center, 0.2,
-                        std::shared_ptr<Lambertian>(new Lambertian(vec3(random_float() * random_float(),
-                            random_float() * random_float(),
-                            random_float() * random_float()))
-                        )
-                    );
+    for (int a = -10; a < 10; a++) {
+        for (int b = -10; b < 10; b++) {
+            auto choose_mat = random_double();
+            vec3 center(a + 0.9 * random_double(), 0.2, b + 0.9 * random_double());
+            if ((center - vec3(4, .2, 0)).length() > 0.9) {
+                if (choose_mat < 0.8) {
+                    // diffuse
+                    auto albedo = vec3::random() * vec3::random();
+                    world.add(std::make_shared<MovingSphere>(
+                        center, center + vec3(0, random_double(0, .5), 0), 0.0, 1.0, 0.2,
+                        std::make_shared<Lambertian>(albedo)));
                 }
-                else if (choose_mat < 0.95) { // metal
-                    list[i++] = new Sphere(center, 0.2,
-                        std::shared_ptr<Metal>(new Metal(vec3(0.5 * (1 + random_float()),
-                            0.5 * (1 + random_float()),
-                            0.5 * (1 + random_float())),
-                            0.5 * random_float())));
+                else if (choose_mat < 0.95) {
+                    // metal
+                    auto albedo = vec3::random(.5, 1);
+                    auto fuzz = random_double(0, .5);
+                    world.add(
+                        std::make_shared<Sphere>(center, 0.2, std::make_shared<Metal>(albedo, fuzz)));
+                    /*world.add(std::make_shared<MovingSphere>(
+                        center, center + vec3(0, random_double(0, .5), 0), 0.0, 1.0, 0.2,
+                        std::make_shared<Metal>(albedo, fuzz)));*/
                 }
-                else {  // glass
-                    list[i++] = new Sphere(center, 0.2, std::shared_ptr<Dielectric> (new Dielectric(1.5)));
+                else {
+                    // glass
+                    world.add(std::make_shared<Sphere>(center, 0.2, std::make_shared<Dielectric>(1.5)));
+                    /*world.add(std::make_shared<MovingSphere>(
+                        center, center + vec3(0, random_double(0, .5), 0), 0.0, 1.0, 0.2,
+                        std::make_shared<Dielectric>(1.5)));*/
                 }
             }
         }
     }
 
-    list[i++] = new Sphere(vec3(0, 1, 0), 1.0, std::shared_ptr<Dielectric>(new Dielectric(1.5)));
-    list[i++] = new Sphere(vec3(-4, 1, 0), 1.0, std::shared_ptr<Lambertian>(new Lambertian(vec3(0.4, 0.2, 0.1))));
-    list[i++] = new Sphere(vec3(4, 1, 0), 1.0, std::shared_ptr<Metal>(new Metal(vec3(0.7, 0.6, 0.5), 0.0)));
+    world.add(std::make_shared<Sphere>(vec3(0, 1, 0), 1.0, std::make_shared<Dielectric>(1.5)));
+    world.add(std::make_shared<Sphere>(
+        vec3(-4, 1, 0), 1.0, std::make_shared<Lambertian>(vec3(0.4, 0.2, 0.1))));
+    world.add(std::make_shared<Sphere>(
+        vec3(4, 1, 0), 1.0, std::make_shared<Metal>(vec3(0.7, 0.6, 0.5), 0.0)));
 
-    return new HittableList(list, i);
+    return world;
 }
-Hittable* world;
+
+HittableList world;
 
 void RayTracingInOneThread(int k)
 {
     double R = cos(M_PI / 4);
 
-    Camera cam(lookfrom, lookat, vec3(0, 1, 0), 20, double(nx) / double(ny), aperture, dist_to_focus);
+    Camera cam(lookfrom, lookat, vec3(0, 1, 0), 20, double(nx) / double(ny), aperture, dist_to_focus,0.0,1.0);
 
     for (int j = ny - k; j >= 0; j -= numThread)
     {

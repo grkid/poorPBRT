@@ -12,7 +12,7 @@ using std::endl;
 // int ny = 300;
 const int nx = 640;
 const int ny = 480;
-const int samplesPerPixel = 16;
+const int samplesPerPixel = 32;
 int *framebuffer;
 int display_w, display_h;
 

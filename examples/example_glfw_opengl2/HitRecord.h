@@ -9,5 +9,6 @@ public:
     vec3 p;      //命中终点坐标
     vec3 normal; //命中点的法向量
     std::shared_ptr<Material> mat_ptr; //new
+    double u, v;
 };
 

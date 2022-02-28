@@ -17,6 +17,9 @@
 
 static constexpr double M_PI = 3.1415926f;
 
+double random_float();
+double random_float(double, double);
+
 class vec3  {
     public:
         vec3() {}
@@ -39,6 +42,9 @@ class vec3  {
         inline vec3& operator/=(const vec3 &v2);
         inline vec3& operator*=(const double t);
         inline vec3& operator/=(const double t);
+
+        static inline vec3 random();
+        static inline vec3 random(double a, double b);
 
         inline double length() const { return sqrt(e[0]*e[0] + e[1]*e[1] + e[2]*e[2]); }
         inline double squared_length() const { return e[0]*e[0] + e[1]*e[1] + e[2]*e[2]; }
@@ -147,6 +153,16 @@ inline vec3& vec3::operator/=(const double t) {
     return *this;
 }
 
+inline vec3 vec3::random()
+{
+    return vec3(random_float(),random_float(), random_float());
+
+}
+inline vec3 vec3::random(double a, double b)
+{
+    return vec3(random_float(a, b), random_float(a, b), random_float(a, b));
+}
+
 inline vec3 unit_vector(vec3 v) {
     return v / v.length();
 }
@@ -183,11 +199,20 @@ inline double random_float()
     return rand() / (RAND_MAX + 1.0);
 }
 
+inline double random_double()
+{
+    return random_float();
+}
+
 inline double random_float(double a, double b)
 {
     return (rand() / (RAND_MAX + 1.0)) * (b - a) + a;
 }
 
+inline double random_double(double a, double b)
+{
+    return random_float(a, b);
+}
 inline vec3 random_in_unit_disk() {
     vec3 p;
     do {

@@ -1,10 +1,15 @@
 #pragma once
 #include "Material.h"
 #include "HitRecord.h"
+#include "Texture.h"
+#include "ConstTexture.h"
+#include <memory>
 class Lambertian : public Material
 {
+    //vec3 albedo;
+    std::shared_ptr<Texture> baseColor;
 public:
-    vec3 albedo; //∑¥…‰¬ 
-    Lambertian(const vec3& a) : albedo(a) {}
+    Lambertian(std::shared_ptr<Texture> b);
+    Lambertian(const vec3& v);
     virtual bool scatter(const Ray& r_in, const HitRecord& rec, vec3& attenuation, Ray& scattered) const;
 };

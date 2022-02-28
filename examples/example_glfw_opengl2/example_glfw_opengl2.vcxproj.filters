@@ -13,9 +13,6 @@
     <Filter Include="sources">
       <UniqueIdentifier>{2e3b09e7-97dc-4cca-aca6-520f71d4e183}</UniqueIdentifier>
     </Filter>
-    <Filter Include="sources\Hittable">
-      <UniqueIdentifier>{2ab18463-2380-4f56-8e8d-c568ac314de0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="sources\Ray">
       <UniqueIdentifier>{9b5f71cf-dc49-48d8-ade4-76533ce189c0}</UniqueIdentifier>
     </Filter>
@@ -33,6 +30,15 @@
     </Filter>
     <Filter Include="imgui\imguiImpl">
       <UniqueIdentifier>{d36478ad-ac62-4de3-b31b-dab001bf5aa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Object">
+      <UniqueIdentifier>{2ab18463-2380-4f56-8e8d-c568ac314de0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Light">
+      <UniqueIdentifier>{74929196-f1bc-4794-b2e8-4c3beccd36ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Texture">
+      <UniqueIdentifier>{c8a27200-0840-4a2c-876a-8751e80a061b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -58,13 +64,13 @@
       <Filter>imgui\imguiImpl</Filter>
     </ClCompile>
     <ClCompile Include="Hittable.cpp">
-      <Filter>sources\Hittable</Filter>
+      <Filter>sources\Object</Filter>
     </ClCompile>
     <ClCompile Include="Sphere.cpp">
-      <Filter>sources\Hittable</Filter>
+      <Filter>sources\Object</Filter>
     </ClCompile>
     <ClCompile Include="HittableList.cpp">
-      <Filter>sources\Hittable</Filter>
+      <Filter>sources\Object</Filter>
     </ClCompile>
     <ClCompile Include="Ray.cpp">
       <Filter>sources\Ray</Filter>
@@ -86,6 +92,16 @@
     </ClCompile>
     <ClCompile Include="Metal.cpp">
       <Filter>sources\BxDF\BSDF</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp" />
+    <ClCompile Include="MovingSphere.cpp">
+      <Filter>sources\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>sources\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstTexture.cpp">
+      <Filter>sources\Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -111,13 +127,13 @@
       <Filter>imgui\imguiImpl</Filter>
     </ClInclude>
     <ClInclude Include="Hittable.h">
-      <Filter>sources\Hittable</Filter>
+      <Filter>sources\Object</Filter>
     </ClInclude>
     <ClInclude Include="Sphere.h">
-      <Filter>sources\Hittable</Filter>
+      <Filter>sources\Object</Filter>
     </ClInclude>
     <ClInclude Include="HittableList.h">
-      <Filter>sources\Hittable</Filter>
+      <Filter>sources\Object</Filter>
     </ClInclude>
     <ClInclude Include="Ray.h">
       <Filter>sources\Ray</Filter>
@@ -139,6 +155,16 @@
     </ClInclude>
     <ClInclude Include="Metal.h">
       <Filter>sources\BxDF\BSDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h" />
+    <ClInclude Include="MovingSphere.h">
+      <Filter>sources\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>sources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstTexture.h">
+      <Filter>sources\Texture</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
