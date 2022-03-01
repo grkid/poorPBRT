@@ -3,76 +3,56 @@
 
 #include <iostream>
 #include <fstream>
+#include "imgui.h"
+#include "vec3.h"
 // using namespace std;
 using std::ofstream;
 using std::endl;
-// int nx = 1200;
-// int ny = 600;
-// int nx = 600;
-// int ny = 300;
-const int nx = 320*2;
-const int ny = 240*2;
-const int samplesPerPixel = 64;
-const int maxDepth = 32;
-int *framebuffer;
-int display_w, display_h;
-
-void RGB2Color(int &hex, const int &r, const int &g, const int &b);
-void Color2RGB(const int &hex, int &r, int &g, int &b);
-void DrawPixel(int x, int y, int c);
-void DrawPixel(const int &x, const int &y, const int &r, const int &g, const int &b);
-void DrawFrame();
-
-void RGB2Color(int &c, const int &r, const int &g, const int &b)
+class util
 {
-    c = (r << 16) | (g << 8) | b;
-}
+public:
+    // BEGIN GLOBALVAR----------
+    static int* framebuffer;
+    static int display_w, display_h;
+    static int numThread;
+    static int nx;
+    static int ny;
+    static int samplesPerPixel;
+    static int maxDepth;
 
-void DrawPixel(int x, int y, int c)
-{
-    y = ny - y;
-    framebuffer[y * display_w + x] = c;
-}
+    static int gFov;
+    static vec3 lookfrom;
+    static vec3 lookat;
+    static double dist_to_focus;
+    static double aperture;
 
-void DrawPixel(const int &x, const int &y, const int &r, const int &g, const int &b)
-{
-    int c;
-    RGB2Color(c, r, g, b);
-    DrawPixel(x, y, c);
-}
+    static long curTime;
+    static long totTime;
+    static double timeRemaining;
 
-void Color2RGB(const int &c, int &r, int &g, int &b)
-{
-    r = (0xff << 16 & c) >> 16;
-    g = (0xff << 8 & c) >> 8;
-    b = 0xff & c;
-}
-
-
-void Framebuffer2File(int nx, int ny, int ns, int *fb, ofstream &outFile, double &progressDone)
-{
-    for (int j = (ny - 1); j >= 0; j--)
-    {
-        progressDone = double(ny - 1 - j) / (ny - 1);
-        for (int i = 0; i < nx; i++)
-        {
-            int x = i;
-            int y = ny - 1 - j;
-            int c = fb[y * display_w + x];
-            int r, g, b = 0;
-
-            Color2RGB(c, r, g, b);
-
-            outFile << r << " " << g << " " << b << endl;
-        }
-    }
-}
+    static ImVec4 clear_color;
+    static double progressDone, progressDir;
+    static bool gRayTracingBegin;
 
 
-//long GetCurrentTimeMs()
-//{
-//    timeval time;
-//    gettimeofday(&time, NULL);
-//    long millis = (time.tv_sec * 1000) + (time.tv_usec / 1000);
-//    return millis;
-//}
+    static int numPixelTotal;
+    static int numPixelRendered;
+    static int doneRecord;
+    static int framebufferInited;
+    static int gFrameFinished;
+
+    static int* lastFrameBuffer;
+
+    static int speedFactor;
+    // END GLOBALVAR----------
+
+    static void RGB2Color(int& hex, const int& r, const int& g, const int& b);
+    static void Color2RGB(const int& hex, int& r, int& g, int& b);
+    static void DrawPixel(int x, int y, int c);
+    static void DrawPixel(const int& x, const int& y, const int& r, const int& g, const int& b);
+    static void DrawFrame();
+
+    static void Framebuffer2File(int nx, int ny, int ns, int* fb, ofstream& outFile, double& progressDone);
+
+    static void RecordProgressAndTime();
+};

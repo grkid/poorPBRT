@@ -61,6 +61,12 @@
     <Filter Include="sources\Renderer\WorldBuilder">
       <UniqueIdentifier>{f1284fc5-9008-425d-a82d-ab7cdc743523}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sources\utils">
+      <UniqueIdentifier>{e81ba1a2-0d1e-4666-acdd-d90eeca50edb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Renderer\Background">
+      <UniqueIdentifier>{66ba7364-9a8c-46cf-96a9-9faf704cc7eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\imgui.cpp">
@@ -147,6 +153,9 @@
     <ClCompile Include="BasicWorldBuilder.cpp">
       <Filter>sources\Renderer\WorldBuilder</Filter>
     </ClCompile>
+    <ClCompile Include="draw.cpp">
+      <Filter>sources\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\imconfig.h">
@@ -157,9 +166,6 @@
     </ClInclude>
     <ClInclude Include="..\..\imgui_internal.h">
       <Filter>imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="draw.h">
-      <Filter>sources</Filter>
     </ClInclude>
     <ClInclude Include="..\imgui_impl_opengl2.h">
       <Filter>imgui\imguiImpl</Filter>
@@ -232,6 +238,9 @@
     </ClInclude>
     <ClInclude Include="BasicWorldBuilder.h">
       <Filter>sources\Renderer\WorldBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="draw.h">
+      <Filter>sources\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

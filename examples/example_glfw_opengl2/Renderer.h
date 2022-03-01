@@ -12,6 +12,7 @@
 #include "Light.h"
 #include "Texture.h"
 #include "WorldBuilder.h"
+#include "draw.h"
 class Renderer
 {
 	int nx, ny;				// Í¼Æ¬·Ö±æÂÊ
@@ -30,6 +31,7 @@ class Renderer
 
 	void printError(std::string str);
 
+	vec3 sampleOnce(const Ray& r, int depth);
 public:
 	Renderer();
 	Renderer(int x, int y, int samples, int depth,int tn,std::shared_ptr<Camera> camera);
@@ -44,6 +46,7 @@ public:
 	//void addLight(std::string name, std::shared_ptr<Light> light);
 	void addTexture(std::string name, std::shared_ptr<Texture> tex);
 
+	void singleThreadRayTracing(int k);
 	void render();
 
 	void rebuildWorld(const WorldBuilder& wb);

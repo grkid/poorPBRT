@@ -33,6 +33,7 @@
     <ClCompile Include="ConstTexture.cpp" />
     <ClCompile Include="Cuboid.cpp" />
     <ClCompile Include="Dielectric.cpp" />
+    <ClCompile Include="draw.cpp" />
     <ClCompile Include="HitRecord.cpp" />
     <ClCompile Include="Hittable.cpp" />
     <ClCompile Include="HittableList.cpp" />

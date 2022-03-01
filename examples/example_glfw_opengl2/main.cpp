@@ -28,231 +28,98 @@
 #include "Lambertian.h"
 #include "Metal.h"
 #include "Dielectric.h"
-
 #include "Hittable.h"
 #include "HittableList.h"
 #include "Sphere.h"
 #include "MovingSphere.h"
 #include "Surface.h"
-
 #include "Camera.h"
-
 #include "Texture.h"
-
 #include "Light.h"
-
-
+#include "Renderer.h"
+#include "BasicWorldBuilder.h"
 
 static void glfw_error_callback(int error, const char* description)
 {
     fprintf(stderr, "Glfw Error %d: %s\n", error, description);
 }
 
-// 真的敢写。
-//using namespace std;
-
-long curTime;
-long totTime;
-double timeRemaining;
-
-//全局变量
-
-ImVec4 clear_color = ImVec4(0.0f, 0.0f, 0.00f, 1.00f);
-double progressDone = 0.0f, progressDir = 1.0f;
-bool gRayTracingBegin = false;
-
-
-int numPixelTotal;
-int numThread = 12;
-int numPixelRendered = 0;
-int doneRecord = 0;
-int framebufferInited = false;
-int gFrameFinished = false;
-
-int* lastFrameBuffer;
-
-int gFov = 20;
-
-vec3 lookfrom(10/4, 8/4, 20/4);
-vec3 lookat(0, 0, 0);
-double dist_to_focus = 10.0;
-double aperture = 0.001;
-
-static int speedFactor = 1;
-
 void DrawFrame(int* fb)
 {
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0.0, display_w, 0.0, display_h, 0.0, 1.0);
+    glOrtho(0.0, util::display_w, 0.0, util::display_h, 0.0, 1.0);
     glBegin(GL_POINTS);
 
-    for (int i = 0; i < display_h; i++)
+    for (int i = 0; i < util::display_h; i++)
     {
 
         int r, g, b;
-        for (int j = 0; j < display_w; j++)
+        for (int j = 0; j < util::display_w; j++)
         {
-            Color2RGB(fb[i * display_w + j], r, g, b);
+            util::Color2RGB(fb[i * util::display_w + j], r, g, b);
             glColor3f((double)r / 255, (double)g / 255, (double)b / 255);
-            glVertex3f(j + 20, display_h - i - 300, 0);
+            glVertex3f(j + 20, util::display_h - i - 300, 0);
         }
     }
 
     glEnd();
 }
-//记录进度和时间
-void RecordProgressAndTime()
+
+void entrance()
 {
-    progressDone = double(numPixelRendered) / (numPixelTotal);
-    // totTime = (GetCurrentTimeMs() - curTime);
-    // timeRemaining = totTime * (1 - progressDone) / progressDone / 1000; //根据过去的平均时间来计算剩余时间 x/t=pTodo/pDone -> x= t*pTodo/pDone = t*(1-pDone) /pDone
+    auto cam=std::make_shared<Camera>(util::lookfrom, util::lookat, vec3(0, 1, 0), 20, double(util::nx) / double(util::ny), util::aperture, util::dist_to_focus, 0.0, 1.0);
+    Renderer r(util::nx, util::ny, util::samplesPerPixel, util::maxDepth, util::numThread, cam);
+    r.rebuildWorld(BasicWorldBuilder());
+    r.render();
 }
 
-//发射一条射线，并采样该射线最终输出到屏幕的颜色值
-vec3 sampleOnce(const Ray& r, HittableList world, int depth) {
-    HitRecord rec;
-    // 视距0.001到FLT_MAX
-    if (world.hit(r, 0.001, FLT_MAX, rec)) //射线命中物体
-    {
-        Ray scattered; //散射光线
-        vec3 attenuation; //反射率
-        if (depth >= maxDepth) {
-            return vec3(0.0f, 0.0f, 0.0f);
-        }
-        else
-        {
-            auto emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);
-            if (!rec.mat_ptr->scatter(r, rec, attenuation, scattered))
-                return emitted;
-            else
-                return emitted + attenuation * sampleOnce(scattered, world, depth + 1);
-        }
-    }
-    else
-    {
-        // 取背景色。TODO：图片背景
-        /*vec3 unit_direction = unit_vector(r.direction());
-        double t = 0.5 * (unit_direction.y() + 1.0);
-        return (1.0 - t) * vec3(1.0, 1.0, 1.0) + t * vec3(0.5, 0.7, 1.0);*/
-        return vec3(0.1f, 0.1f, 0.1f);
-    }
-}
-
-HittableList random_scene()
-{
-    HittableList objects;
-    auto pertext = std::make_shared<ConstTexture>(vec3(0.2,0.8, 0.6));
-
-    objects.add(std::make_shared<Sphere>(vec3(0,0, 0), 0.3, std::make_shared<Lambertian>(pertext)));
-    objects.add(std::make_shared<Surface>(vec3(-10, -0.3, 10), vec3(-10, -0.3, -10), vec3(10, -0.3, -10), vec3(10, -0.3, 10), vec3(0, 1, 0), std::make_shared<Lambertian>(pertext)));
-
-    auto difflight = std::make_shared<Light>(std::make_shared<ConstTexture>(vec3(4, 4, 4)));
-    objects.add(std::make_shared<Sphere>(vec3(0, 0.8, 0), 0.3, difflight));
-    objects.add(std::make_shared<Surface>(vec3(-1,-1,1),vec3(-1,1,1),vec3(-1,1,-1),vec3(-1,-1,-1),vec3(1,0,0), difflight));
-
-    return objects;
-}
-
-HittableList world;
-
-void RayTracingInOneThread(int k)
-{
-    double R = cos(M_PI / 4);
-
-    Camera cam(lookfrom, lookat, vec3(0, 1, 0), 20, double(nx) / double(ny), aperture, dist_to_focus,0.0,1.0);
-
-    // 设置随机数种子，防止多线程随机序列相同
-    srand(k);
-
-    for (int j = ny - k; j >= 0; j -= numThread)
-    {
-        for (int i = 0; i < nx; i++)
-        {
-            RecordProgressAndTime();
-            vec3 col(0, 0, 0);
-            for (int s = 0; s < samplesPerPixel; s++)
-            {
-                // TODO：采样噪声
-                double u = double(i + random_float()) / double(nx);
-                double v = double(j + random_float()) / double(ny);
-                Ray r = cam.getRay(u, v);
-                col += sampleOnce(r, world, 0);
-            }
-            col /= double(samplesPerPixel);
-            //col = vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
-            for (int _ = 0; _ < 3; _++)
-            {
-                if (col[_] > 1)
-                    col[_] = 1;
-            }
-
-            int ir = int(255.99 * col[0]);
-            int ig = int(255.99 * col[1]);
-            int ib = int(255.99 * col[2]);
-            DrawPixel(i, j, ir, ig, ib);
-            numPixelRendered++;
-        }
-    }
-}
 
 void RayTracing()
 {
-    /*nx = 300;
-    ny = 200;
-    samplesPerPixel = 100;*/
-    // hittable *world = random_scene();
-    world = random_scene();
-    numPixelTotal = nx * ny;
+    util::numPixelTotal = util::nx * util::ny;
     while (true)
     {
-        while (!gRayTracingBegin)
+        while (!util::gRayTracingBegin)
         {
             //wait until begin
         }
 
         // curTime = GetCurrentTimeMs();
-        gFrameFinished = false;
-        if (!framebufferInited)
+        util::gFrameFinished = false;
+        if (!util::framebufferInited)
         {
-            framebuffer = new int[display_w * display_h];
-            lastFrameBuffer = new int[display_w * display_h];
+            util::framebuffer = new int[util::display_w * util::display_h];
+            util::lastFrameBuffer = new int[util::display_w * util::display_h];
 
-            for (int i = 0; i < display_h * display_w; i++)
+            for (int i = 0; i < util::display_h * util::display_w; i++)
             {
-                lastFrameBuffer[i] = 0;
+                util::lastFrameBuffer[i] = 0;
             }
-            framebufferInited = true;
+            util::framebufferInited = true;
         }
-        numPixelRendered = 0;
+        util::numPixelRendered = 0;
 
         using std::ofstream;
         using std::to_string;
         using std::vector;
         using std::thread;
 
-        ofstream outFile("output_" + to_string(nx) + "x" + to_string(ny) + ".ppm");
+        ofstream outFile("output_" + to_string(util::nx) + "x" + to_string(util::ny) + ".ppm");
         outFile << "P3\n"
-            << nx << " " << ny << "\n255\n";
-        vector<thread> threads;
+            << util::nx << " " << util::ny << "\n255\n";
+       
+        // 外面的代码不再修改
+        entrance();
 
-        for (int k = 0; k < numThread; k++)
+        util::gFrameFinished = true;
+        util::Framebuffer2File(util::nx, util::ny, util::samplesPerPixel, util::framebuffer, outFile, util::progressDone);
+        for (int i = 0; i < util::display_h * util::display_w; i++)
         {
-            threads.push_back(thread(RayTracingInOneThread, k));
+            util::lastFrameBuffer[i] = util::framebuffer[i];
         }
-
-        for (auto& thread : threads)
-        {
-            thread.join();
-        }
-        gFrameFinished = true;
-        Framebuffer2File(nx, ny, samplesPerPixel, framebuffer, outFile, progressDone);
-        for (int i = 0; i < display_h * display_w; i++)
-        {
-            lastFrameBuffer[i] = framebuffer[i];
-        }
-        gRayTracingBegin = false;
+        util::gRayTracingBegin = false;
     }
 
     return;
@@ -260,7 +127,7 @@ void RayTracing()
 
 int main(int, char**)
 {
-    totTime = 0;
+    util::totTime = 0;
     #ifdef __APPLE__
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     #endif
@@ -320,22 +187,22 @@ int main(int, char**)
 
             if (ImGui::Button("Start")) // Buttons return true when clicked (most widgets return true when edited/activated)
             {
-                gRayTracingBegin = true;
+                util::gRayTracingBegin = true;
             }
 
-            ImGui::ProgressBar(progressDone, ImVec2(0.0f, 0.0f));
+            ImGui::ProgressBar(util::progressDone, ImVec2(0.0f, 0.0f));
             // ImGui::SameLine(0.0f, ImGui::GetStyle().ItemInnerSpacing.x);
-            ImGui::InputInt(" speed", &speedFactor);
+            ImGui::InputInt(" speed", &util::speedFactor);
             // ImGui::SameLine();
-            ImGui::Text("Thread Num: %d ", numThread);
-            ImGui::Text("Image Size:  %d x %d ", nx, ny);
-            ImGui::Text("Camera fov:  %d ", gFov);
-            ImGui::Text("Camera aperture: %.3f ", (double)aperture);
-            ImGui::Text("Camera dist to focus: %.3f ", (double)dist_to_focus);
+            ImGui::Text("Thread Num: %d ", util::numThread);
+            ImGui::Text("Image Size:  %d x %d ", util::nx, util::ny);
+            ImGui::Text("Camera fov:  %d ", util::gFov);
+            ImGui::Text("Camera aperture: %.3f ", (double)util::aperture);
+            ImGui::Text("Camera dist to focus: %.3f ", (double)util::dist_to_focus);
 
             // ImGui::Text("Progress Bar");
-            ImGui::Text("Total time %.3f s", (double)totTime / 1000);
-            ImGui::Text("timeRemaining time %.3f s", timeRemaining);
+            ImGui::Text("Total time %.3f s", (double)util::totTime / 1000);
+            ImGui::Text("timeRemaining time %.3f s", util::timeRemaining);
             ImGui::End();
         }
 
@@ -351,22 +218,22 @@ int main(int, char**)
 
         ImGui::Render();
 
-        glfwGetFramebufferSize(window, &display_w, &display_h);
+        glfwGetFramebufferSize(window, &util::display_w, &util::display_h);
 
-        glViewport(0, 0, display_w, display_h);
+        glViewport(0, 0, util::display_w, util::display_h);
         glClearColor(0.0f, 0.0f, 0.00f, 1.00f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        if (framebufferInited)
+        if (util::framebufferInited)
         {
-            if (gFrameFinished)
+            if (util::gFrameFinished)
             {
-                DrawFrame(framebuffer);
+                DrawFrame(util::framebuffer);
             }
             else
             {
                 // DrawFrame(lastFrameBuffer);
-                DrawFrame(framebuffer);
+                DrawFrame(util::framebuffer);
             }
             // DrawFrame(framebuffer);
         }
