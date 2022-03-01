@@ -13,5 +13,5 @@ public:
     vec3 origin() const;
     vec3 direction() const;
     vec3 point_at_parameter(double t) const; //终点的坐标
-    double time() const;
+    double time() const;    //时间，只在渲染移动物体时起作用
 };

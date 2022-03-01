@@ -10,7 +10,7 @@ class Mesh :
 
 public:
     Mesh();
-    Mesh(const vec3& _p0, const vec3& _p1, const vec3& _p2, std::shared_ptr<Material> mp);
-    virtual bool hit(const Ray& r, HitRecord& rec);
+    Mesh(const vec3& _p0, const vec3& _p1, const vec3& _p2, const vec3& normal,std::shared_ptr<Material> mp);
+    virtual bool hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const;
 };
 

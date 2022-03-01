@@ -1,5 +1,7 @@
 #pragma once
-class Cuboid
+#include "Hittable.h"
+class Cuboid :
+    public Hittable
 {
 };
 

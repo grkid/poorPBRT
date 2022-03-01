@@ -93,9 +93,6 @@
     <ClCompile Include="Lambertian.cpp">
       <Filter>sources\BxDF\BSDF</Filter>
     </ClCompile>
-    <ClCompile Include="Material.cpp">
-      <Filter>sources\BxDF\BSDF</Filter>
-    </ClCompile>
     <ClCompile Include="Metal.cpp">
       <Filter>sources\BxDF\BSDF</Filter>
     </ClCompile>
@@ -114,9 +111,6 @@
     <ClCompile Include="Surface.cpp">
       <Filter>sources\Object</Filter>
     </ClCompile>
-    <ClCompile Include="Cuboid.cpp">
-      <Filter>sources\Object\SimpleObject</Filter>
-    </ClCompile>
     <ClCompile Include="Sphere.cpp">
       <Filter>sources\Object\SimpleObject</Filter>
     </ClCompile>
@@ -125,6 +119,12 @@
     </ClCompile>
     <ClCompile Include="MovingSphere.cpp">
       <Filter>sources\Object\Moving</Filter>
+    </ClCompile>
+    <ClCompile Include="Cuboid.cpp">
+      <Filter>sources\Object\SimpleObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>sources\BxDF</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,9 +167,6 @@
     <ClInclude Include="Lambertian.h">
       <Filter>sources\BxDF\BSDF</Filter>
     </ClInclude>
-    <ClInclude Include="Material.h">
-      <Filter>sources\BxDF\BSDF</Filter>
-    </ClInclude>
     <ClInclude Include="Metal.h">
       <Filter>sources\BxDF\BSDF</Filter>
     </ClInclude>
@@ -188,9 +185,6 @@
     <ClInclude Include="Surface.h">
       <Filter>sources\Object</Filter>
     </ClInclude>
-    <ClInclude Include="Cuboid.h">
-      <Filter>sources\Object\SimpleObject</Filter>
-    </ClInclude>
     <ClInclude Include="Sphere.h">
       <Filter>sources\Object\SimpleObject</Filter>
     </ClInclude>
@@ -202,6 +196,12 @@
     </ClInclude>
     <ClInclude Include="vec3.h">
       <Filter>sources\vec3</Filter>
+    </ClInclude>
+    <ClInclude Include="Cuboid.h">
+      <Filter>sources\Object\SimpleObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>sources\BxDF</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

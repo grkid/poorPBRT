@@ -33,10 +33,13 @@
 #include "HittableList.h"
 #include "Sphere.h"
 #include "MovingSphere.h"
+#include "Surface.h"
 
 #include "Camera.h"
 
 #include "Texture.h"
+
+#include "Light.h"
 
 
 
@@ -70,7 +73,7 @@ int* lastFrameBuffer;
 
 int gFov = 20;
 
-vec3 lookfrom(13, 2, 3);
+vec3 lookfrom(10/4, 8/4, 20/4);
 vec3 lookat(0, 0, 0);
 double dist_to_focus = 10.0;
 double aperture = 0.1;
@@ -110,75 +113,98 @@ void RecordProgressAndTime()
 //发射一条射线，并采样该射线最终输出到屏幕的颜色值
 vec3 sampleOnce(const Ray& r, HittableList world, int depth) {
     HitRecord rec;
+    // 视距0.001到FLT_MAX
     if (world.hit(r, 0.001, FLT_MAX, rec)) //射线命中物体
     {
         Ray scattered; //散射光线
         vec3 attenuation; //反射率
-        if (depth < 50 && rec.mat_ptr->scatter(r, rec, attenuation, scattered))
-        {
-            return attenuation * sampleOnce(scattered, world, depth + 1);
+        if (depth >= maxDepth) {
+            return vec3(0.0f, 0.0f, 0.0f);
         }
         else
         {
-            return vec3(0.0, 0, 0);
+            auto emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);
+            if (!rec.mat_ptr->scatter(r, rec, attenuation, scattered))
+                return emitted;
+            else
+                return emitted + attenuation * sampleOnce(scattered, world, depth + 1);
         }
     }
     else
     {
         // 取背景色。TODO：图片背景
-        vec3 unit_direction = unit_vector(r.direction());
+        /*vec3 unit_direction = unit_vector(r.direction());
         double t = 0.5 * (unit_direction.y() + 1.0);
-        return (1.0 - t) * vec3(1.0, 1.0, 1.0) + t * vec3(0.5, 0.7, 1.0);
+        return (1.0 - t) * vec3(1.0, 1.0, 1.0) + t * vec3(0.5, 0.7, 1.0);*/
+        return vec3(0.0f, 0.0f, 0.0f);
     }
 }
 
-HittableList random_scene() {
-    HittableList world;
+//HittableList random_scene() {
+//    HittableList world;
+//
+//    world.add(std::make_shared<Sphere>(
+//        vec3(0, -1000, 0), 1000, std::make_shared<Lambertian>(vec3(0.5, 0.5, 0.5))));
+//
+//    int i = 1;
+//    for (int a = -10; a < 10; a++) {
+//        for (int b = -10; b < 10; b++) {
+//            auto choose_mat = random_double();
+//            vec3 center(a + 0.9 * random_double(), 0.2, b + 0.9 * random_double());
+//            if ((center - vec3(4, .2, 0)).length() > 0.9) {
+//                if (choose_mat < 0.8) {
+//                    // diffuse
+//                    auto albedo = vec3::random() * vec3::random();
+//                    /*world.add(std::make_shared<MovingSphere>(
+//                        center, center + vec3(0, random_double(0, .5), 0), 0.2,
+//                        std::make_shared<Lambertian>(albedo),0.0, 1.0));*/
+//                    world.add(std::make_shared<Sphere>(
+//                        center, 0.2,
+//                        std::make_shared<Lambertian>(albedo)));
+//                }
+//                else if (choose_mat < 0.95) {
+//                    // metal
+//                    auto albedo = vec3::random(.5, 1);
+//                    auto fuzz = random_double(0, .5);
+//                    world.add(
+//                        std::make_shared<Sphere>(center, 0.2, std::make_shared<Metal>(albedo, fuzz)));
+//                    /*world.add(std::make_shared<MovingSphere>(
+//                        center, center + vec3(0, random_double(0, .5), 0), 0.0, 1.0, 0.2,
+//                        std::make_shared<Metal>(albedo, fuzz)));*/
+//                }
+//                else {
+//                    // glass
+//                    world.add(std::make_shared<Sphere>(center, 0.2, std::make_shared<Dielectric>(1.5)));
+//                    /*world.add(std::make_shared<MovingSphere>(
+//                        center, center + vec3(0, random_double(0, .5), 0), 0.0, 1.0, 0.2,
+//                        std::make_shared<Dielectric>(1.5)));*/
+//                }
+//            }
+//        }
+//    }
+//
+//    world.add(std::make_shared<Sphere>(vec3(0, 1, 0), 1.0, std::make_shared<Dielectric>(1.5)));
+//    world.add(std::make_shared<Sphere>(
+//        vec3(-4, 1, 0), 1.0, std::make_shared<Lambertian>(vec3(0.4, 0.2, 0.1))));
+//    world.add(std::make_shared<Sphere>(
+//        vec3(4, 1, 0), 1.0, std::make_shared<Metal>(vec3(0.7, 0.6, 0.5), 0.0)));
+//
+//    return world;
+//}
 
-    world.add(std::make_shared<Sphere>(
-        vec3(0, -1000, 0), 1000, std::make_shared<Lambertian>(vec3(0.5, 0.5, 0.5))));
+HittableList random_scene()
+{
+    HittableList objects;
+    auto pertext = std::make_shared<ConstTexture>(vec3(0.2,0.8, 0.1));
 
-    int i = 1;
-    for (int a = -10; a < 10; a++) {
-        for (int b = -10; b < 10; b++) {
-            auto choose_mat = random_double();
-            vec3 center(a + 0.9 * random_double(), 0.2, b + 0.9 * random_double());
-            if ((center - vec3(4, .2, 0)).length() > 0.9) {
-                if (choose_mat < 0.8) {
-                    // diffuse
-                    auto albedo = vec3::random() * vec3::random();
-                    world.add(std::make_shared<MovingSphere>(
-                        center, center + vec3(0, random_double(0, .5), 0), 0.2,
-                        std::make_shared<Lambertian>(albedo),0.0, 1.0));
-                }
-                else if (choose_mat < 0.95) {
-                    // metal
-                    auto albedo = vec3::random(.5, 1);
-                    auto fuzz = random_double(0, .5);
-                    world.add(
-                        std::make_shared<Sphere>(center, 0.2, std::make_shared<Metal>(albedo, fuzz)));
-                    /*world.add(std::make_shared<MovingSphere>(
-                        center, center + vec3(0, random_double(0, .5), 0), 0.0, 1.0, 0.2,
-                        std::make_shared<Metal>(albedo, fuzz)));*/
-                }
-                else {
-                    // glass
-                    world.add(std::make_shared<Sphere>(center, 0.2, std::make_shared<Dielectric>(1.5)));
-                    /*world.add(std::make_shared<MovingSphere>(
-                        center, center + vec3(0, random_double(0, .5), 0), 0.0, 1.0, 0.2,
-                        std::make_shared<Dielectric>(1.5)));*/
-                }
-            }
-        }
-    }
+    objects.add(std::make_shared<Sphere>(vec3(0,0, 0), 0.3, std::make_shared<Lambertian>(pertext)));
+    //objects.add(std::make_shared<Sphere>(vec3(0, 2, 0), 2, std::make_shared<Lambertian>(pertext)));
 
-    world.add(std::make_shared<Sphere>(vec3(0, 1, 0), 1.0, std::make_shared<Dielectric>(1.5)));
-    world.add(std::make_shared<Sphere>(
-        vec3(-4, 1, 0), 1.0, std::make_shared<Lambertian>(vec3(0.4, 0.2, 0.1))));
-    world.add(std::make_shared<Sphere>(
-        vec3(4, 1, 0), 1.0, std::make_shared<Metal>(vec3(0.7, 0.6, 0.5), 0.0)));
+    auto difflight = std::make_shared<Light>(std::make_shared<ConstTexture>(vec3(4, 4, 4)));
+    objects.add(std::make_shared<Sphere>(vec3(0, 0.8, 0), 0.6, difflight));
+    //objects.add(std::make_shared<Surface>(vec3(-1,-1,1),vec3(-1,1,1),vec3(-1,1,-1),vec3(-1,-1,-1),vec3(1,0,0), difflight));
 
-    return world;
+    return objects;
 }
 
 HittableList world;
@@ -188,6 +214,11 @@ void RayTracingInOneThread(int k)
     double R = cos(M_PI / 4);
 
     Camera cam(lookfrom, lookat, vec3(0, 1, 0), 20, double(nx) / double(ny), aperture, dist_to_focus,0.0,1.0);
+
+    // k从0开始
+
+    // 设置随机数种子，防止多线程随机序列相同
+    srand(k);
 
     for (int j = ny - k; j >= 0; j -= numThread)
     {
@@ -200,11 +231,18 @@ void RayTracingInOneThread(int k)
                 // TODO：采样噪声
                 double u = double(i + random_float()) / double(nx);
                 double v = double(j + random_float()) / double(ny);
+                /*double u = i / double(nx);
+                double v = j / double(ny);*/
                 Ray r = cam.getRay(u, v);
                 col += sampleOnce(r, world, 0);
             }
             col /= double(samplesPerPixel);
-            col = vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
+            //col = vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
+            for (int _ = 0; _ < 3; _++)
+            {
+                if (col[_] > 1)
+                    col[_] = 1;
+            }
 
             int ir = int(255.99 * col[0]);
             int ig = int(255.99 * col[1]);
@@ -436,4 +474,6 @@ int main(int, char**)
 * 争取在一年之内做得差不离。 2022.2.23
 * 
 * Moving需要做解耦。
+* 
+* 2022.2.28:出现与视角相关的pattern。可能是Camera的实现问题。
 */

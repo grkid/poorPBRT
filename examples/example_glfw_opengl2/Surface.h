@@ -1,10 +1,13 @@
 #pragma once
 #include "Hittable.h"
+#include "Mesh.h"
 class Surface :
     public Hittable
 {
     vec3 p0, p1, p2, p3;    // 四点位置。本质上是两个mesh的叠加，无需在同一平面上
     vec3 n; //法线
+    Mesh m0;
+    Mesh m1;
     std::shared_ptr<Material> matPtr;
 public:
     Surface();
