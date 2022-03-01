@@ -28,6 +28,7 @@
     <ClCompile Include="..\..\imgui_widgets.cpp" />
     <ClCompile Include="..\imgui_impl_glfw.cpp" />
     <ClCompile Include="..\imgui_impl_opengl2.cpp" />
+    <ClCompile Include="BasicWorldBuilder.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ConstTexture.cpp" />
     <ClCompile Include="Cuboid.cpp" />
@@ -44,9 +45,11 @@
     <ClCompile Include="Moving.cpp" />
     <ClCompile Include="MovingSphere.cpp" />
     <ClCompile Include="Ray.cpp" />
+    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="WorldBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\imconfig.h" />
@@ -54,6 +57,7 @@
     <ClInclude Include="..\..\imgui_internal.h" />
     <ClInclude Include="..\imgui_impl_glfw.h" />
     <ClInclude Include="..\imgui_impl_opengl2.h" />
+    <ClInclude Include="BasicWorldBuilder.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ConstTexture.h" />
     <ClInclude Include="Cuboid.h" />
@@ -70,10 +74,12 @@
     <ClInclude Include="Moving.h" />
     <ClInclude Include="MovingSphere.h" />
     <ClInclude Include="Ray.h" />
+    <ClInclude Include="Renderer.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="Surface.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="vec3.h" />
+    <ClInclude Include="WorldBuilder.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\misc\natvis\imgui.natvis" />

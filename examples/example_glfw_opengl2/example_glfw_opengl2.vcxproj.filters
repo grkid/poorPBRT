@@ -49,6 +49,18 @@
     <Filter Include="sources\vec3">
       <UniqueIdentifier>{cf14c84d-fbf6-47d9-adeb-670a7f9fb8bc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sources\BxDF\BRDF">
+      <UniqueIdentifier>{d24358d3-2e87-4e09-9990-c885c4a5f3e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\BxDF\BSSRDF">
+      <UniqueIdentifier>{61c972e5-3011-429e-8257-848110dce199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Renderer">
+      <UniqueIdentifier>{0732841e-7d56-46cf-8b05-e900de9172fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Renderer\WorldBuilder">
+      <UniqueIdentifier>{f1284fc5-9008-425d-a82d-ab7cdc743523}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\imgui.cpp">
@@ -87,9 +99,6 @@
     <ClCompile Include="Camera.cpp">
       <Filter>sources\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Dielectric.cpp">
-      <Filter>sources\BxDF\BSDF</Filter>
-    </ClCompile>
     <ClCompile Include="Lambertian.cpp">
       <Filter>sources\BxDF\BSDF</Filter>
     </ClCompile>
@@ -126,6 +135,18 @@
     <ClCompile Include="Material.cpp">
       <Filter>sources\BxDF</Filter>
     </ClCompile>
+    <ClCompile Include="Dielectric.cpp">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldBuilder.cpp">
+      <Filter>sources\Renderer\WorldBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicWorldBuilder.cpp">
+      <Filter>sources\Renderer\WorldBuilder</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\imconfig.h">
@@ -160,9 +181,6 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>sources\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Dielectric.h">
-      <Filter>sources\BxDF\BSDF</Filter>
     </ClInclude>
     <ClInclude Include="Lambertian.h">
       <Filter>sources\BxDF\BSDF</Filter>
@@ -202,6 +220,18 @@
     </ClInclude>
     <ClInclude Include="Material.h">
       <Filter>sources\BxDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Dielectric.h">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldBuilder.h">
+      <Filter>sources\Renderer\WorldBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicWorldBuilder.h">
+      <Filter>sources\Renderer\WorldBuilder</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
