@@ -17,4 +17,6 @@ public:
     void add(std::shared_ptr<Hittable> obj);
     //如果命中了，命中记录保存到rec
     virtual bool hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const;
+
+    void clear();
 };

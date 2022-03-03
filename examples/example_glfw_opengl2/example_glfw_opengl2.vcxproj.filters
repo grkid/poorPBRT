@@ -67,6 +67,12 @@
     <Filter Include="sources\Renderer\Background">
       <UniqueIdentifier>{66ba7364-9a8c-46cf-96a9-9faf704cc7eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="stb_image">
+      <UniqueIdentifier>{19ce02f0-2336-4fc7-839b-644a6d0a92f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Object\Transform">
+      <UniqueIdentifier>{57e21872-b923-4ac1-a7ac-dc0c597cbf4d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\imgui.cpp">
@@ -156,6 +162,24 @@
     <ClCompile Include="draw.cpp">
       <Filter>sources\utils</Filter>
     </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>sources\Renderer\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="InitBackground.cpp">
+      <Filter>sources\Renderer\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="FloatingBackground.cpp">
+      <Filter>sources\Renderer\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageTexture.cpp">
+      <Filter>sources\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstBackground.cpp">
+      <Filter>sources\Renderer\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>sources\Object\Transform</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\imconfig.h">
@@ -241,6 +265,27 @@
     </ClInclude>
     <ClInclude Include="draw.h">
       <Filter>sources\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>sources\Renderer\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="InitBackground.h">
+      <Filter>sources\Renderer\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="FloatingBackground.h">
+      <Filter>sources\Renderer\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageTexture.h">
+      <Filter>sources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstBackground.h">
+      <Filter>sources\Renderer\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>stb_image</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>sources\Object\Transform</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

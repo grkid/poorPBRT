@@ -16,6 +16,7 @@
 #include "Texture.h"
 
 #include "Light.h"
+// 构建一个只有球体的世界
 class BasicWorldBuilder :
     public WorldBuilder
 {

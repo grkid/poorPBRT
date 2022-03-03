@@ -38,6 +38,7 @@
 #include "Light.h"
 #include "Renderer.h"
 #include "BasicWorldBuilder.h"
+#include "InitBackground.h"
 
 static void glfw_error_callback(int error, const char* description)
 {
@@ -70,7 +71,7 @@ void DrawFrame(int* fb)
 void entrance()
 {
     auto cam=std::make_shared<Camera>(util::lookfrom, util::lookat, vec3(0, 1, 0), 20, double(util::nx) / double(util::ny), util::aperture, util::dist_to_focus, 0.0, 1.0);
-    Renderer r(util::nx, util::ny, util::samplesPerPixel, util::maxDepth, util::numThread, cam);
+    Renderer r(util::nx, util::ny, util::samplesPerPixel, util::maxDepth, util::numThread, cam,std::make_shared<InitBackground>());
     r.rebuildWorld(BasicWorldBuilder());
     r.render();
 }
@@ -260,13 +261,13 @@ int main(int, char**)
 /*
 * 一个简单的光追渲染器，目标是把它搞成乞丐版PBRT。
 * 支持：
-* 光源
+* 光源 done
 * EXR全景图作为光源
 * mesh支持
 * UV支持 x 优先级靠后
 * OBJ导入 x OBJ处理后导入
 * 多种类型的相机
-* 纹理 x 优先级靠后
+* 纹理 图片纹理
 * disney principled BRDF（万能BRDF）
 * transparent BSDF（玻璃材质即可）
 * 某一个BSSRDF

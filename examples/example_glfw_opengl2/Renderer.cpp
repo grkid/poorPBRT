@@ -8,13 +8,14 @@ Renderer::Renderer()
 {
 }
 
-Renderer::Renderer(int x, int y, int samples, int depth, int tn, std::shared_ptr<Camera> camera)
+Renderer::Renderer(int x, int y, int samples, int depth, int tn, std::shared_ptr<Camera> camera,std::shared_ptr<Background> bg)
 {
 	setResolution(x, y);
 	setSamples(samples);
 	setCamera(camera);
 	setMaxDepth(depth);
 	setThreadNum(tn);
+    setBackground(bg);
 }
 
 void Renderer::setResolution(int x, int y)
@@ -72,6 +73,15 @@ void Renderer::setThreadNum(int tn)
 		threadNum = tn;
 }
 
+void Renderer::setBackground(std::shared_ptr<Background> bg)
+{
+    // 默认的背景为(0.1,0.1,0.1)
+    if (bg)
+        background = bg;
+    else
+        background = std::make_shared<ConstBackground>(vec3(0.1, 0.1, 0.1));
+}
+
 void Renderer::addMaterial(std::string name, std::shared_ptr<Material> mat)
 {
 	materials.insert(std::pair<std::string,std::shared_ptr<Material>>(name, mat));
@@ -110,11 +120,8 @@ vec3 Renderer::sampleOnce(const Ray& r, int depth)
     }
     else
     {
-        // 取背景色。TODO：图片背景
-        vec3 unit_direction = unit_vector(r.direction());
-        double t = 0.5 * (unit_direction.y() + 1.0);
-        return (1.0 - t) * vec3(1.0, 1.0, 1.0) + t * vec3(0.5, 0.7, 1.0);
-        //return vec3(0.1f, 0.1f, 0.1f);
+        // 无法hit到任何物体，从background采样
+        return background->sample(r);
     }
 }
 
@@ -164,5 +171,6 @@ void Renderer::render()
 
 void Renderer::rebuildWorld(const WorldBuilder& wb)
 {
+    world.clear();
 	wb.build(world);
 }

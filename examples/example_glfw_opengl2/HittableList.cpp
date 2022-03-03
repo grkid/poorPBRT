@@ -29,3 +29,8 @@ bool HittableList::hit(const Ray& r, double t_min, double t_max, HitRecord& rec)
     }
     return hit_anything;
 }
+
+void HittableList::clear()
+{
+    list.clear();
+}

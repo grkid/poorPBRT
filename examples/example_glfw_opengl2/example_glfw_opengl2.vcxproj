@@ -28,8 +28,11 @@
     <ClCompile Include="..\..\imgui_widgets.cpp" />
     <ClCompile Include="..\imgui_impl_glfw.cpp" />
     <ClCompile Include="..\imgui_impl_opengl2.cpp" />
+    <ClCompile Include="Background.cpp" />
     <ClCompile Include="BasicWorldBuilder.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ConstBackground.cpp" />
+    <ClCompile Include="FloatingBackground.cpp" />
     <ClCompile Include="ConstTexture.cpp" />
     <ClCompile Include="Cuboid.cpp" />
     <ClCompile Include="Dielectric.cpp" />
@@ -37,6 +40,8 @@
     <ClCompile Include="HitRecord.cpp" />
     <ClCompile Include="Hittable.cpp" />
     <ClCompile Include="HittableList.cpp" />
+    <ClCompile Include="ImageTexture.cpp" />
+    <ClCompile Include="InitBackground.cpp" />
     <ClCompile Include="Lambertian.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
@@ -50,6 +55,7 @@
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Transform.cpp" />
     <ClCompile Include="WorldBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -58,8 +64,11 @@
     <ClInclude Include="..\..\imgui_internal.h" />
     <ClInclude Include="..\imgui_impl_glfw.h" />
     <ClInclude Include="..\imgui_impl_opengl2.h" />
+    <ClInclude Include="Background.h" />
     <ClInclude Include="BasicWorldBuilder.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="ConstBackground.h" />
+    <ClInclude Include="FloatingBackground.h" />
     <ClInclude Include="ConstTexture.h" />
     <ClInclude Include="Cuboid.h" />
     <ClInclude Include="Dielectric.h" />
@@ -67,6 +76,8 @@
     <ClInclude Include="HitRecord.h" />
     <ClInclude Include="Hittable.h" />
     <ClInclude Include="HittableList.h" />
+    <ClInclude Include="ImageTexture.h" />
+    <ClInclude Include="InitBackground.h" />
     <ClInclude Include="Lambertian.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Material.h" />
@@ -77,8 +88,10 @@
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Sphere.h" />
+    <ClInclude Include="stb_image.h" />
     <ClInclude Include="Surface.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="vec3.h" />
     <ClInclude Include="WorldBuilder.h" />
   </ItemGroup>

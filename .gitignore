@@ -10,3 +10,5 @@
 /examples/example_glfw_opengl2/output_300x200.ppm
 /examples/example_glfw_opengl2/output_300x150.ppm
 /examples/example_glfw_opengl2/output_1280x720.ppm
+/Physically Based Rendering_ From Theory to Implementation_files
+*.html
