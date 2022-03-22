@@ -1,11 +1,11 @@
 #include "ConstBackground.h"
 
-ConstBackground::ConstBackground(const vec3& color)
+ConstBackground::ConstBackground(const rgb3& color)
 {
 	baseColor = color;
 }
 
-vec3 ConstBackground::sample(const Ray& ray) const
+rgb3 ConstBackground::sample(const Ray& ray) const
 {
 	return baseColor;
 }

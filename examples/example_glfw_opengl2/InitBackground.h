@@ -4,6 +4,6 @@ class InitBackground :
     public Background
 {
 public:
-    virtual vec3 sample(const Ray& ray) const;
+    virtual rgb3 sample(const Ray& ray) const;
 };
 

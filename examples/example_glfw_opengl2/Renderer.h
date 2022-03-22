@@ -34,7 +34,7 @@ class Renderer
 
 	void printError(std::string str);
 
-	vec3 sampleOnce(const Ray& r, int depth);
+	rgb3 sampleOnce(const Ray& r, int depth);
 public:
 	Renderer();
 	Renderer(int x, int y, int samples, int depth,int tn,std::shared_ptr<Camera> camera,std::shared_ptr<Background> bg=nullptr);

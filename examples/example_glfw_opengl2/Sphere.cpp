@@ -1,7 +1,7 @@
 #include "Sphere.h"
 
 Sphere::Sphere() {};
-Sphere::Sphere(vec3 cen, double r, std::shared_ptr<Material> m) :
+Sphere::Sphere(point3 cen, double r, std::shared_ptr<Material> m) :
     center(cen),
     radius(r),
     mat_ptr(m)
@@ -38,7 +38,7 @@ bool Sphere::hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const
     return false;
 }
 
-vec3 Sphere::getCenter() const
+point3 Sphere::getCenter() const
 {
     return center;
 }

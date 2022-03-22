@@ -79,7 +79,7 @@ void Renderer::setBackground(std::shared_ptr<Background> bg)
     if (bg)
         background = bg;
     else
-        background = std::make_shared<ConstBackground>(vec3(0.1, 0.1, 0.1));
+        background = std::make_shared<ConstBackground>(rgb3(0.1, 0.1, 0.1));
 }
 
 void Renderer::addMaterial(std::string name, std::shared_ptr<Material> mat)
@@ -97,7 +97,7 @@ void Renderer::addTexture(std::string name, std::shared_ptr<Texture> tex)
 	textures.insert(std::pair<std::string, std::shared_ptr<Texture>>(name, tex));
 }
 
-vec3 Renderer::sampleOnce(const Ray& r, int depth)
+rgb3 Renderer::sampleOnce(const Ray& r, int depth)
 {
     HitRecord rec;
     // 视距0.001到FLT_MAX
@@ -105,17 +105,19 @@ vec3 Renderer::sampleOnce(const Ray& r, int depth)
     if (world.hit(r, 0.001, FLT_MAX, rec)) //射线命中物体
     {
         Ray scattered; //散射光线
-        vec3 attenuation; //反射率
+        rgb3 attenuation; //反射率
         if (depth >= maxDepth) {
-            return vec3(0.0f, 0.0f, 0.0f);
+            return rgb3(0.0f, 0.0f, 0.0f);
         }
         else
         {
-            auto emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);
-            if (!rec.mat_ptr->scatter(r, rec, attenuation, scattered))
+            rgb3 emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);
+            if (!rec.mat_ptr->scatter(r, rec, attenuation, scattered)) {
                 return emitted;
-            else
-                return emitted + attenuation * sampleOnce(scattered, depth + 1);
+            }
+            else{
+                return emitted+ attenuation * sampleOnce(scattered, depth + 1);
+            }
         }
     }
     else

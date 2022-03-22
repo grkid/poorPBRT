@@ -2,7 +2,7 @@
 
 Lambertian::Lambertian(std::shared_ptr<Texture> b) : baseColor(b) {}
 
-Lambertian::Lambertian(const vec3& v)
+Lambertian::Lambertian(const rgb3& v)
 {
     baseColor = std::make_shared<ConstTexture>(v);
 }

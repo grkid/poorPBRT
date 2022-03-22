@@ -5,6 +5,7 @@
 #include <fstream>
 #include "imgui.h"
 #include "vec3.h"
+#include "point3.h"
 // using namespace std;
 using std::ofstream;
 using std::endl;
@@ -21,7 +22,7 @@ public:
     static int maxDepth;
 
     static int gFov;
-    static vec3 lookfrom;
+    static point3 lookfrom;
     static vec3 lookat;
     static double dist_to_focus;
     static double aperture;

@@ -10,6 +10,6 @@ class Lambertian : public Material
     std::shared_ptr<Texture> baseColor;
 public:
     Lambertian(std::shared_ptr<Texture> b);
-    Lambertian(const vec3& v);
+    Lambertian(const rgb3& v);
     virtual bool scatter(const Ray& r_in, const HitRecord& rec, vec3& attenuation, Ray& scattered) const;
 };

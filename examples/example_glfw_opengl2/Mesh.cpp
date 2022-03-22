@@ -4,7 +4,7 @@ Mesh::Mesh()
 {
 }
 
-Mesh::Mesh(const vec3& _p0, const vec3& _p1, const vec3& _p2, const vec3& normal,std::shared_ptr<Material> mp)
+Mesh::Mesh(const point3& _p0, const point3& _p1, const point3& _p2, const vec3& normal,std::shared_ptr<Material> mp)
 {
 	p0 = _p0;
 	p1 = _p1;

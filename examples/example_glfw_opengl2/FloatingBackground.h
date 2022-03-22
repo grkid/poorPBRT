@@ -8,8 +8,8 @@ class FloatingBackground :
 {
     std::shared_ptr<Texture> baseColor;
 //public:
-    FloatingBackground(const vec3& color);
+    FloatingBackground(const rgb3& color);
     FloatingBackground(std::shared_ptr<Texture> color);
-    virtual vec3 sample(const Ray& ray) const;
+    virtual rgb3 sample(const Ray& ray) const;
 };
 

@@ -4,7 +4,7 @@ MovingSphere::MovingSphere()
 {
 }
 
-MovingSphere::MovingSphere(vec3 cen0, vec3 cen1, double r, std::shared_ptr<Material> m,double t0, double t1)
+MovingSphere::MovingSphere(point3 cen0, point3 cen1, double r, std::shared_ptr<Material> m,double t0, double t1)
 	:center0(cen0),
 	center1(cen1),
 	radius(r),
@@ -14,7 +14,7 @@ MovingSphere::MovingSphere(vec3 cen0, vec3 cen1, double r, std::shared_ptr<Mater
     setTimeInterval(t0, t1);
 }
 
-MovingSphere::MovingSphere(const Sphere& base, vec3 cen1, double t0, double t1)
+MovingSphere::MovingSphere(const Sphere& base, point3 cen1, double t0, double t1)
     :Sphere(base),
     center1(cen1)
 {
@@ -55,7 +55,7 @@ bool MovingSphere::hit(const Ray& r, double t_min, double t_max, HitRecord& rec)
     return false;
 }
 
-vec3 MovingSphere::getCenter(double time) const {
+point3 MovingSphere::getCenter(double time) const {
     return center0 + ((time - time0) / (time1 - time0)) * (center1 - center0);
 }
 

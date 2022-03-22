@@ -2,12 +2,12 @@
 
 ConstTexture::ConstTexture() {}
 
-ConstTexture::ConstTexture(vec3 c)
+ConstTexture::ConstTexture(const rgb3& c)
 {
 	color = c;
 }
 
-vec3 ConstTexture::sample(double u, double v, const vec3& position) const
+rgb3 ConstTexture::sample(double u, double v, const point3& position) const
 {
 	return color;
 }

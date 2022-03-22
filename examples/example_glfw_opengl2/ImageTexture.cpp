@@ -4,7 +4,7 @@
 #include "stb_image.h"
 #include <math.h>
 
-vec3 ImageTexture::imageSample(double u, double v) const
+rgb3 ImageTexture::imageSample(double u, double v) const
 {
 	// NEAREST²ÉÑù
 	int x = round(u * imageWidth);
@@ -12,7 +12,7 @@ vec3 ImageTexture::imageSample(double u, double v) const
 	return imagePixelAt(x, y);
 }
 
-vec3 ImageTexture::imagePixelAt(int x, int y) const
+rgb3 ImageTexture::imagePixelAt(int x, int y) const
 {
 	double v[3]{ 0.0f,0.0f,0.0f };
 	int maxChannels = (imageChannels < 3 ? imageChannels : 3);
@@ -23,7 +23,7 @@ vec3 ImageTexture::imagePixelAt(int x, int y) const
 		v[i] = _data[(x+y*imageHeight)*imageChannels+i]/255.99f;
 	}
 
-	return vec3(v[0], v[1], v[2]);
+	return rgb3(v[0], v[1], v[2]);
 
 }
 
@@ -40,10 +40,10 @@ ImageTexture::ImageTexture(std::string path)
 	imageData = _pt;
 
 }
-vec3 ImageTexture::sample(double u, double v, const vec3& position) const
+rgb3 ImageTexture::sample(double u, double v, const point3& position) const
 {
 	if(!imageData)
-		return vec3(0,0,0);
+		return rgb3(0,0,0);
 	return imageSample(u, v);
 
 }

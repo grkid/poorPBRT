@@ -85,14 +85,17 @@
     <ClInclude Include="Metal.h" />
     <ClInclude Include="Moving.h" />
     <ClInclude Include="MovingSphere.h" />
+    <ClInclude Include="point3.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="rgb3.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Surface.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="vec3.h" />
+    <ClInclude Include="vec3util.h" />
     <ClInclude Include="WorldBuilder.h" />
   </ItemGroup>
   <ItemGroup>

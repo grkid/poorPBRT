@@ -4,9 +4,9 @@
 class ConstBackground :
     public Background
 {
-    vec3 baseColor;
+    rgb3 baseColor;
 public:
-    ConstBackground(const vec3& color);
-    virtual vec3 sample(const Ray& ray) const;
+    ConstBackground(const rgb3& color);
+    virtual rgb3 sample(const Ray& ray) const;
 };
 

@@ -73,6 +73,9 @@
     <Filter Include="sources\Object\Transform">
       <UniqueIdentifier>{57e21872-b923-4ac1-a7ac-dc0c597cbf4d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sources\Spectrum">
+      <UniqueIdentifier>{1b939705-0fc0-4095-ac99-6bf33c757e88}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\imgui.cpp">
@@ -286,6 +289,15 @@
     </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>sources\Object\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="point3.h">
+      <Filter>sources\vec3</Filter>
+    </ClInclude>
+    <ClInclude Include="rgb3.h">
+      <Filter>sources\vec3</Filter>
+    </ClInclude>
+    <ClInclude Include="vec3util.h">
+      <Filter>sources\vec3</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

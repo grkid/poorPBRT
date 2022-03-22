@@ -10,10 +10,10 @@ class ImageTexture :
     static std::map <std::string, std::weak_ptr<ImageTexture>> imageMap;
     std::shared_ptr<unsigned char> imageData;
     int imageWidth, imageHeight, imageChannels;
-    vec3 imageSample(double u, double v) const;
-    vec3 imagePixelAt(int x, int y) const;
+    rgb3 imageSample(double u, double v) const;
+    rgb3 imagePixelAt(int x, int y) const;
 public:
     ImageTexture(std::string path);
-    virtual vec3 sample(double u, double v, const vec3& position) const;
+    virtual rgb3 sample(double u, double v, const point3& position) const;
 };
 

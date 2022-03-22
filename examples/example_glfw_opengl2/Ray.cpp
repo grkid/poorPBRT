@@ -1,12 +1,12 @@
 #include "Ray.h"
 
-Ray::Ray(const vec3& a, const vec3& b,double t)
+Ray::Ray(const point3& a, const vec3& b,double t)
 {
     A = a;
     B = b;
     tm = t;
 }
-vec3 Ray::origin() const { return A; }
+point3 Ray::origin() const { return A; }
 vec3 Ray::direction() const { return B; }
-vec3 Ray::point_at_parameter(double t) const { return A + t * B; } //终点的坐标
+point3 Ray::point_at_parameter(double t) const { return (A + t * B); } //终点的坐标
 double Ray::time() const { return tm; }

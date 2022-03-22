@@ -5,6 +5,6 @@
 class Background
 {
 public:
-	virtual vec3 sample(const Ray& ray) const = 0;
+	virtual rgb3 sample(const Ray& ray) const = 0;
 };
 

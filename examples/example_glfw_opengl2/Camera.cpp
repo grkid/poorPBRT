@@ -1,6 +1,6 @@
 #include "Camera.h"
 
-Camera::Camera(vec3 lookfrom, vec3 lookat, vec3 vup, double vfov, double aspect, double aperture, double focus_dist,double t0,double t1)
+Camera::Camera(point3 lookfrom, vec3 lookat, vec3 vup, double vfov, double aspect, double aperture, double focus_dist,double t0,double t1)
 {
     lens_radius = aperture / 2;
     double theta = vfov * M_PI / 180;

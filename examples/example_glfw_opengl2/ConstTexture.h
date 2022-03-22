@@ -3,10 +3,10 @@
 class ConstTexture :
     public Texture
 {
-    vec3 color;
+    rgb3 color;
 public:
     ConstTexture();
-    ConstTexture(vec3 c);
-    virtual vec3 sample(double u, double v, const vec3& position) const;
+    ConstTexture(const rgb3& c);
+    virtual rgb3 sample(double u, double v, const point3& position) const;
 };
 
