@@ -2,6 +2,8 @@
 
 本仓库从https://github.com/maijiaquan/ray-tracing-with-imgui.git fork而来。
 在原仓库的基础上修改了代码的结构，使其更符合面向对象的规范。由于github并不会记录sln项目的结构，目前的`class`分为如下几类。可以自行clone仓库后查看。
+![image](https://user-images.githubusercontent.com/46410388/159523805-fad6b98c-2f67-4bb7-a276-484d1dee9a90.png)
+
 
 `BxDF`：材质类
 
