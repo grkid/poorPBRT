@@ -14,6 +14,6 @@ class ImageTexture :
     rgb3 imagePixelAt(int x, int y) const;
 public:
     ImageTexture(std::string path);
-    virtual rgb3 sample(double u, double v, const point3& position) const;
+    virtual SampledSpectrum sample(double u, double v, const point3& position) const;
 };
 

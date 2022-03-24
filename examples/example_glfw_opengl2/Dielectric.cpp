@@ -1,12 +1,12 @@
 #include "Dielectric.h"
-
+#include "xyz3.h"
 Dielectric::Dielectric(double ri) : ref_idx(ri) {} //n2/n1
-bool Dielectric::scatter(const Ray& r_in, const HitRecord& rec, vec3& attenuation, Ray& scattered) const
+bool Dielectric::scatter(const Ray& r_in, const HitRecord& rec, SampledSpectrum& attenuation, Ray& scattered) const
 {
     vec3 outward_normal;
     vec3 reflected = reflect(r_in.direction(), rec.normal);
     double ni_over_nt;
-    attenuation = vec3(1.0, 1.0, 1.0);
+    attenuation = rgb3(1.0, 1.0, 1.0).toSampledSpectrum();
     vec3 refracted;
 
     double reflect_prob; //∑¥…‰∏≈¬ 

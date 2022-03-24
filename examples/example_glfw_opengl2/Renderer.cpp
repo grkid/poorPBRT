@@ -1,4 +1,6 @@
 #include "Renderer.h"
+#include "SpectrumUtil.h"
+
 void Renderer::printError(std::string str)
 {
 	std::cout << "ERROR renderer: " << str << std::endl;
@@ -97,7 +99,7 @@ void Renderer::addTexture(std::string name, std::shared_ptr<Texture> tex)
 	textures.insert(std::pair<std::string, std::shared_ptr<Texture>>(name, tex));
 }
 
-rgb3 Renderer::sampleOnce(const Ray& r, int depth)
+SampledSpectrum Renderer::sampleOnce(const Ray& r, int depth)
 {
     HitRecord rec;
     // 视距0.001到FLT_MAX
@@ -105,13 +107,13 @@ rgb3 Renderer::sampleOnce(const Ray& r, int depth)
     if (world.hit(r, 0.001, FLT_MAX, rec)) //射线命中物体
     {
         Ray scattered; //散射光线
-        rgb3 attenuation; //反射率
+        SampledSpectrum attenuation; //反射率
         if (depth >= maxDepth) {
-            return rgb3(0.0f, 0.0f, 0.0f);
+            return SampledSpectrum(0.0);
         }
         else
         {
-            rgb3 emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);
+            SampledSpectrum emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);
             if (!rec.mat_ptr->scatter(r, rec, attenuation, scattered)) {
                 return emitted;
             }
@@ -135,7 +137,7 @@ void Renderer::singleThreadRayTracing(int k)
     {
         for (int i = 0; i < nx; i++)
         {
-            vec3 col(0, 0, 0);
+            SampledSpectrum col(0.0);
             for (int s = 0; s < samplesPerPixel; s++)
             {
                 // TODO：采样噪声
@@ -146,15 +148,14 @@ void Renderer::singleThreadRayTracing(int k)
             }
             col /= double(samplesPerPixel);
             //col = vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
-            for (int _ = 0; _ < 3; _++)
-            {
-                if (col[_] > 1)
-                    col[_] = 1;
-            }
+            rgb3 colRgb = col.toXyz3().toRgb3();
+            colRgb[0] = utilClamp(colRgb[0], 0.0, 1.0);
+            colRgb[1] = utilClamp(colRgb[1], 0.0, 1.0);
+            colRgb[2] = utilClamp(colRgb[2], 0.0, 1.0);
 
-            int ir = int(255.99 * col[0]);
-            int ig = int(255.99 * col[1]);
-            int ib = int(255.99 * col[2]);
+            int ir = int(255.99 * colRgb[0]);
+            int ig = int(255.99 * colRgb[1]);
+            int ib = int(255.99 * colRgb[2]);
             util::DrawPixel(i, j, ir, ig, ib);
             util::numPixelRendered++;
         }

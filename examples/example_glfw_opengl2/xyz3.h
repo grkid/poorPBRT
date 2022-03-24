@@ -9,6 +9,6 @@ public:
 	xyz3() :vec3() {}
 	xyz3(double e0, double e1, double e2) :vec3(e0, e1, e2) {};
 
-	rgb3 toRgb3();
-	SampledSpectrum toSampledSpectrum();
+	rgb3 toRgb3() const;
+	/*SampledSpectrum toSampledSpectrum() const;*/
 };

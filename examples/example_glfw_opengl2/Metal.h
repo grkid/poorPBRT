@@ -12,6 +12,6 @@ public:
 
     Metal(std::shared_ptr<Texture> b, double f);
     Metal(const rgb3& v, double f);
-    virtual bool scatter(const Ray& r_in, const HitRecord& rec, vec3& attenuation, Ray& scattered) const;
+    virtual bool scatter(const Ray& r_in, const HitRecord& rec, SampledSpectrum& attenuation, Ray& scattered) const;
 };
 

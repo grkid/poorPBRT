@@ -1,11 +1,11 @@
 #include "ConstBackground.h"
-
+#include "xyz3.h"
 ConstBackground::ConstBackground(const rgb3& color)
 {
-	baseColor = color;
+	baseColor = color.toSampledSpectrum(SpectrumType::illuminant);
 }
 
-rgb3 ConstBackground::sample(const Ray& ray) const
+SampledSpectrum ConstBackground::sample(const Ray& ray) const
 {
 	return baseColor;
 }

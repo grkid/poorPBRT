@@ -5,10 +5,28 @@
 // 提供一些光谱类需要的公有方法和类型
 
 static const int nCIESamples = 471;
+static const double CIE_Y_integral = 106.856895;	// ? 没有理解其意义
 extern const double CIE_X[nCIESamples];
 extern const double CIE_Y[nCIESamples];
 extern const double CIE_Z[nCIESamples];
 extern const double CIE_lambda[nCIESamples];
+
+static const int nRGB2SpectSamples = 32;
+extern const double RGB2SpectLambda[nRGB2SpectSamples];
+extern const double RGBRefl2SpectWhite[nRGB2SpectSamples];
+extern const double RGBRefl2SpectCyan[nRGB2SpectSamples];
+extern const double RGBRefl2SpectMagenta[nRGB2SpectSamples];
+extern const double RGBRefl2SpectYellow[nRGB2SpectSamples];
+extern const double RGBRefl2SpectRed[nRGB2SpectSamples];
+extern const double RGBRefl2SpectGreen[nRGB2SpectSamples];
+extern const double RGBRefl2SpectBlue[nRGB2SpectSamples];
+extern const double RGBIllum2SpectWhite[nRGB2SpectSamples];
+extern const double RGBIllum2SpectCyan[nRGB2SpectSamples];
+extern const double RGBIllum2SpectMagenta[nRGB2SpectSamples];
+extern const double RGBIllum2SpectYellow[nRGB2SpectSamples];
+extern const double RGBIllum2SpectRed[nRGB2SpectSamples];
+extern const double RGBIllum2SpectGreen[nRGB2SpectSamples];
+extern const double RGBIllum2SpectBlue[nRGB2SpectSamples];
 
 // 光谱上的单个采样信息
 struct SpectrumSample

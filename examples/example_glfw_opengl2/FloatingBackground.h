@@ -10,6 +10,6 @@ class FloatingBackground :
 //public:
     FloatingBackground(const rgb3& color);
     FloatingBackground(std::shared_ptr<Texture> color);
-    virtual rgb3 sample(const Ray& ray) const;
+    virtual SampledSpectrum sample(const Ray& ray) const;
 };
 

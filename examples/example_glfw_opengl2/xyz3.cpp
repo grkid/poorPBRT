@@ -2,7 +2,7 @@
 #include "rgb3.h"
 #include "SampledSpectrum.h"
 
-rgb3 xyz3::toRgb3()
+rgb3 xyz3::toRgb3() const
 {
 	rgb3 rgb;
 	rgb[0] = 3.240479f * e[0] - 1.537150f * e[1] - 0.498535f * e[2];
@@ -11,7 +11,11 @@ rgb3 xyz3::toRgb3()
 	return rgb;
 }
 
-SampledSpectrum xyz3::toSampledSpectrum()
-{
-	return SampledSpectrum();
-}
+//SampledSpectrum xyz3::toSampledSpectrum() const
+//{
+//	SampledSpectrum s(0.0);
+//	s += SampledSpectrum::X * e[0];
+//	s += SampledSpectrum::Y * e[1];
+//	s += SampledSpectrum::Z * e[2];
+//	return s;
+//}

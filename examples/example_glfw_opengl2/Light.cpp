@@ -10,7 +10,7 @@ bool Light::scatter(const Ray& r_in, const HitRecord& rec, vec3& attenuation, Ra
 	return false;
 }
 
-rgb3 Light::emitted(double u, double v, const point3& p) const
+SampledSpectrum Light::emitted(double u, double v, const point3& p) const
 {
 	// 没有考虑光线的衰减
 	return baseColor->sample(u, v, p);

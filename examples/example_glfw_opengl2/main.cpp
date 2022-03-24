@@ -77,7 +77,7 @@ void globalInit()
 void entrance()
 {   
     auto cam=std::make_shared<Camera>(util::lookfrom, util::lookat, vec3(0, 1, 0), 20, double(util::nx) / double(util::ny), util::aperture, util::dist_to_focus, 0.0, 1.0);
-    Renderer r(util::nx, util::ny, util::samplesPerPixel, util::maxDepth, util::numThread, cam,std::make_shared<InitBackground>());
+    Renderer r(util::nx, util::ny, util::samplesPerPixel, util::maxDepth, util::numThread, cam,std::make_shared<ConstBackground>(rgb3(2.0,2.0,2.0)));
     r.rebuildWorld(BasicWorldBuilder());
     r.render();
 }

@@ -7,6 +7,6 @@ class Dielectric : public Material
     double ref_idx;
 public:
     Dielectric(double ri); //n2/n1
-    virtual bool scatter(const Ray& r_in, const HitRecord& rec, vec3& attenuation, Ray& scattered) const;
+    virtual bool scatter(const Ray& r_in, const HitRecord& rec, SampledSpectrum& attenuation, Ray& scattered) const;
 };
 

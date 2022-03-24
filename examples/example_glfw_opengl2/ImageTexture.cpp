@@ -2,6 +2,7 @@
 // 只在cpp文件中引入stb image，否则会极大增加编译时间。
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
+#include "xyz3.h"
 #include <math.h>
 
 rgb3 ImageTexture::imageSample(double u, double v) const
@@ -40,10 +41,10 @@ ImageTexture::ImageTexture(std::string path)
 	imageData = _pt;
 
 }
-rgb3 ImageTexture::sample(double u, double v, const point3& position) const
+SampledSpectrum ImageTexture::sample(double u, double v, const point3& position) const
 {
 	if(!imageData)
-		return rgb3(0,0,0);
-	return imageSample(u, v);
+		return SampledSpectrum(0.0);
+	return imageSample(u, v).toSampledSpectrum();
 
 }

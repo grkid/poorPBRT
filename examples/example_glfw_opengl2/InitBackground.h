@@ -4,6 +4,6 @@ class InitBackground :
     public Background
 {
 public:
-    virtual rgb3 sample(const Ray& ray) const;
+    virtual SampledSpectrum sample(const Ray& ray) const;
 };
 

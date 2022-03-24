@@ -1,5 +1,6 @@
 #pragma once
 #include "vec3.h"
+#include "SampledSpectrum.h"
 class xyz3;
 class rgb3 :public vec3
 {
@@ -17,5 +18,6 @@ public:
 
     static inline rgb3 fromVec3(const vec3& v) { return rgb3(v.e[0],v.e[1],v.e[2]); }
 
-    xyz3 toXyz3();
+    xyz3 toXyz3() const;
+    SampledSpectrum toSampledSpectrum(SpectrumType=SpectrumType::reflectance) const;
 };

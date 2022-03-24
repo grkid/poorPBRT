@@ -1,7 +1,7 @@
 #include "draw.h"
 int util::numThread = 12;
-int util::nx = 320 * 2;
-int util::ny = 240 * 2;
+int util::nx = 320*2;
+int util::ny = 240*2;
 int util::samplesPerPixel = 16;
 int util::maxDepth = 32;
 

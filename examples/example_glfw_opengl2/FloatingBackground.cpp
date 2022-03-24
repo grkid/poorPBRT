@@ -10,8 +10,8 @@ FloatingBackground::FloatingBackground(std::shared_ptr<Texture> color)
     baseColor = color;
 }
 
-rgb3 FloatingBackground::sample(const Ray& ray) const
+SampledSpectrum FloatingBackground::sample(const Ray& ray) const
 {
     // TODO：悬浮背景。似乎只能通过后处理实现。
-    return rgb3(0, 0, 0);
+    return SampledSpectrum(0.0);
 }

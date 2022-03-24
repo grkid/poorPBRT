@@ -15,6 +15,9 @@
 #include "draw.h"
 #include "background.h"
 #include "ConstBackground.h"
+#include "SampledSpectrum.h"
+#include "rgb3.h"
+#include "xyz3.h"
 class Renderer
 {
 	int nx, ny;				// Í¼Æ¬·Ö±æÂÊ
@@ -34,7 +37,7 @@ class Renderer
 
 	void printError(std::string str);
 
-	rgb3 sampleOnce(const Ray& r, int depth);
+	SampledSpectrum sampleOnce(const Ray& r, int depth);
 public:
 	Renderer();
 	Renderer(int x, int y, int samples, int depth,int tn,std::shared_ptr<Camera> camera,std::shared_ptr<Background> bg=nullptr);

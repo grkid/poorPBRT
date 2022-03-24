@@ -4,9 +4,9 @@
 class ConstBackground :
     public Background
 {
-    rgb3 baseColor;
+    SampledSpectrum baseColor;
 public:
     ConstBackground(const rgb3& color);
-    virtual rgb3 sample(const Ray& ray) const;
+    virtual SampledSpectrum sample(const Ray& ray) const;
 };
 

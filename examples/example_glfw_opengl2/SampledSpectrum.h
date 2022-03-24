@@ -11,12 +11,26 @@ static const double sampledLambdaEnd = 750.0;
 static const int spectrumSamples = 60;
 // POSSIBLE：与Spectrum模板参数重名，注意include
 
+enum class SpectrumType { reflectance, illuminant };
+
 class SampledSpectrum :public Spectrum<spectrumSamples>
 {
 private:
+
 	static SampledSpectrum X, Y, Z;
+	static SampledSpectrum rgbRefl2SpectWhite, rgbRefl2SpectCyan;
+	static SampledSpectrum rgbRefl2SpectMagenta, rgbRefl2SpectYellow;
+	static SampledSpectrum rgbRefl2SpectRed, rgbRefl2SpectGreen;
+	static SampledSpectrum rgbRefl2SpectBlue;
+	static SampledSpectrum rgbIllum2SpectWhite, rgbIllum2SpectCyan;
+	static SampledSpectrum rgbIllum2SpectMagenta, rgbIllum2SpectYellow;
+	static SampledSpectrum rgbIllum2SpectRed, rgbIllum2SpectGreen;
+	static SampledSpectrum rgbIllum2SpectBlue;
 
 public:
+
+	friend class xyz3;
+	friend class rgb3;
 
 	static const int nSpectrumSamples = spectrumSamples;
 
@@ -35,7 +49,7 @@ public:
 		// empty
 	}
 
-	xyz3 toXyz3();
+	xyz3 toXyz3() const;
 };
 
 // TIP：必须要为SampledSpectrum类添加一个来自父类的构造函数
