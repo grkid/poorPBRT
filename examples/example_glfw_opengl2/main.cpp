@@ -39,6 +39,7 @@
 #include "Renderer.h"
 #include "BasicWorldBuilder.h"
 #include "InitBackground.h"
+#include "SampledSpectrum.h"
 
 static void glfw_error_callback(int error, const char* description)
 {
@@ -68,8 +69,13 @@ void DrawFrame(int* fb)
     glEnd();
 }
 
-void entrance()
+void globalInit()
 {
+    SampledSpectrum::init();
+}
+
+void entrance()
+{   
     auto cam=std::make_shared<Camera>(util::lookfrom, util::lookat, vec3(0, 1, 0), 20, double(util::nx) / double(util::ny), util::aperture, util::dist_to_focus, 0.0, 1.0);
     Renderer r(util::nx, util::ny, util::samplesPerPixel, util::maxDepth, util::numThread, cam,std::make_shared<InitBackground>());
     r.rebuildWorld(BasicWorldBuilder());
@@ -128,6 +134,8 @@ void RayTracing()
 
 int main(int, char**)
 {
+    globalInit();
+
     util::totTime = 0;
     #ifdef __APPLE__
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);

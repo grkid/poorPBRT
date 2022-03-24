@@ -52,12 +52,15 @@
     <ClCompile Include="MovingSphere.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="rgb3.cpp" />
     <ClCompile Include="SampledSpectrum.cpp" />
+    <ClCompile Include="SpectrumUtil.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="WorldBuilder.cpp" />
+    <ClCompile Include="xyz3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\imconfig.h" />
@@ -92,6 +95,7 @@
     <ClInclude Include="rgb3.h" />
     <ClInclude Include="SampledSpectrum.h" />
     <ClInclude Include="Spectrum.h" />
+    <ClInclude Include="SpectrumUtil.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Surface.h" />
@@ -193,6 +197,7 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>..\..;..;..\libs\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

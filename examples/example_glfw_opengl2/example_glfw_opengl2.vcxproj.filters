@@ -186,6 +186,15 @@
     <ClCompile Include="SampledSpectrum.cpp">
       <Filter>sources\Spectrum</Filter>
     </ClCompile>
+    <ClCompile Include="SpectrumUtil.cpp">
+      <Filter>sources\Spectrum</Filter>
+    </ClCompile>
+    <ClCompile Include="xyz3.cpp">
+      <Filter>sources\vec3</Filter>
+    </ClCompile>
+    <ClCompile Include="rgb3.cpp">
+      <Filter>sources\vec3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\imconfig.h">
@@ -310,6 +319,9 @@
     </ClInclude>
     <ClInclude Include="xyz3.h">
       <Filter>sources\vec3</Filter>
+    </ClInclude>
+    <ClInclude Include="SpectrumUtil.h">
+      <Filter>sources\Spectrum</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

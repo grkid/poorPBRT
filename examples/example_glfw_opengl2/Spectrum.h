@@ -1,6 +1,7 @@
 #pragma once
 #include <cmath>
 #include <cfloat>
+#include "SpectrumUtil.h"
 
 template <int spectrumSamples> class Spectrum
 {
@@ -164,12 +165,7 @@ public:
 	inline Spectrum clamp(double low = 0.0, double high = DBL_MAX) const {
 		Spectrum retVal;
 		for (int i = 0; i < spectrumSamples; i++) {
-			if (coefficients[i] > high)
-				retVal[i] = high;
-			if (coefficients[i] < low)
-				retVal[i] = low;
-			else
-				retVal = coefficients[i];
+			retVal[i] = utilClamp(retVal[i], low, high);
 		}
 		return retVal;
 	}
