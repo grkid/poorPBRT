@@ -52,6 +52,7 @@
     <ClCompile Include="MovingSphere.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="SampledSpectrum.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Surface.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -89,6 +90,8 @@
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="rgb3.h" />
+    <ClInclude Include="SampledSpectrum.h" />
+    <ClInclude Include="Spectrum.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Surface.h" />
@@ -97,6 +100,7 @@
     <ClInclude Include="vec3.h" />
     <ClInclude Include="vec3util.h" />
     <ClInclude Include="WorldBuilder.h" />
+    <ClInclude Include="xyz3.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\misc\natvis\imgui.natvis" />

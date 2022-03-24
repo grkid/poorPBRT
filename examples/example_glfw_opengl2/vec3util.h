@@ -4,6 +4,7 @@
 #include "rgb3.h"
 
 // 点操作，向量操作和RGB操作不同
+// 部分不在类内的操作符重载需要特殊处理
 
 inline std::istream& operator>>(std::istream& is, vec3& t) {
     is >> t.e[0] >> t.e[1] >> t.e[2];
@@ -87,28 +88,7 @@ inline vec3& vec3::operator+=(const vec3& v) {
     return *this;
 }
 
-inline point3& point3::operator+=(const vec3& v) {
-    e[0] += v.e[0];
-    e[1] += v.e[1];
-    e[2] += v.e[2];
-    return *this;
-}
-
-inline rgb3& rgb3::operator+=(const rgb3& v) {
-    e[0] += v.e[0];
-    e[1] += v.e[1];
-    e[2] += v.e[2];
-    return *this;
-}
-
 inline vec3& vec3::operator*=(const vec3& v) {
-    e[0] *= v.e[0];
-    e[1] *= v.e[1];
-    e[2] *= v.e[2];
-    return *this;
-}
-
-inline rgb3& rgb3::operator*=(const rgb3& v) {
     e[0] *= v.e[0];
     e[1] *= v.e[1];
     e[2] *= v.e[2];
@@ -129,20 +109,6 @@ inline vec3& vec3::operator-=(const vec3& v) {
     return *this;
 }
 
-inline point3& point3::operator-=(const vec3& v) {
-    e[0] -= v.e[0];
-    e[1] -= v.e[1];
-    e[2] -= v.e[2];
-    return *this;
-}
-
-inline rgb3& rgb3::operator-=(const rgb3& v) {
-    e[0] -= v.e[0];
-    e[1] -= v.e[1];
-    e[2] -= v.e[2];
-    return *this;
-}
-
 inline vec3& vec3::operator*=(const double t) {
     e[0] *= t;
     e[1] *= t;
@@ -150,23 +116,7 @@ inline vec3& vec3::operator*=(const double t) {
     return *this;
 }
 
-inline rgb3& rgb3::operator*=(const double t) {
-    e[0] *= t;
-    e[1] *= t;
-    e[2] *= t;
-    return *this;
-}
-
 inline vec3& vec3::operator/=(const double t) {
-    double k = 1.0f / t;
-
-    e[0] *= k;
-    e[1] *= k;
-    e[2] *= k;
-    return *this;
-}
-
-inline rgb3& rgb3::operator/=(const double t) {
     double k = 1.0f / t;
 
     e[0] *= k;
