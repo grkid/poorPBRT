@@ -38,6 +38,7 @@
 #include "Light.h"
 #include "Renderer.h"
 #include "BasicWorldBuilder.h"
+#include "CuboidWorldBuilder.h"
 #include "InitBackground.h"
 #include "SampledSpectrum.h"
 
@@ -76,8 +77,8 @@ void globalInit()
 
 void entrance()
 {   
-    auto cam=std::make_shared<Camera>(util::lookfrom, util::lookat, vec3(0, 1, 0), 20, double(util::nx) / double(util::ny), util::aperture, util::dist_to_focus, 0.0, 1.0);
-    Renderer r(util::nx, util::ny, util::samplesPerPixel, util::maxDepth, util::numThread, cam,std::make_shared<ConstBackground>(rgb3(2.0,2.0,2.0)));
+    auto cam=std::make_shared<Camera>(util::lookfrom, util::lookat, vec3(0, 0, 1), 20, double(util::nx) / double(util::ny), util::aperture, util::dist_to_focus, 0.0, 0.0);
+    Renderer r(util::nx, util::ny, util::samplesPerPixel, util::maxDepth, util::numThread, cam,std::make_shared<ConstBackground>(rgb3(1.5,1.5,1.5)));
     r.rebuildWorld(BasicWorldBuilder());
     r.render();
 }
@@ -296,4 +297,6 @@ int main(int, char**)
 * Moving需要做解耦。
 * 
 * 2022.2.28:出现与视角相关的pattern。可能是Camera的实现问题。
+* 
+* 2022.3.35：Spectrum完成。抄的PBRT实现。
 */

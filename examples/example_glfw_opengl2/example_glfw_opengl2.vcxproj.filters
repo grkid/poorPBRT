@@ -55,14 +55,8 @@
     <Filter Include="sources\Renderer">
       <UniqueIdentifier>{0732841e-7d56-46cf-8b05-e900de9172fc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="sources\Renderer\WorldBuilder">
-      <UniqueIdentifier>{f1284fc5-9008-425d-a82d-ab7cdc743523}</UniqueIdentifier>
-    </Filter>
     <Filter Include="sources\utils">
       <UniqueIdentifier>{e81ba1a2-0d1e-4666-acdd-d90eeca50edb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="sources\Renderer\Background">
-      <UniqueIdentifier>{66ba7364-9a8c-46cf-96a9-9faf704cc7eb}</UniqueIdentifier>
     </Filter>
     <Filter Include="stb_image">
       <UniqueIdentifier>{19ce02f0-2336-4fc7-839b-644a6d0a92f0}</UniqueIdentifier>
@@ -78,6 +72,12 @@
     </Filter>
     <Filter Include="sources\BasicColor">
       <UniqueIdentifier>{a50b5c58-ee99-4330-acc7-52a494558821}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Background">
+      <UniqueIdentifier>{66ba7364-9a8c-46cf-96a9-9faf704cc7eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\WorldBuilder">
+      <UniqueIdentifier>{f1284fc5-9008-425d-a82d-ab7cdc743523}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -160,28 +160,28 @@
       <Filter>sources\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="WorldBuilder.cpp">
-      <Filter>sources\Renderer\WorldBuilder</Filter>
+      <Filter>sources\WorldBuilder</Filter>
     </ClCompile>
     <ClCompile Include="BasicWorldBuilder.cpp">
-      <Filter>sources\Renderer\WorldBuilder</Filter>
+      <Filter>sources\WorldBuilder</Filter>
     </ClCompile>
     <ClCompile Include="draw.cpp">
       <Filter>sources\utils</Filter>
     </ClCompile>
     <ClCompile Include="Background.cpp">
-      <Filter>sources\Renderer\Background</Filter>
+      <Filter>sources\Background</Filter>
     </ClCompile>
     <ClCompile Include="InitBackground.cpp">
-      <Filter>sources\Renderer\Background</Filter>
+      <Filter>sources\Background</Filter>
     </ClCompile>
     <ClCompile Include="FloatingBackground.cpp">
-      <Filter>sources\Renderer\Background</Filter>
+      <Filter>sources\Background</Filter>
     </ClCompile>
     <ClCompile Include="ImageTexture.cpp">
       <Filter>sources\Texture</Filter>
     </ClCompile>
     <ClCompile Include="ConstBackground.cpp">
-      <Filter>sources\Renderer\Background</Filter>
+      <Filter>sources\Background</Filter>
     </ClCompile>
     <ClCompile Include="Transform.cpp">
       <Filter>sources\Object\Transform</Filter>
@@ -197,6 +197,9 @@
     </ClCompile>
     <ClCompile Include="xyz3.cpp">
       <Filter>sources\BasicColor</Filter>
+    </ClCompile>
+    <ClCompile Include="CuboidWorldBuilder.cpp">
+      <Filter>sources\WorldBuilder</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -276,28 +279,28 @@
       <Filter>sources\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="WorldBuilder.h">
-      <Filter>sources\Renderer\WorldBuilder</Filter>
+      <Filter>sources\WorldBuilder</Filter>
     </ClInclude>
     <ClInclude Include="BasicWorldBuilder.h">
-      <Filter>sources\Renderer\WorldBuilder</Filter>
+      <Filter>sources\WorldBuilder</Filter>
     </ClInclude>
     <ClInclude Include="draw.h">
       <Filter>sources\utils</Filter>
     </ClInclude>
     <ClInclude Include="Background.h">
-      <Filter>sources\Renderer\Background</Filter>
+      <Filter>sources\Background</Filter>
     </ClInclude>
     <ClInclude Include="InitBackground.h">
-      <Filter>sources\Renderer\Background</Filter>
+      <Filter>sources\Background</Filter>
     </ClInclude>
     <ClInclude Include="FloatingBackground.h">
-      <Filter>sources\Renderer\Background</Filter>
+      <Filter>sources\Background</Filter>
     </ClInclude>
     <ClInclude Include="ImageTexture.h">
       <Filter>sources\Texture</Filter>
     </ClInclude>
     <ClInclude Include="ConstBackground.h">
-      <Filter>sources\Renderer\Background</Filter>
+      <Filter>sources\Background</Filter>
     </ClInclude>
     <ClInclude Include="stb_image.h">
       <Filter>stb_image</Filter>
@@ -325,6 +328,9 @@
     </ClInclude>
     <ClInclude Include="xyz3.h">
       <Filter>sources\BasicColor</Filter>
+    </ClInclude>
+    <ClInclude Include="CuboidWorldBuilder.h">
+      <Filter>sources\WorldBuilder</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

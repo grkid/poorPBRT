@@ -4,7 +4,7 @@ Surface::Surface()
 {
 }
 
-Surface::Surface(const point3& _p0, const point3& _p1, const point3& _p2, const point3& _p3, const vec3& _n, std::shared_ptr<Material> mp)
+Surface::Surface(const point3& _p0, const point3& _p1, const point3& _p2, const point3& _p3, const std::optional<vec3> _n, std::shared_ptr<Material> mp)
 	:m0(_p0,_p1,_p2,_n,mp),
 	m1(_p2,_p3,_p0,_n,mp)
 {

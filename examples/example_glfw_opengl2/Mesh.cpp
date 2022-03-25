@@ -1,15 +1,25 @@
 #include "Mesh.h"
-
+#include "Lambertian.h"
 Mesh::Mesh()
 {
 }
 
-Mesh::Mesh(const point3& _p0, const point3& _p1, const point3& _p2, const vec3& normal,std::shared_ptr<Material> mp)
+Mesh::Mesh(const point3& _p0, const point3& _p1, const point3& _p2, const std::optional<vec3> normal,std::shared_ptr<Material> mp)
 {
+	// 默认逆时针
 	p0 = _p0;
 	p1 = _p1;
 	p2 = _p2;
-	n = normal;
+	/*n = normal;*/
+	if (normal.has_value())
+		n = normal.value();
+	else {
+		// std::optional做不到最优传参开销
+		vec3 v0 = p1 - p0;
+		vec3 v1 = p2 - p1;
+		vec3 _v = cross(v0, v1);
+		n = _v / _v.length();
+	}
 	matPtr = mp;
 }
 

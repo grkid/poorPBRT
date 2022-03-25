@@ -7,10 +7,10 @@ Camera::Camera(point3 lookfrom, vec3 lookat, vec3 vup, double vfov, double aspec
     double half_height = tan(theta / 2);
     double half_width = aspect * half_height;
     origin = lookfrom;
-    w = unit_vector(lookfrom - lookat);
-    u = unit_vector(cross(vup, w));
-    v = cross(w, u);
-    lower_left_corner = origin - half_width * focus_dist * u - half_height * focus_dist * v - focus_dist * w;
+    w = unit_vector(lookat-lookfrom);
+    u = unit_vector(cross(w, vup));
+    v = cross(u, w);
+    lower_left_corner = origin - half_width * focus_dist * u - half_height * focus_dist * v + focus_dist * w;
     horizontal = 2 * half_width * focus_dist * u;
     vertical = 2 * half_height * focus_dist * v;
     time0 = t0;

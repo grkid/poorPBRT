@@ -1,13 +1,13 @@
 #include "draw.h"
 int util::numThread = 12;
-int util::nx = 320*2;
-int util::ny = 240*2;
-int util::samplesPerPixel = 16;
+int util::nx = 320;
+int util::ny = 240;
+int util::samplesPerPixel = 8;
 int util::maxDepth = 32;
 
 int util::gFov = 20;
-point3 util::lookfrom(10 / 4, 8 / 4, 20 / 4);
-vec3 util::lookat(0, 0, 0);
+point3 util::lookfrom(-3.0*2, 3.0*2,2.0*2);
+vec3 util::lookat(0, 0, 0.0);
 double util::dist_to_focus = 10.0;
 double util::aperture = 0.001;
 

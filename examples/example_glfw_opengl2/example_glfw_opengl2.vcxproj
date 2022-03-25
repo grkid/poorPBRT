@@ -32,6 +32,7 @@
     <ClCompile Include="BasicWorldBuilder.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ConstBackground.cpp" />
+    <ClCompile Include="CuboidWorldBuilder.cpp" />
     <ClCompile Include="FloatingBackground.cpp" />
     <ClCompile Include="ConstTexture.cpp" />
     <ClCompile Include="Cuboid.cpp" />
@@ -72,6 +73,7 @@
     <ClInclude Include="BasicWorldBuilder.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ConstBackground.h" />
+    <ClInclude Include="CuboidWorldBuilder.h" />
     <ClInclude Include="FloatingBackground.h" />
     <ClInclude Include="ConstTexture.h" />
     <ClInclude Include="Cuboid.h" />

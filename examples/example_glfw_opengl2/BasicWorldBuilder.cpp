@@ -4,20 +4,17 @@ void BasicWorldBuilder::build(HittableList& world) const
 {
 
     world.add(std::make_shared<Sphere>(
-        point3(0, -1000, 0), 1000, std::make_shared<Lambertian>(rgb3(0.5, 0.5, 0.5))));
+        point3(0, 0, -1000), 1000, std::make_shared<Lambertian>(rgb3(0.5, 0.5, 0.5))));
 
     int i = 1;
     for (int a = -10; a < 10; a++) {
         for (int b = -10; b < 10; b++) {
             auto choose_mat = random_double();
-            point3 center(a + 0.9 * random_double(), 0.2, b + 0.9 * random_double());
-            if ((center - vec3(4, .2, 0)).length() > 0.9) {
+            point3 center(a + 0.9 * random_double(), b + 0.9 * random_double(), 0.2);
+            if ((center - vec3(4, 0, .2)).length() > 0.9) {
                 if (choose_mat < 0.8) {
                     // diffuse
                     auto albedo = vec3::random() * vec3::random();
-                    /*world.add(std::make_shared<MovingSphere>(
-                        center, center + vec3(0, random_double(0, .5), 0), 0.2,
-                        std::make_shared<Lambertian>(albedo),0.0, 1.0));*/
                     world.add(std::make_shared<Sphere>(
                         center, 0.2,
                         std::make_shared<Lambertian>(rgb3::fromVec3(albedo))));
@@ -28,24 +25,18 @@ void BasicWorldBuilder::build(HittableList& world) const
                     auto fuzz = random_double(0, .5);
                     world.add(
                         std::make_shared<Sphere>(center, 0.2, std::make_shared<Metal>(rgb3::fromVec3(albedo), fuzz)));
-                    /*world.add(std::make_shared<MovingSphere>(
-                        center, center + vec3(0, random_double(0, .5), 0), 0.0, 1.0, 0.2,
-                        std::make_shared<Metal>(albedo, fuzz)));*/
                 }
                 else {
                     // glass
                     world.add(std::make_shared<Sphere>(center, 0.2, std::make_shared<Dielectric>(1.5)));
-                    /*world.add(std::make_shared<MovingSphere>(
-                        center, center + vec3(0, random_double(0, .5), 0), 0.0, 1.0, 0.2,
-                        std::make_shared<Dielectric>(1.5)));*/
                 }
             }
         }
     }
 
-    world.add(std::make_shared<Sphere>(point3(0, 1, 0), 1.0, std::make_shared<Dielectric>(1.5)));
+    world.add(std::make_shared<Sphere>(point3(0, -1, 1), 1.0, std::make_shared<Metal>(rgb3(0.8, 0.8, 0.8), 0.0)));
     world.add(std::make_shared<Sphere>(
-        point3(-4, 1, 0), 1.0, std::make_shared<Lambertian>(rgb3(0.4, 0.2, 0.1))));
+        point3(-4, 0, 1), 1.0, std::make_shared<Lambertian>(rgb3(0.4, 0.2, 0.1))));
     world.add(std::make_shared<Sphere>(
-        point3(4, 1, 0), 1.0, std::make_shared<Metal>(rgb3(0.7, 0.6, 0.5), 0.0)));
+        point3(4, 0, 1), 1.0, std::make_shared<Metal>(rgb3(0.7, 0.6, 0.5), 0.0)));
 }
