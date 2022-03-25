@@ -169,6 +169,17 @@ public:
 		}
 		return retVal;
 	}
+
+	double sum() const{
+		double retVal = 0.0;
+		for (int i = 0; i < spectrumSamples; i++)
+			retVal += coefficients[i];
+		return retVal;
+	}
+
+	double average() const{
+		return sum() / spectrumSamples;
+	}
 };
 
 template<int spectrumSamples>

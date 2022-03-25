@@ -19,12 +19,13 @@ double averageSpectrumSamples(std::vector<SpectrumSample> samples, double lambda
         return utilLerp((w - samples[i].lambda) / (samples[i + 1].lambda - samples[i].lambda), samples[i].value, samples[i + 1].value);
     };
     int i = 0;
-    while (lambdaBegin > samples[i].lambda) i++;
+    while (lambdaBegin > samples[i+1].lambda) i++;
     for (; i + 1 < len && lambdaEnd >= samples[i].lambda; i++) {
         double segLambdaBegin = std::max(lambdaBegin, samples[i].lambda);
         double segLambdaEnd = std::min(lambdaEnd, samples[i + 1].lambda);
         // 梯形面积：（上底+下底）*高/2
-        sum += 0.5 * (interp(segLambdaBegin, i) + interp(segLambdaEnd, i)) * (segLambdaEnd - segLambdaBegin);
+        sum += 0.5 * (interp(segLambdaBegin, i) + interp(segLambdaEnd, i)) * 
+            (segLambdaEnd - segLambdaBegin);
     }
     return sum/(lambdaEnd-lambdaBegin);
 }

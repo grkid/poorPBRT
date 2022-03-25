@@ -7,7 +7,7 @@ class xyz3;
 
 // 作用域限制在此文件中
 static const double sampledLambdaStart = 400.0;
-static const double sampledLambdaEnd = 750.0;
+static const double sampledLambdaEnd = 700.0;
 static const int spectrumSamples = 60;
 // POSSIBLE：与Spectrum模板参数重名，注意include
 

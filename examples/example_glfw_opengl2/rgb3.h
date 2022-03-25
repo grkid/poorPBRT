@@ -8,7 +8,7 @@ class rgb3 :public vec3
 public:
     rgb3() {}
 	rgb3(double e0, double e1, double e2) :vec3(e0,e1,e2){ }
-
+    rgb3(vec3 v) :vec3(v) {};
     /*inline rgb3& operator+=(const rgb3& v2);
     inline rgb3& operator-=(const rgb3& v2);
     inline rgb3& operator*=(const rgb3& v2);

@@ -64,7 +64,7 @@ SampledSpectrum SampledSpectrum::fromSampled(std::vector<SpectrumSample> samples
 {
     if(!std::is_sorted(samples.begin(),samples.end()))
 	    std::sort(samples.begin(), samples.end());
-    SampledSpectrum r;
+    SampledSpectrum r(0.0);
     for (int i = 0; i < spectrumSamples; i++) {
         double lambda0 = utilLerp(double(i) / double(spectrumSamples), sampledLambdaStart, sampledLambdaEnd);
         double lambda1= utilLerp(double(i+1) / double(spectrumSamples), sampledLambdaStart, sampledLambdaEnd);
