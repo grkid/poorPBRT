@@ -49,9 +49,9 @@ Cuboid::Cuboid(const point3* vec, std::shared_ptr<Material> mp)
 // radius为正方体边长的一半
 Cuboid::Cuboid(const point3& centre, double radius, std::shared_ptr<Material> mp)
 	:pLDF(centre + point3(-radius, -radius, -radius)), pRDF(centre + point3(+radius, -radius, -radius)), 
-	pRUF(centre + point3(+radius, +radius, -radius)), pLUF(centre + point3(-radius, +radius, -radius)),
-	pLUB(centre + point3(-radius, +radius, +radius)), pLDB(centre + point3(-radius, -radius, +radius)),
-	pRDB(centre + point3(+radius, -radius, +radius)), pRUB(centre + point3(+radius, +radius, +radius)),
+	pRUF(centre + point3(+radius, -radius, +radius)), pLUF(centre + point3(-radius, -radius, +radius)),
+	pLUB(centre + point3(-radius, +radius, +radius)), pLDB(centre + point3(-radius, +radius, -radius)),
+	pRDB(centre + point3(+radius, +radius, -radius)), pRUB(centre + point3(+radius, +radius, +radius)),
 	L(pLDF, pLUF, pLUB, pLDB, std::nullopt, mp),
 	R(pRDF, pRDB, pRUB, pRUF, std::nullopt, mp),
 	U(pLUF, pRUF, pRUB, pLUB, std::nullopt, mp),
@@ -67,14 +67,15 @@ bool Cuboid::hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const
 	// 会出现多个同时被打到的情况
 	HitRecord stand;	// “替身”
 	std::vector<HitRecord> vec;	// 复制
-	/*if (L.hit(r, t_min, t_max, stand))
+
+	if (L.hit(r, t_min, t_max, stand))
 		vec.push_back(stand);
 	if (R.hit(r, t_min, t_max, stand))
-		vec.push_back(stand);*/
-	/*if (U.hit(r, t_min, t_max, stand))
+		vec.push_back(stand);
+	if (U.hit(r, t_min, t_max, stand))
 		vec.push_back(stand);
 	if (D.hit(r, t_min, t_max, stand))
-		vec.push_back(stand);*/
+		vec.push_back(stand);
 	if (F.hit(r, t_min, t_max, stand))
 		vec.push_back(stand);
 	if (B.hit(r, t_min, t_max, stand))
@@ -84,19 +85,13 @@ bool Cuboid::hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const
 		return false;
 
 
+
 	double minRayT = DBL_MAX;
-	HitRecord* selectedHitRecord;
 	for (auto item : vec) {
 		if (item.t < minRayT) {
 			minRayT = item.t;
-			selectedHitRecord = &item;
+			rec = item;
 		}
 	}
-	if (!selectedHitRecord) {
-		std::cout << "cuboid illegal" << std::endl;
-		return false;
-	}
-
-	rec = *selectedHitRecord;
 	return true;
 }

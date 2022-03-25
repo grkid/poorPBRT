@@ -34,7 +34,7 @@ void BasicWorldBuilder::build(HittableList& world) const
         }
     }
 
-    world.add(std::make_shared<Sphere>(point3(0, -1, 1), 1.0, std::make_shared<Metal>(rgb3(0.8, 0.8, 0.8), 0.0)));
+    world.add(std::make_shared<Sphere>(point3(0, 1, 1), 1.0, std::make_shared<Metal>(rgb3(0.8, 0.8, 0.8), 0.0)));
     world.add(std::make_shared<Sphere>(
         point3(-4, 0, 1), 1.0, std::make_shared<Lambertian>(rgb3(0.4, 0.2, 0.1))));
     world.add(std::make_shared<Sphere>(

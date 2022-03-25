@@ -79,7 +79,7 @@ void entrance()
 {   
     auto cam=std::make_shared<Camera>(util::lookfrom, util::lookat, vec3(0, 0, 1), 20, double(util::nx) / double(util::ny), util::aperture, util::dist_to_focus, 0.0, 0.0);
     Renderer r(util::nx, util::ny, util::samplesPerPixel, util::maxDepth, util::numThread, cam,std::make_shared<ConstBackground>(rgb3(1.5,1.5,1.5)));
-    r.rebuildWorld(BasicWorldBuilder());
+    r.rebuildWorld(CuboidWorldBuilder());
     r.render();
 }
 

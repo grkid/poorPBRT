@@ -61,6 +61,9 @@ bool Mesh::hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const
 	if (t < t_min || t>t_max)
 		return false;
 
+	if (isnan(t))
+		return false;
+
 	rec.t = t;
 	rec.mat_ptr = matPtr;
 	rec.p = r.point_at_parameter(rec.t);

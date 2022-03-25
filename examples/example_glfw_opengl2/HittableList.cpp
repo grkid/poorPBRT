@@ -24,7 +24,7 @@ bool HittableList::hit(const Ray& r, double t_min, double t_max, HitRecord& rec)
         {
             hit_anything = true;
             closest_so_far = temp_rec.t;
-            rec = temp_rec; //只记录打到的最近的球
+            rec = temp_rec; //只记录打到的最近的物体
         }
     }
     return hit_anything;
