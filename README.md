@@ -37,13 +37,13 @@
 5. 点、向量和颜色的分离。
 
 计划完成：
-1. principled BSDF；
-2. Spectrum替代rgb3；
+1. principled BRDF；
+2. Spectrum替代rgb3；done
 3. CUDA加速；
 4. 法线贴图；
 5. BVH加速结构；
 6. 全景相机；
 7. 某个BSSRDF；
-8. 某个BRDF；
+8. 某个BSDF；
 9. EXR全景图作为背景光源；
 10. json场景定义。
