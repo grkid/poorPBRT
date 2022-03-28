@@ -2,6 +2,7 @@
 #include <cmath>
 #include <cfloat>
 #include "SpectrumUtil.h"
+#include "MathUtil.h"
 
 template <int spectrumSamples> class Spectrum
 {

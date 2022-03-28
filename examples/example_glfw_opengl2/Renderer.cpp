@@ -1,5 +1,6 @@
 #include "Renderer.h"
 #include "SpectrumUtil.h"
+#include "MathUtil.h"
 
 void Renderer::printError(std::string str)
 {
@@ -114,7 +115,7 @@ SampledSpectrum Renderer::sampleOnce(const Ray& r, int depth)
         else
         {
             SampledSpectrum emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);
-            if (!rec.mat_ptr->scatter(r, rec, attenuation, scattered)) {
+            if (!rec.mat_ptr->scatter(r, rec,util::lookfrom, attenuation, scattered)) {
                 return emitted;
             }
             else{

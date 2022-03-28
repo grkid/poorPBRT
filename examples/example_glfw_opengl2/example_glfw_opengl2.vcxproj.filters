@@ -79,6 +79,9 @@
     <Filter Include="sources\WorldBuilder">
       <UniqueIdentifier>{f1284fc5-9008-425d-a82d-ab7cdc743523}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sources\MathUtil">
+      <UniqueIdentifier>{dad1bd29-4d58-4e01-aa1b-e8bd93cf4fe7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\imgui.cpp">
@@ -117,12 +120,6 @@
     <ClCompile Include="Camera.cpp">
       <Filter>sources\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Lambertian.cpp">
-      <Filter>sources\BxDF\BSDF</Filter>
-    </ClCompile>
-    <ClCompile Include="Metal.cpp">
-      <Filter>sources\BxDF\BSDF</Filter>
-    </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>sources\Texture</Filter>
     </ClCompile>
@@ -152,9 +149,6 @@
     </ClCompile>
     <ClCompile Include="Material.cpp">
       <Filter>sources\BxDF</Filter>
-    </ClCompile>
-    <ClCompile Include="Dielectric.cpp">
-      <Filter>sources\BxDF\BRDF</Filter>
     </ClCompile>
     <ClCompile Include="Renderer.cpp">
       <Filter>sources\Renderer</Filter>
@@ -201,6 +195,21 @@
     <ClCompile Include="CuboidWorldBuilder.cpp">
       <Filter>sources\WorldBuilder</Filter>
     </ClCompile>
+    <ClCompile Include="Lambertian.cpp">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClCompile>
+    <ClCompile Include="Metal.cpp">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClCompile>
+    <ClCompile Include="Principled.cpp">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClCompile>
+    <ClCompile Include="Dielectric.cpp">
+      <Filter>sources\BxDF\BSDF</Filter>
+    </ClCompile>
+    <ClCompile Include="MathUtil.cpp">
+      <Filter>sources\MathUtil</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\imconfig.h">
@@ -232,12 +241,6 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>sources\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Lambertian.h">
-      <Filter>sources\BxDF\BSDF</Filter>
-    </ClInclude>
-    <ClInclude Include="Metal.h">
-      <Filter>sources\BxDF\BSDF</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>sources\Texture</Filter>
@@ -271,9 +274,6 @@
     </ClInclude>
     <ClInclude Include="Material.h">
       <Filter>sources\BxDF</Filter>
-    </ClInclude>
-    <ClInclude Include="Dielectric.h">
-      <Filter>sources\BxDF\BRDF</Filter>
     </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>sources\Renderer</Filter>
@@ -331,6 +331,21 @@
     </ClInclude>
     <ClInclude Include="CuboidWorldBuilder.h">
       <Filter>sources\WorldBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="Lambertian.h">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Metal.h">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Principled.h">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Dielectric.h">
+      <Filter>sources\BxDF\BSDF</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtil.h">
+      <Filter>sources\MathUtil</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

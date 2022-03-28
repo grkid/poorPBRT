@@ -1,6 +1,7 @@
 #include "SampledSpectrum.h"
 #include "xyz3.h"
 #include "SpectrumUtil.h"
+#include "MathUtil.h"
 #include "vec3util.h"
 
 // 类内static私有变量初始化。大坑

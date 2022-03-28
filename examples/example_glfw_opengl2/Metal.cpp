@@ -11,7 +11,7 @@ Metal::Metal(const rgb3& v, double f)
     fuzz = f;
 }
 
-bool Metal::scatter(const Ray& r_in, const HitRecord& rec, SampledSpectrum& attenuation, Ray& scattered) const
+bool Metal::scatter(const Ray& r_in, const HitRecord& rec, const point3& viewPoint, SampledSpectrum& attenuation, Ray& scattered) const
 {
     vec3 v = unit_vector(r_in.direction());
     vec3 n = rec.normal;

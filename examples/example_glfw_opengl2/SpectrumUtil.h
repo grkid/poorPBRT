@@ -43,8 +43,4 @@ struct SpectrumSample
 
 double averageSpectrumSamples(std::vector<SpectrumSample> samples, double lambdaBegin, double lambdaEnd);
 
-double utilLerp(double t, double s0, double s1);
-
-double utilClamp(double source, double low = 0.0, double high = DBL_MAX);
-
 std::vector<SpectrumSample> constructSpectrumSamples(const double* lambda, const double* value, const int n);

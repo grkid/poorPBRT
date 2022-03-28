@@ -5,7 +5,7 @@ Light::Light(std::shared_ptr<Texture> bc)
 	baseColor = bc;
 }
 
-bool Light::scatter(const Ray& r_in, const HitRecord& rec, vec3& attenuation, Ray& scattered) const
+bool Light::scatter(const Ray& r_in, const HitRecord& rec, const point3& viewPoint, SampledSpectrum& attenuation, Ray& scattered) const
 {
 	return false;
 }

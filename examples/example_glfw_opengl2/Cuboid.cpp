@@ -68,30 +68,46 @@ bool Cuboid::hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const
 	HitRecord stand;	// “替身”
 	std::vector<HitRecord> vec;	// 复制
 
-	if (L.hit(r, t_min, t_max, stand))
+	// 一条射线最多与两个面相交
+
+	int hitCount = 0;
+
+	if (hitCount<2 && L.hit(r, t_min, t_max, stand)) {
 		vec.push_back(stand);
-	if (R.hit(r, t_min, t_max, stand))
+		hitCount++;
+	}
+	if (hitCount < 2 && R.hit(r, t_min, t_max, stand)) {
 		vec.push_back(stand);
-	if (U.hit(r, t_min, t_max, stand))
+		hitCount++;
+	}
+	if (hitCount < 2 && U.hit(r, t_min, t_max, stand)) {
 		vec.push_back(stand);
-	if (D.hit(r, t_min, t_max, stand))
+		hitCount++;
+	}
+	if (hitCount < 2 && D.hit(r, t_min, t_max, stand)) {
 		vec.push_back(stand);
-	if (F.hit(r, t_min, t_max, stand))
+		hitCount++;
+	}
+	if (hitCount < 2 && F.hit(r, t_min, t_max, stand)) {
 		vec.push_back(stand);
-	if (B.hit(r, t_min, t_max, stand))
+		hitCount++;
+	}
+	if (hitCount < 2 && B.hit(r, t_min, t_max, stand)) {
 		vec.push_back(stand);
+		hitCount++;
+	}
 
 	if (vec.empty())
 		return false;
 
-
-
+	HitRecord* temp = &vec[0];
 	double minRayT = DBL_MAX;
-	for (auto item : vec) {
+	for (auto& item : vec) {
 		if (item.t < minRayT) {
 			minRayT = item.t;
-			rec = item;
+			temp = &item;
 		}
 	}
+	rec = *temp;
 	return true;
 }

@@ -40,7 +40,6 @@ bool Mesh::hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const
 		T = p0 - r.origin();
 		det = -det;
 	}
-
 	if (det < 0.0)
 		return false;
 

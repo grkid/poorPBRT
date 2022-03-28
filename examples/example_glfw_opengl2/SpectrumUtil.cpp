@@ -1,4 +1,5 @@
 #include "SpectrumUtil.h"
+#include "MathUtil.h"
 
 double averageSpectrumSamples(std::vector<SpectrumSample> samples, double lambdaBegin, double lambdaEnd)
 {
@@ -28,22 +29,6 @@ double averageSpectrumSamples(std::vector<SpectrumSample> samples, double lambda
             (segLambdaEnd - segLambdaBegin);
     }
     return sum/(lambdaEnd-lambdaBegin);
-}
-
-double utilLerp(double t, double s0, double s1)
-{
-	return (1.0 - t) * s0 + t*s1;
-}
-
-double utilClamp(double source, double low, double high)
-{
-	if (source < low) {
-		return low;
-	}
-	else if (source > high) {
-		return high;
-	}
-	return source;
 }
 
 std::vector<SpectrumSample> constructSpectrumSamples(const double* lambda, const double* value, const int n)
