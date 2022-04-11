@@ -1,2 +1,1 @@
-F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\Debug\example_glfw_opengl2.exe
-F:\ray-tracing-with-imgui\examples\src\Debug\poorPBRT.exe
+J:\poorPBRT\examples\src\Debug\poorPBRT.exe

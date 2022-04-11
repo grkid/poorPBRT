@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>F:\ray-tracing-with-imgui\examples\src\Debug\poorPBRT.exe</FullPath>
+      <FullPath>J:\poorPBRT\examples\src\Debug\poorPBRT.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
