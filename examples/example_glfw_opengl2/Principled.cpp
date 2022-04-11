@@ -221,5 +221,5 @@ double Principled::getClearCoatGloss()
 
 bool Principled::scatter(const Ray& r_in, const HitRecord& rec, const point3& viewPoint, SampledSpectrum& attenuation, Ray& scattered) const
 {
-	
+	return false;
 }
