@@ -1,0 +1,73 @@
+﻿  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_widgets.cpp
+  imgui_impl_glfw.cpp
+  imgui_impl_opengl2.cpp
+  Background.cpp
+  BasicWorldBuilder.cpp
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\BasicWorldBuilder.cpp(9,9): warning C4189: 'i': local variable is initialized but not referenced
+  Camera.cpp
+  ConstBackground.cpp
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\ConstBackground.cpp(8,41): warning C4100: 'ray': unreferenced formal parameter
+  FloatingBackground.cpp
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\FloatingBackground.cpp(13,44): warning C4100: 'ray': unreferenced formal parameter
+  ConstTexture.cpp
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\ConstTexture.cpp(10,61): warning C4100: 'position': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\ConstTexture.cpp(10,44): warning C4100: 'v': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\ConstTexture.cpp(10,34): warning C4100: 'u': unreferenced formal parameter
+  Cuboid.cpp
+  Dielectric.cpp
+  draw.cpp
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\draw.cpp(60,33): warning C4458: declaration of 'nx' hides class member
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\draw.h(19,16): message : see declaration of 'util::nx'
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\draw.cpp(60,41): warning C4458: declaration of 'ny' hides class member
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\draw.h(20,16): message : see declaration of 'util::ny'
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\draw.cpp(60,89): warning C4458: declaration of 'progressDone' hides class member
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\draw.h(35,19): message : see declaration of 'util::progressDone'
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\draw.cpp(60,49): warning C4100: 'ns': unreferenced formal parameter
+  HitRecord.cpp
+  Hittable.cpp
+  HittableList.cpp
+  ImageTexture.cpp
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\ImageTexture.cpp(10,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\ImageTexture.cpp(11,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\ImageTexture.cpp(43,61): warning C4100: 'position': unreferenced formal parameter
+  InitBackground.cpp
+  Compiling...
+  Lambertian.cpp
+  Light.cpp
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\Light.cpp(8,84): warning C4100: 'scattered': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\Light.cpp(8,66): warning C4100: 'attenuation': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\Light.cpp(8,55): warning C4100: 'rec': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\Light.cpp(8,32): warning C4100: 'r_in': unreferenced formal parameter
+  main.cpp
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\main.cpp(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\main.cpp(63,67): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\main.cpp(63,50): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\main.cpp(63,33): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\main.cpp(64,52): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\main.cpp(64,26): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\main.cpp(194,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Material.cpp
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\Material.cpp(4,58): warning C4100: 'p': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\Material.cpp(4,41): warning C4100: 'v': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\Material.cpp(4,31): warning C4100: 'u': unreferenced formal parameter
+  Mesh.cpp
+F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\Mesh.cpp(24,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Metal.cpp
+  Moving.cpp
+  MovingSphere.cpp
+  Ray.cpp
+  Renderer.cpp
+  SampledSpectrum.cpp
+  Sphere.cpp
+  Surface.cpp
+  Texture.cpp
+  Transform.cpp
+  WorldBuilder.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 2442 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  example_glfw_opengl2.vcxproj -> F:\ray-tracing-with-imgui\examples\example_glfw_opengl2\Release\example_glfw_opengl2.exe

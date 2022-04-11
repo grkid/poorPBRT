@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{a894b93f-f23d-4cda-a200-b2b8d4a22cd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources">
+      <UniqueIdentifier>{2e3b09e7-97dc-4cca-aca6-520f71d4e183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Ray">
+      <UniqueIdentifier>{9b5f71cf-dc49-48d8-ade4-76533ce189c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\HitRecord">
+      <UniqueIdentifier>{3795b951-6851-4f53-abe8-83d9c4227767}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Camera">
+      <UniqueIdentifier>{86361046-0c45-4ba7-8575-407cd827fc4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\BxDF">
+      <UniqueIdentifier>{4326bd99-c714-47e6-b4d4-124e97098cb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\BxDF\BSDF">
+      <UniqueIdentifier>{4f0cfc4c-a93f-4444-9f5a-edd4801b5ff0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui\imguiImpl">
+      <UniqueIdentifier>{d36478ad-ac62-4de3-b31b-dab001bf5aa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Object">
+      <UniqueIdentifier>{2ab18463-2380-4f56-8e8d-c568ac314de0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Light">
+      <UniqueIdentifier>{74929196-f1bc-4794-b2e8-4c3beccd36ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Texture">
+      <UniqueIdentifier>{c8a27200-0840-4a2c-876a-8751e80a061b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Object\SimpleObject">
+      <UniqueIdentifier>{7e06d103-018f-4d55-a985-a0095f3f9fa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Object\Moving">
+      <UniqueIdentifier>{f10caa65-dfae-4cf4-a787-0dee0f327163}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\BxDF\BRDF">
+      <UniqueIdentifier>{d24358d3-2e87-4e09-9990-c885c4a5f3e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\BxDF\BSSRDF">
+      <UniqueIdentifier>{61c972e5-3011-429e-8257-848110dce199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Renderer">
+      <UniqueIdentifier>{0732841e-7d56-46cf-8b05-e900de9172fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\utils">
+      <UniqueIdentifier>{e81ba1a2-0d1e-4666-acdd-d90eeca50edb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="stb_image">
+      <UniqueIdentifier>{19ce02f0-2336-4fc7-839b-644a6d0a92f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Object\Transform">
+      <UniqueIdentifier>{57e21872-b923-4ac1-a7ac-dc0c597cbf4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Spectrum">
+      <UniqueIdentifier>{1b939705-0fc0-4095-ac99-6bf33c757e88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Geometry3">
+      <UniqueIdentifier>{cf14c84d-fbf6-47d9-adeb-670a7f9fb8bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\BasicColor">
+      <UniqueIdentifier>{a50b5c58-ee99-4330-acc7-52a494558821}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Background">
+      <UniqueIdentifier>{66ba7364-9a8c-46cf-96a9-9faf704cc7eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\WorldBuilder">
+      <UniqueIdentifier>{f1284fc5-9008-425d-a82d-ab7cdc743523}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\MathUtil">
+      <UniqueIdentifier>{dad1bd29-4d58-4e01-aa1b-e8bd93cf4fe7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Hittable.cpp">
+      <Filter>sources\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="HittableList.cpp">
+      <Filter>sources\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Ray.cpp">
+      <Filter>sources\Ray</Filter>
+    </ClCompile>
+    <ClCompile Include="HitRecord.cpp">
+      <Filter>sources\HitRecord</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>sources\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>sources\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstTexture.cpp">
+      <Filter>sources\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>sources\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>sources\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Surface.cpp">
+      <Filter>sources\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>sources\Object\SimpleObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Moving.cpp">
+      <Filter>sources\Object\Moving</Filter>
+    </ClCompile>
+    <ClCompile Include="MovingSphere.cpp">
+      <Filter>sources\Object\Moving</Filter>
+    </ClCompile>
+    <ClCompile Include="Cuboid.cpp">
+      <Filter>sources\Object\SimpleObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>sources\BxDF</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldBuilder.cpp">
+      <Filter>sources\WorldBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicWorldBuilder.cpp">
+      <Filter>sources\WorldBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="draw.cpp">
+      <Filter>sources\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>sources\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="InitBackground.cpp">
+      <Filter>sources\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="FloatingBackground.cpp">
+      <Filter>sources\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageTexture.cpp">
+      <Filter>sources\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstBackground.cpp">
+      <Filter>sources\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>sources\Object\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="SampledSpectrum.cpp">
+      <Filter>sources\Spectrum</Filter>
+    </ClCompile>
+    <ClCompile Include="SpectrumUtil.cpp">
+      <Filter>sources\Spectrum</Filter>
+    </ClCompile>
+    <ClCompile Include="rgb3.cpp">
+      <Filter>sources\BasicColor</Filter>
+    </ClCompile>
+    <ClCompile Include="xyz3.cpp">
+      <Filter>sources\BasicColor</Filter>
+    </ClCompile>
+    <ClCompile Include="CuboidWorldBuilder.cpp">
+      <Filter>sources\WorldBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="Lambertian.cpp">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClCompile>
+    <ClCompile Include="Metal.cpp">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClCompile>
+    <ClCompile Include="Principled.cpp">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClCompile>
+    <ClCompile Include="Dielectric.cpp">
+      <Filter>sources\BxDF\BSDF</Filter>
+    </ClCompile>
+    <ClCompile Include="MathUtil.cpp">
+      <Filter>sources\MathUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\imgui\imguiImpl\imgui_impl_glfw.cpp">
+      <Filter>imgui\imguiImpl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\imgui\imguiImpl\imgui_impl_opengl2.cpp">
+      <Filter>imgui\imguiImpl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\imgui\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\imgui\imgui_demo.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\imgui\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\imgui\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Hittable.h">
+      <Filter>sources\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="HittableList.h">
+      <Filter>sources\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>sources\Ray</Filter>
+    </ClInclude>
+    <ClInclude Include="HitRecord.h">
+      <Filter>sources\HitRecord</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>sources\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>sources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstTexture.h">
+      <Filter>sources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>sources\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>sources\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Surface.h">
+      <Filter>sources\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>sources\Object\SimpleObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Moving.h">
+      <Filter>sources\Object\Moving</Filter>
+    </ClInclude>
+    <ClInclude Include="MovingSphere.h">
+      <Filter>sources\Object\Moving</Filter>
+    </ClInclude>
+    <ClInclude Include="vec3.h">
+      <Filter>sources\Geometry3</Filter>
+    </ClInclude>
+    <ClInclude Include="Cuboid.h">
+      <Filter>sources\Object\SimpleObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>sources\BxDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldBuilder.h">
+      <Filter>sources\WorldBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicWorldBuilder.h">
+      <Filter>sources\WorldBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="draw.h">
+      <Filter>sources\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>sources\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="InitBackground.h">
+      <Filter>sources\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="FloatingBackground.h">
+      <Filter>sources\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageTexture.h">
+      <Filter>sources\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstBackground.h">
+      <Filter>sources\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>stb_image</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>sources\Object\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="point3.h">
+      <Filter>sources\Geometry3</Filter>
+    </ClInclude>
+    <ClInclude Include="vec3util.h">
+      <Filter>sources\Geometry3</Filter>
+    </ClInclude>
+    <ClInclude Include="Spectrum.h">
+      <Filter>sources\Spectrum</Filter>
+    </ClInclude>
+    <ClInclude Include="SampledSpectrum.h">
+      <Filter>sources\Spectrum</Filter>
+    </ClInclude>
+    <ClInclude Include="SpectrumUtil.h">
+      <Filter>sources\Spectrum</Filter>
+    </ClInclude>
+    <ClInclude Include="rgb3.h">
+      <Filter>sources\BasicColor</Filter>
+    </ClInclude>
+    <ClInclude Include="xyz3.h">
+      <Filter>sources\BasicColor</Filter>
+    </ClInclude>
+    <ClInclude Include="CuboidWorldBuilder.h">
+      <Filter>sources\WorldBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="Lambertian.h">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Metal.h">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Principled.h">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Dielectric.h">
+      <Filter>sources\BxDF\BSDF</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtil.h">
+      <Filter>sources\MathUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imguiImpl\imgui_impl_glfw.h">
+      <Filter>imgui\imguiImpl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imguiImpl\imgui_impl_opengl2.h">
+      <Filter>imgui\imguiImpl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imstb_rectpack.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imstb_textedit.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imstb_truetype.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

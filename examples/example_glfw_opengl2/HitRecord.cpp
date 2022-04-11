@@ -1,3 +1,0 @@
-#include "HitRecord.h"
-
-// struct

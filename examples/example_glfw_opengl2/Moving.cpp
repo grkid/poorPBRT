@@ -1,3 +1,0 @@
-#include "Moving.h"
-
-/*virtual*/

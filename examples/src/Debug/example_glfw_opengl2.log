@@ -1,0 +1,89 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (F:\ray-tracing-with-imgui\examples\src\Debug\) contains files shared from another project (example_glfw_opengl2.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  imgui.cpp
+  imgui_impl_glfw.cpp
+  imgui_impl_opengl2.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_widgets.cpp
+  Background.cpp
+  BasicWorldBuilder.cpp
+F:\ray-tracing-with-imgui\examples\src\BasicWorldBuilder.cpp(9,9): warning C4189: 'i': local variable is initialized but not referenced
+  Camera.cpp
+  ConstBackground.cpp
+F:\ray-tracing-with-imgui\examples\src\ConstBackground.cpp(8,52): warning C4100: 'ray': unreferenced formal parameter
+  CuboidWorldBuilder.cpp
+  FloatingBackground.cpp
+F:\ray-tracing-with-imgui\examples\src\FloatingBackground.cpp(13,55): warning C4100: 'ray': unreferenced formal parameter
+  ConstTexture.cpp
+F:\ray-tracing-with-imgui\examples\src\ConstTexture.cpp(10,72): warning C4100: 'position': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\src\ConstTexture.cpp(10,55): warning C4100: 'v': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\src\ConstTexture.cpp(10,45): warning C4100: 'u': unreferenced formal parameter
+  Cuboid.cpp
+  Dielectric.cpp
+F:\ray-tracing-with-imgui\examples\src\Dielectric.cpp(4,79): warning C4100: 'viewPoint': unreferenced formal parameter
+  draw.cpp
+F:\ray-tracing-with-imgui\examples\src\draw.cpp(60,33): warning C4458: declaration of 'nx' hides class member
+F:\ray-tracing-with-imgui\examples\src\draw.h(19,16): message : see declaration of 'util::nx'
+F:\ray-tracing-with-imgui\examples\src\draw.cpp(60,41): warning C4458: declaration of 'ny' hides class member
+F:\ray-tracing-with-imgui\examples\src\draw.h(20,16): message : see declaration of 'util::ny'
+F:\ray-tracing-with-imgui\examples\src\draw.cpp(60,89): warning C4458: declaration of 'progressDone' hides class member
+F:\ray-tracing-with-imgui\examples\src\draw.h(35,19): message : see declaration of 'util::progressDone'
+F:\ray-tracing-with-imgui\examples\src\draw.cpp(60,49): warning C4100: 'ns': unreferenced formal parameter
+  HitRecord.cpp
+  Hittable.cpp
+  HittableList.cpp
+  ImageTexture.cpp
+F:\ray-tracing-with-imgui\examples\src\ImageTexture.cpp(11,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+F:\ray-tracing-with-imgui\examples\src\ImageTexture.cpp(12,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+F:\ray-tracing-with-imgui\examples\src\ImageTexture.cpp(44,72): warning C4100: 'position': unreferenced formal parameter
+  Generating Code...
+  Compiling...
+  InitBackground.cpp
+  Lambertian.cpp
+F:\ray-tracing-with-imgui\examples\src\Lambertian.cpp(10,79): warning C4100: 'viewPoint': unreferenced formal parameter
+  Light.cpp
+F:\ray-tracing-with-imgui\examples\src\Light.cpp(8,120): warning C4100: 'scattered': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\src\Light.cpp(8,102): warning C4100: 'attenuation': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\src\Light.cpp(8,74): warning C4100: 'viewPoint': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\src\Light.cpp(8,55): warning C4100: 'rec': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\src\Light.cpp(8,32): warning C4100: 'r_in': unreferenced formal parameter
+  main.cpp
+F:\ray-tracing-with-imgui\examples\src\main.cpp(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+F:\ray-tracing-with-imgui\examples\src\main.cpp(65,67): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+F:\ray-tracing-with-imgui\examples\src\main.cpp(65,50): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+F:\ray-tracing-with-imgui\examples\src\main.cpp(65,33): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+F:\ray-tracing-with-imgui\examples\src\main.cpp(66,52): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\ray-tracing-with-imgui\examples\src\main.cpp(66,26): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+F:\ray-tracing-with-imgui\examples\src\main.cpp(203,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Material.cpp
+F:\ray-tracing-with-imgui\examples\src\Material.cpp(4,69): warning C4100: 'p': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\src\Material.cpp(4,52): warning C4100: 'v': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\src\Material.cpp(4,42): warning C4100: 'u': unreferenced formal parameter
+  MathUtil.cpp
+  Mesh.cpp
+F:\ray-tracing-with-imgui\examples\src\Mesh.cpp(34,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Metal.cpp
+F:\ray-tracing-with-imgui\examples\src\Metal.cpp(14,74): warning C4100: 'viewPoint': unreferenced formal parameter
+  Moving.cpp
+  MovingSphere.cpp
+  Principled.cpp
+F:\ray-tracing-with-imgui\examples\src\Principled.cpp(222,125): warning C4100: 'scattered': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\src\Principled.cpp(222,107): warning C4100: 'attenuation': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\src\Principled.cpp(222,79): warning C4100: 'viewPoint': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\src\Principled.cpp(222,60): warning C4100: 'rec': unreferenced formal parameter
+F:\ray-tracing-with-imgui\examples\src\Principled.cpp(222,37): warning C4100: 'r_in': unreferenced formal parameter
+  Ray.cpp
+  Renderer.cpp
+  rgb3.cpp
+  SampledSpectrum.cpp
+  SpectrumUtil.cpp
+  Sphere.cpp
+  Surface.cpp
+  Texture.cpp
+  Transform.cpp
+  Generating Code...
+  Compiling...
+  WorldBuilder.cpp
+  xyz3.cpp
+  Generating Code...
+  example_glfw_opengl2.vcxproj -> F:\ray-tracing-with-imgui\examples\src\Debug\poorPBRT.exe
