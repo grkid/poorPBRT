@@ -2,9 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <None Include="..\README.txt" />
-    <None Include="..\..\misc\natvis\imgui.natvis">
-      <Filter>imgui</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="imgui">
@@ -84,26 +81,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\imgui.cpp">
-      <Filter>imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\imgui_demo.cpp">
-      <Filter>imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\imgui_draw.cpp">
-      <Filter>imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\imgui_widgets.cpp">
-      <Filter>imgui</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="..\imgui_impl_glfw.cpp">
-      <Filter>imgui\imguiImpl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\imgui_impl_opengl2.cpp">
-      <Filter>imgui\imguiImpl</Filter>
     </ClCompile>
     <ClCompile Include="Hittable.cpp">
       <Filter>sources\Object</Filter>
@@ -210,23 +189,26 @@
     <ClCompile Include="MathUtil.cpp">
       <Filter>sources\MathUtil</Filter>
     </ClCompile>
+    <ClCompile Include="..\ext\imgui\imguiImpl\imgui_impl_glfw.cpp">
+      <Filter>imgui\imguiImpl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\imgui\imguiImpl\imgui_impl_opengl2.cpp">
+      <Filter>imgui\imguiImpl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\imgui\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\imgui\imgui_demo.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\imgui\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ext\imgui\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\imconfig.h">
-      <Filter>imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\imgui.h">
-      <Filter>imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\imgui_internal.h">
-      <Filter>imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\imgui_impl_opengl2.h">
-      <Filter>imgui\imguiImpl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\imgui_impl_glfw.h">
-      <Filter>imgui\imguiImpl</Filter>
-    </ClInclude>
     <ClInclude Include="Hittable.h">
       <Filter>sources\Object</Filter>
     </ClInclude>
@@ -346,6 +328,30 @@
     </ClInclude>
     <ClInclude Include="MathUtil.h">
       <Filter>sources\MathUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imguiImpl\imgui_impl_glfw.h">
+      <Filter>imgui\imguiImpl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imguiImpl\imgui_impl_opengl2.h">
+      <Filter>imgui\imguiImpl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imstb_rectpack.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imstb_textedit.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ext\imgui\imstb_truetype.h">
+      <Filter>imgui</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

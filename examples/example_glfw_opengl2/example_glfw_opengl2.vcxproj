@@ -22,12 +22,12 @@
     <None Include="..\README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\imgui.cpp" />
-    <ClCompile Include="..\..\imgui_demo.cpp" />
-    <ClCompile Include="..\..\imgui_draw.cpp" />
-    <ClCompile Include="..\..\imgui_widgets.cpp" />
-    <ClCompile Include="..\imgui_impl_glfw.cpp" />
-    <ClCompile Include="..\imgui_impl_opengl2.cpp" />
+    <ClCompile Include="..\ext\imgui\imgui.cpp" />
+    <ClCompile Include="..\ext\imgui\imguiImpl\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\ext\imgui\imguiImpl\imgui_impl_opengl2.cpp" />
+    <ClCompile Include="..\ext\imgui\imgui_demo.cpp" />
+    <ClCompile Include="..\ext\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\ext\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BasicWorldBuilder.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -66,11 +66,14 @@
     <ClCompile Include="xyz3.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\imconfig.h" />
-    <ClInclude Include="..\..\imgui.h" />
-    <ClInclude Include="..\..\imgui_internal.h" />
-    <ClInclude Include="..\imgui_impl_glfw.h" />
-    <ClInclude Include="..\imgui_impl_opengl2.h" />
+    <ClInclude Include="..\ext\imgui\imconfig.h" />
+    <ClInclude Include="..\ext\imgui\imgui.h" />
+    <ClInclude Include="..\ext\imgui\imguiImpl\imgui_impl_glfw.h" />
+    <ClInclude Include="..\ext\imgui\imguiImpl\imgui_impl_opengl2.h" />
+    <ClInclude Include="..\ext\imgui\imgui_internal.h" />
+    <ClInclude Include="..\ext\imgui\imstb_rectpack.h" />
+    <ClInclude Include="..\ext\imgui\imstb_textedit.h" />
+    <ClInclude Include="..\ext\imgui\imstb_truetype.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="BasicWorldBuilder.h" />
     <ClInclude Include="Camera.h" />
@@ -111,9 +114,6 @@
     <ClInclude Include="vec3util.h" />
     <ClInclude Include="WorldBuilder.h" />
     <ClInclude Include="xyz3.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\misc\natvis\imgui.natvis" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9CDA7840-B7A5-496D-A527-E95571496D18}</ProjectGuid>
@@ -202,7 +202,7 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..;..;..\libs\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\ray-tracing-with-imgui\examples\ext\imgui\imguiImpl;F:\ray-tracing-with-imgui\examples\ext\imgui;F:\ray-tracing-with-imgui\examples\ext;..\libs\glfw\include;F:\ray-tracing-with-imgui\examples\libs\gl3w;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
