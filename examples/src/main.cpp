@@ -29,16 +29,18 @@
 #include "Metal.h"
 #include "Dielectric.h"
 #include "Hittable.h"
-#include "HittableList.h"
+#include "Scene.h"
 #include "Sphere.h"
 #include "MovingSphere.h"
 #include "Surface.h"
 #include "Camera.h"
 #include "Texture.h"
-#include "Light.h"
+#include "Emit.h"
 #include "Renderer.h"
+#include "AccumulateRenderer.h"
 #include "BasicWorldBuilder.h"
 #include "CuboidWorldBuilder.h"
+#include "CornellBoxWorldBuilder.h"
 #include "InitBackground.h"
 #include "SampledSpectrum.h"
 
@@ -77,9 +79,9 @@ void globalInit()
 
 void entrance()
 {   
-    auto cam=std::make_shared<Camera>(util::lookfrom, util::lookat, vec3(0, 0, 1), 20, double(util::nx) / double(util::ny), util::aperture, util::dist_to_focus, 0.0, 0.0);
-    Renderer r(util::nx, util::ny, util::samplesPerPixel, util::maxDepth, util::numThread, cam,std::make_shared<ConstBackground>(rgb3(1.5,1.5,1.5)));
-    r.rebuildWorld(CuboidWorldBuilder());
+    auto cam=std::make_shared<Camera>(util::lookfrom, util::lookat, vec3(0, 0, 1), util::gFov, double(util::nx) / double(util::ny), util::aperture, util::dist_to_focus, 0.0, 0.0);
+    Renderer r(util::nx, util::ny, util::samplesPerPixel, util::maxDepth, util::numThread, cam,std::make_shared<ConstBackground>(rgb3(0.5,0.5,0.5)));
+    r.rebuildWorld(CornellBoxWorldBuilder());
     r.render();
 }
 
@@ -299,4 +301,6 @@ int main(int, char**)
 * 2022.2.28:出现与视角相关的pattern。可能是Camera的实现问题。
 * 
 * 2022.3.35：Spectrum完成。抄的PBRT实现。
+* 
+* 2022.4.11：Renderer存在强耦合。后续解耦。
 */

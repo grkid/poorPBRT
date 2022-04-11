@@ -28,10 +28,12 @@
     <ClCompile Include="..\ext\imgui\imgui_demo.cpp" />
     <ClCompile Include="..\ext\imgui\imgui_draw.cpp" />
     <ClCompile Include="..\ext\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="AccumulateRenderer.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BasicWorldBuilder.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ConstBackground.cpp" />
+    <ClCompile Include="CornellBoxWorldBuilder.cpp" />
     <ClCompile Include="CuboidWorldBuilder.cpp" />
     <ClCompile Include="FloatingBackground.cpp" />
     <ClCompile Include="ConstTexture.cpp" />
@@ -40,11 +42,11 @@
     <ClCompile Include="draw.cpp" />
     <ClCompile Include="HitRecord.cpp" />
     <ClCompile Include="Hittable.cpp" />
-    <ClCompile Include="HittableList.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ImageTexture.cpp" />
     <ClCompile Include="InitBackground.cpp" />
     <ClCompile Include="Lambertian.cpp" />
-    <ClCompile Include="Light.cpp" />
+    <ClCompile Include="Emit.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MathUtil.cpp" />
@@ -74,10 +76,12 @@
     <ClInclude Include="..\ext\imgui\imstb_rectpack.h" />
     <ClInclude Include="..\ext\imgui\imstb_textedit.h" />
     <ClInclude Include="..\ext\imgui\imstb_truetype.h" />
+    <ClInclude Include="AccumulateRenderer.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="BasicWorldBuilder.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ConstBackground.h" />
+    <ClInclude Include="CornellBoxWorldBuilder.h" />
     <ClInclude Include="CuboidWorldBuilder.h" />
     <ClInclude Include="FloatingBackground.h" />
     <ClInclude Include="ConstTexture.h" />
@@ -86,11 +90,11 @@
     <ClInclude Include="draw.h" />
     <ClInclude Include="HitRecord.h" />
     <ClInclude Include="Hittable.h" />
-    <ClInclude Include="HittableList.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="ImageTexture.h" />
     <ClInclude Include="InitBackground.h" />
     <ClInclude Include="Lambertian.h" />
-    <ClInclude Include="Light.h" />
+    <ClInclude Include="Emit.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MathUtil.h" />
     <ClInclude Include="Mesh.h" />
@@ -203,7 +207,7 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>F:\ray-tracing-with-imgui\examples\ext\imgui\imguiImpl;F:\ray-tracing-with-imgui\examples\ext\imgui;F:\ray-tracing-with-imgui\examples\ext;..\libs\glfw\include;F:\ray-tracing-with-imgui\examples\libs\gl3w;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ext\imgui\imguiImpl;..\ext\imgui;..\ext;..\libs\glfw\include;..\libs\gl3w;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>

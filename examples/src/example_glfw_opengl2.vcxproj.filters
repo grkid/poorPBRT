@@ -79,15 +79,15 @@
     <Filter Include="sources\MathUtil">
       <UniqueIdentifier>{dad1bd29-4d58-4e01-aa1b-e8bd93cf4fe7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sources\Scene">
+      <UniqueIdentifier>{e2aecaee-f793-43db-8247-f1795f76891c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>sources</Filter>
     </ClCompile>
     <ClCompile Include="Hittable.cpp">
-      <Filter>sources\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="HittableList.cpp">
       <Filter>sources\Object</Filter>
     </ClCompile>
     <ClCompile Include="Ray.cpp">
@@ -104,9 +104,6 @@
     </ClCompile>
     <ClCompile Include="ConstTexture.cpp">
       <Filter>sources\Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="Light.cpp">
-      <Filter>sources\Light</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
       <Filter>sources\Object</Filter>
@@ -207,12 +204,21 @@
     <ClCompile Include="..\ext\imgui\imgui_widgets.cpp">
       <Filter>imgui</Filter>
     </ClCompile>
+    <ClCompile Include="AccumulateRenderer.cpp">
+      <Filter>sources\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>sources\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Emit.cpp">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClCompile>
+    <ClCompile Include="CornellBoxWorldBuilder.cpp">
+      <Filter>sources\WorldBuilder</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hittable.h">
-      <Filter>sources\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="HittableList.h">
       <Filter>sources\Object</Filter>
     </ClInclude>
     <ClInclude Include="Ray.h">
@@ -229,9 +235,6 @@
     </ClInclude>
     <ClInclude Include="ConstTexture.h">
       <Filter>sources\Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="Light.h">
-      <Filter>sources\Light</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
       <Filter>sources\Object</Filter>
@@ -352,6 +355,18 @@
     </ClInclude>
     <ClInclude Include="..\ext\imgui\imstb_truetype.h">
       <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="AccumulateRenderer.h">
+      <Filter>sources\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>sources\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Emit.h">
+      <Filter>sources\BxDF\BRDF</Filter>
+    </ClInclude>
+    <ClInclude Include="CornellBoxWorldBuilder.h">
+      <Filter>sources\WorldBuilder</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 #include "BasicWorldBuilder.h"
 
-void BasicWorldBuilder::build(HittableList& world) const
+void BasicWorldBuilder::build(Scene& world) const
 {
 
     world.add(std::make_shared<Sphere>(

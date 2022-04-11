@@ -6,7 +6,7 @@
 #include "Dielectric.h"
 
 #include "Hittable.h"
-#include "HittableList.h"
+#include "Scene.h"
 #include "Sphere.h"
 #include "MovingSphere.h"
 #include "Surface.h"
@@ -15,12 +15,12 @@
 
 #include "Texture.h"
 
-#include "Light.h"
+#include "Emit.h"
 // 构建一个只有球体的世界
 class BasicWorldBuilder :
     public WorldBuilder
 {
 public:
-    virtual void build(HittableList& world) const;
+    virtual void build(Scene& world) const;
 };
 

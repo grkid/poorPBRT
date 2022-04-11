@@ -13,3 +13,6 @@
 /Physically Based Rendering_ From Theory to Implementation_files
 *.html
 /examples/example_glfw_opengl2/Release
+/.vs/poorPBRT/v16
+/.vs
+/examples/.vs/PBR/v16

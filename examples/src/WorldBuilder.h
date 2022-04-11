@@ -1,9 +1,9 @@
 #pragma once
-#include "HittableList.h"
+#include "Scene.h"
 class WorldBuilder
 {
 public:
 	// 前const不能变参数，后const不能变自己
-	virtual void build(HittableList& world) const= 0;
+	virtual void build(Scene& world) const= 0;
 };
 

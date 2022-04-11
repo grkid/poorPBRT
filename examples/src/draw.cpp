@@ -1,13 +1,14 @@
 #include "draw.h"
-int util::numThread = 12;
-int util::nx = 320;
-int util::ny = 240;
-int util::samplesPerPixel = 8;
+int util::numThread = 16;
+int util::nx = 320*2;
+int util::ny = 240*2;
+int util::samplesPerPixel = 128;
 int util::maxDepth = 32;
 
-int util::gFov = 20;
-point3 util::lookfrom(-3.0*2, 3.0*2,2.0*2);
-vec3 util::lookat(0, 0, 0.0);
+int util::gFov = 36;
+//point3 util::lookfrom(-3.0*2, 3.0*2,2.0*2);
+point3 util::lookfrom(4, 0, 0);
+vec3 util::lookat(0, 0, 0);
 double util::dist_to_focus = 10.0;
 double util::aperture = 0.001;
 
@@ -47,6 +48,12 @@ void util::DrawPixel(const int& x, const int& y, const int& r, const int& g, con
     int c;
     RGB2Color(c, r, g, b);
     DrawPixel(x, y, c);
+}
+
+void util::getPixel(const int& x, const int& y,int &r,int &g,int &b)
+{
+    int color = framebuffer[y * display_w + x];
+    Color2RGB(color, r, g, b);
 }
 
 void util::Color2RGB(const int& c, int& r, int& g, int& b)

@@ -51,6 +51,7 @@ public:
     static void Color2RGB(const int& hex, int& r, int& g, int& b);
     static void DrawPixel(int x, int y, int c);
     static void DrawPixel(const int& x, const int& y, const int& r, const int& g, const int& b);
+    static void getPixel(const int& x, const int& y, int& r, int& g, int& b);
     static void DrawFrame();
 
     static void Framebuffer2File(int nx, int ny, int ns, int* fb, ofstream& outFile, double& progressDone);

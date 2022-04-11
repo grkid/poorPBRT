@@ -6,7 +6,7 @@
 #include "Sphere.h"
 #include "Principled.h"
 
-void CuboidWorldBuilder::build(HittableList& world) const
+void CuboidWorldBuilder::build(Scene& world) const
 {
     world.add(std::make_shared<Sphere>(
         point3(0, 0, -1000), 1000, std::make_shared<Lambertian>(rgb3(0.5, 0.5, 0.5))));
