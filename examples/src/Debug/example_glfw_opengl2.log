@@ -1,2 +1,19 @@
 ﻿  CornellBoxWorldBuilder.cpp
+J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\Matrix.h(46,40): warning C5054: operator '&': deprecated between enumerations of different types
+J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\Array.h(18): message : see reference to class template instantiation 'Eigen::internal::traits<Eigen::Matrix<_Scalar,1,-1,1,1,-1>>' being compiled
+          with
+          [
+              _Scalar=Eigen::Index
+          ]
+J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\PlainObjectBase.h(98): message : see reference to class template instantiation 'Eigen::internal::traits<Derived>' being compiled
+          with
+          [
+              Derived=Eigen::Array<Eigen::Index,1,-1,1,1,-1>
+          ]
+J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\Array.h(47): message : see reference to class template instantiation 'Eigen::PlainObjectBase<Eigen::Array<Eigen::Index,1,-1,1,1,-1>>' being compiled
+J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\util\ForwardDeclarations.h(119): message : see reference to class template instantiation 'Eigen::Array<Eigen::Index,1,-1,1,1,-1>' being compiled
+J:\poorPBRT\examples\ext\eigen\Eigen\src\SVD\BDCSVD.h(217): message : see reference to class template instantiation 'Eigen::BDCSVD<_MatrixType>' being compiled
   example_glfw_opengl2.vcxproj -> J:\poorPBRT\examples\src\Debug\poorPBRT.exe
