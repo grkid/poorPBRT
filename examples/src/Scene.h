@@ -2,7 +2,6 @@
 #include "Hittable.h"
 #include <vector>
 
-// 诡异的继承
 class Scene : public Hittable
 {
     /*Hittable** list;*/
@@ -16,7 +15,7 @@ public:
     Scene(std::vector<std::shared_ptr<Hittable>> vec);
     void add(std::shared_ptr<Hittable> obj);
     //如果命中了，命中记录保存到rec
-    virtual bool hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const;
+    virtual bool hit(const Ray& r, double t_min, double t_max, HitRecord& rec);
 
     void clear();
 };

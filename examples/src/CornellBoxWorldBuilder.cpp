@@ -32,8 +32,12 @@ void CornellBoxWorldBuilder::build(Scene& world) const
 	world.add(std::make_shared<Surface>(point3(-0.3, -0.3, 0.95), point3(0.3, -0.3, 0.95), point3(0.3, 0.3, 0.95), point3(-0.3, 0.3, 0.95), vec3(0, 0, -1), lightColor));
 
 	// box1
-	world.add(std::make_shared<Sphere>(point3(-0.3, -0.3, -1.0 + 0.4), 0.4, transparent));
+	auto box1 = std::make_shared<Cuboid>(point3(-0.0, -0.0,0.0), 0.4, whiteColor);
+	box1->setRotate(Angle(0.0),Angle(0.0),Angle(45.0));
+	/*box1->setScale(1.0,0.1,1.0);*/
+	 box1->setTranslate(-0.3, -0.3, -0.6);
+	world.add(box1);
 	// box2
-	world.add(std::make_shared<Sphere>(point3(0.5, 0.5, -1.0 + 0.2), 0.2, transparent));
+	world.add(std::make_shared<Cuboid>(point3(0.5, 0.5, -1.0 + 0.2), 0.2, whiteColor));
 
 }

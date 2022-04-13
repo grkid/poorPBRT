@@ -187,8 +187,8 @@ int main(int, char**)
         ImGui::NewFrame();
 
         // 1. Show the big demo window (Most of the sample code is in ImGui::ShowDemoWindow()! You can browse its code to learn more about Dear ImGui!).
-        if (show_demo_window)
-            ImGui::ShowDemoWindow(&show_demo_window);
+        /*if (show_demo_window)
+            ImGui::ShowDemoWindow(&show_demo_window);*/
 
         // 2. Show a simple window that we create ourselves. We use a Begin/End pair to created a named window.
         {
@@ -272,9 +272,9 @@ int main(int, char**)
 /*
 * 一个简单的光追渲染器，目标是把它搞成乞丐版PBRT。
 * 支持：
-* 光源 done
+* 光源
 * EXR全景图作为光源
-* mesh支持
+* mesh支持 done
 * UV支持 x 优先级靠后
 * OBJ导入 x OBJ处理后导入
 * 多种类型的相机
@@ -282,7 +282,7 @@ int main(int, char**)
 * disney principled BRDF（万能BRDF）
 * transparent BSDF（玻璃材质即可）
 * 某一个BSSRDF
-* spectrum （优先）
+* spectrum （优先）done
 * CUDA渲染加速 （最优先）
 * BVH加速结构
 * json场景定义
@@ -303,4 +303,5 @@ int main(int, char**)
 * 2022.3.35：Spectrum完成。抄的PBRT实现。
 * 
 * 2022.4.11：Renderer存在强耦合。后续解耦。
+* 选用eigen作为矩阵库，openCV作为图片库。
 */

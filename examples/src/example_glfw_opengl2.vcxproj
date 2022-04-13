@@ -29,6 +29,7 @@
     <ClCompile Include="..\ext\imgui\imgui_draw.cpp" />
     <ClCompile Include="..\ext\imgui\imgui_widgets.cpp" />
     <ClCompile Include="AccumulateRenderer.cpp" />
+    <ClCompile Include="Angle.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BasicWorldBuilder.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -42,6 +43,7 @@
     <ClCompile Include="draw.cpp" />
     <ClCompile Include="HitRecord.cpp" />
     <ClCompile Include="Hittable.cpp" />
+    <ClCompile Include="Matrix4x4.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ImageTexture.cpp" />
     <ClCompile Include="InitBackground.cpp" />
@@ -77,6 +79,7 @@
     <ClInclude Include="..\ext\imgui\imstb_textedit.h" />
     <ClInclude Include="..\ext\imgui\imstb_truetype.h" />
     <ClInclude Include="AccumulateRenderer.h" />
+    <ClInclude Include="Angle.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="BasicWorldBuilder.h" />
     <ClInclude Include="Camera.h" />
@@ -90,6 +93,7 @@
     <ClInclude Include="draw.h" />
     <ClInclude Include="HitRecord.h" />
     <ClInclude Include="Hittable.h" />
+    <ClInclude Include="Matrix4x4.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="ImageTexture.h" />
     <ClInclude Include="InitBackground.h" />
@@ -207,7 +211,7 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\ext\imgui\imguiImpl;..\ext\imgui;..\ext;..\libs\glfw\include;..\libs\gl3w;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>J:\poorPBRT\examples\ext\eigen;..\ext\imgui\imguiImpl;..\ext\imgui;..\ext;..\libs\glfw\include;..\libs\gl3w;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>

@@ -2,7 +2,7 @@
 int util::numThread = 16;
 int util::nx = 320*2;
 int util::ny = 240*2;
-int util::samplesPerPixel = 128;
+int util::samplesPerPixel = 8;
 int util::maxDepth = 32;
 
 int util::gFov = 36;

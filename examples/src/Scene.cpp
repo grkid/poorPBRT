@@ -12,7 +12,7 @@ void Scene::add(std::shared_ptr<Hittable> obj)
 }
 
 //如果命中了，命中记录保存到rec
-bool Scene::hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const
+bool Scene::hit(const Ray& r, double t_min, double t_max, HitRecord& rec)
 {
     HitRecord temp_rec;
     bool hit_anything = false;

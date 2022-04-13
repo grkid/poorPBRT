@@ -10,7 +10,7 @@ public:
     Sphere();
     Sphere(point3 cen, double r, std::shared_ptr<Material> m); //new
 
-    virtual bool hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const;
+    virtual bool hit(const Ray& r, double t_min, double t_max, HitRecord& rec);
 
     virtual point3 getCenter() const;
     virtual double getRadius() const;

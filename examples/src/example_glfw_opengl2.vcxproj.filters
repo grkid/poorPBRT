@@ -4,9 +4,6 @@
     <None Include="..\README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="imgui">
-      <UniqueIdentifier>{a894b93f-f23d-4cda-a200-b2b8d4a22cd1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="sources">
       <UniqueIdentifier>{2e3b09e7-97dc-4cca-aca6-520f71d4e183}</UniqueIdentifier>
     </Filter>
@@ -24,9 +21,6 @@
     </Filter>
     <Filter Include="sources\BxDF\BSDF">
       <UniqueIdentifier>{4f0cfc4c-a93f-4444-9f5a-edd4801b5ff0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="imgui\imguiImpl">
-      <UniqueIdentifier>{d36478ad-ac62-4de3-b31b-dab001bf5aa3}</UniqueIdentifier>
     </Filter>
     <Filter Include="sources\Object">
       <UniqueIdentifier>{2ab18463-2380-4f56-8e8d-c568ac314de0}</UniqueIdentifier>
@@ -55,9 +49,6 @@
     <Filter Include="sources\utils">
       <UniqueIdentifier>{e81ba1a2-0d1e-4666-acdd-d90eeca50edb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="stb_image">
-      <UniqueIdentifier>{19ce02f0-2336-4fc7-839b-644a6d0a92f0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="sources\Object\Transform">
       <UniqueIdentifier>{57e21872-b923-4ac1-a7ac-dc0c597cbf4d}</UniqueIdentifier>
     </Filter>
@@ -76,11 +67,23 @@
     <Filter Include="sources\WorldBuilder">
       <UniqueIdentifier>{f1284fc5-9008-425d-a82d-ab7cdc743523}</UniqueIdentifier>
     </Filter>
-    <Filter Include="sources\MathUtil">
-      <UniqueIdentifier>{dad1bd29-4d58-4e01-aa1b-e8bd93cf4fe7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="sources\Scene">
       <UniqueIdentifier>{e2aecaee-f793-43db-8247-f1795f76891c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext">
+      <UniqueIdentifier>{bb3b694d-ca33-4866-b84e-a62a75027656}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext\imgui">
+      <UniqueIdentifier>{a894b93f-f23d-4cda-a200-b2b8d4a22cd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext\imgui\imguiImpl">
+      <UniqueIdentifier>{d36478ad-ac62-4de3-b31b-dab001bf5aa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext\stb_image">
+      <UniqueIdentifier>{19ce02f0-2336-4fc7-839b-644a6d0a92f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\MathUtils">
+      <UniqueIdentifier>{dad1bd29-4d58-4e01-aa1b-e8bd93cf4fe7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -184,25 +187,25 @@
       <Filter>sources\BxDF\BSDF</Filter>
     </ClCompile>
     <ClCompile Include="MathUtil.cpp">
-      <Filter>sources\MathUtil</Filter>
+      <Filter>sources\MathUtils</Filter>
     </ClCompile>
     <ClCompile Include="..\ext\imgui\imguiImpl\imgui_impl_glfw.cpp">
-      <Filter>imgui\imguiImpl</Filter>
+      <Filter>ext\imgui\imguiImpl</Filter>
     </ClCompile>
     <ClCompile Include="..\ext\imgui\imguiImpl\imgui_impl_opengl2.cpp">
-      <Filter>imgui\imguiImpl</Filter>
+      <Filter>ext\imgui\imguiImpl</Filter>
     </ClCompile>
     <ClCompile Include="..\ext\imgui\imgui.cpp">
-      <Filter>imgui</Filter>
+      <Filter>ext\imgui</Filter>
     </ClCompile>
     <ClCompile Include="..\ext\imgui\imgui_demo.cpp">
-      <Filter>imgui</Filter>
+      <Filter>ext\imgui</Filter>
     </ClCompile>
     <ClCompile Include="..\ext\imgui\imgui_draw.cpp">
-      <Filter>imgui</Filter>
+      <Filter>ext\imgui</Filter>
     </ClCompile>
     <ClCompile Include="..\ext\imgui\imgui_widgets.cpp">
-      <Filter>imgui</Filter>
+      <Filter>ext\imgui</Filter>
     </ClCompile>
     <ClCompile Include="AccumulateRenderer.cpp">
       <Filter>sources\Renderer</Filter>
@@ -215,6 +218,12 @@
     </ClCompile>
     <ClCompile Include="CornellBoxWorldBuilder.cpp">
       <Filter>sources\WorldBuilder</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4x4.cpp">
+      <Filter>sources\MathUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="Angle.cpp">
+      <Filter>sources\MathUtils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -288,7 +297,7 @@
       <Filter>sources\Background</Filter>
     </ClInclude>
     <ClInclude Include="stb_image.h">
-      <Filter>stb_image</Filter>
+      <Filter>ext\stb_image</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>sources\Object\Transform</Filter>
@@ -330,31 +339,31 @@
       <Filter>sources\BxDF\BSDF</Filter>
     </ClInclude>
     <ClInclude Include="MathUtil.h">
-      <Filter>sources\MathUtil</Filter>
+      <Filter>sources\MathUtils</Filter>
     </ClInclude>
     <ClInclude Include="..\ext\imgui\imguiImpl\imgui_impl_glfw.h">
-      <Filter>imgui\imguiImpl</Filter>
+      <Filter>ext\imgui\imguiImpl</Filter>
     </ClInclude>
     <ClInclude Include="..\ext\imgui\imguiImpl\imgui_impl_opengl2.h">
-      <Filter>imgui\imguiImpl</Filter>
+      <Filter>ext\imgui\imguiImpl</Filter>
     </ClInclude>
     <ClInclude Include="..\ext\imgui\imconfig.h">
-      <Filter>imgui</Filter>
+      <Filter>ext\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\ext\imgui\imgui.h">
-      <Filter>imgui</Filter>
+      <Filter>ext\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\ext\imgui\imgui_internal.h">
-      <Filter>imgui</Filter>
+      <Filter>ext\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\ext\imgui\imstb_rectpack.h">
-      <Filter>imgui</Filter>
+      <Filter>ext\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\ext\imgui\imstb_textedit.h">
-      <Filter>imgui</Filter>
+      <Filter>ext\imgui</Filter>
     </ClInclude>
     <ClInclude Include="..\ext\imgui\imstb_truetype.h">
-      <Filter>imgui</Filter>
+      <Filter>ext\imgui</Filter>
     </ClInclude>
     <ClInclude Include="AccumulateRenderer.h">
       <Filter>sources\Renderer</Filter>
@@ -367,6 +376,12 @@
     </ClInclude>
     <ClInclude Include="CornellBoxWorldBuilder.h">
       <Filter>sources\WorldBuilder</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4x4.h">
+      <Filter>sources\MathUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="Angle.h">
+      <Filter>sources\MathUtils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

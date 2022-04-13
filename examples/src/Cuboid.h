@@ -2,7 +2,7 @@
 #include "Hittable.h"
 #include "Surface.h"
 class Cuboid :
-    public Hittable
+    public Hittable,public Transform
 {
 private:
     // 记录8个顶点，后续改成其他方式
@@ -19,13 +19,17 @@ private:
 
 public:
 
-    Cuboid(std::vector<point3> vec,std::shared_ptr<Material> mp);
+    Cuboid(std::vector<point3> vec,std::shared_ptr<Material> mp, std::shared_ptr<Matrix4x4> _mat=std::make_shared<Matrix4x4>());
 
-    Cuboid(const point3* vec,std::shared_ptr<Material> mp);
+    Cuboid(const point3* vec,std::shared_ptr<Material> mp, std::shared_ptr<Matrix4x4> _mat = std::make_shared<Matrix4x4>());
 
     // 顺着坐标轴的立方体
-    Cuboid(const point3& centre, double radius,std::shared_ptr<Material> mp);
+    Cuboid(const point3& centre, double radius,std::shared_ptr<Material> mp, std::shared_ptr<Matrix4x4> _mat = std::make_shared<Matrix4x4>());
 
-    virtual bool hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const;
+    virtual bool hit(const Ray& r, double t_min, double t_max, HitRecord& rec);
+
+    // Transform
+    virtual void update();
+   /* virtual void transformSet(std::shared_ptr<Matrix4x4> ref);*/
 };
 

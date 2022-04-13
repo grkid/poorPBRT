@@ -4,8 +4,10 @@ Mesh::Mesh()
 {
 }
 
-Mesh::Mesh(const point3& _p0, const point3& _p1, const point3& _p2, const std::optional<vec3> normal,std::shared_ptr<Material> mp)
+Mesh::Mesh(const point3& _p0, const point3& _p1, const point3& _p2, const std::optional<vec3> normal,std::shared_ptr<Material> mp, std::shared_ptr<Matrix4x4> _mat)
 {
+	// Mesh默认从上方获取变换矩阵
+	/*transformGen();*/
 	// 默认逆时针
 	p0 = _p0;
 	p1 = _p1;
@@ -21,23 +23,25 @@ Mesh::Mesh(const point3& _p0, const point3& _p1, const point3& _p2, const std::o
 		n = _v / _v.length();
 	}
 	matPtr = mp;
+	transformMat = _mat;
 }
 
-bool Mesh::hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const
+bool Mesh::hit(const Ray& r, double t_min, double t_max, HitRecord& rec)
 {
 	// 命中返回True填写rec的各种，没命中不修改rec返回false
 	// https://zhuanlan.zhihu.com/p/137756970
+	transformUpdate();
 	vec3 e1, e2;
-	e1 = p1 - p0;
-	e2 = p2 - p0;
+	e1 = cacheP1 - cacheP0;
+	e2 = cacheP2 - cacheP0;
 	vec3 p = cross(r.direction(), e2);
 	float det = dot(e1, p);
 	vec3 T;
 	if (det > 0)
-		T = r.origin() - p0;
+		T = r.origin() - cacheP0;
 	else
 	{
-		T = p0 - r.origin();
+		T = cacheP0 - r.origin();
 		det = -det;
 	}
 	if (det < 0.0)
@@ -67,7 +71,15 @@ bool Mesh::hit(const Ray& r, double t_min, double t_max, HitRecord& rec) const
 	rec.mat_ptr = matPtr;
 	rec.p = r.point_at_parameter(rec.t);
 	/*TODO:UV*/
-	rec.normal = n;
+	rec.normal = cacheN;
 	return true;
+}
+
+void Mesh::update()
+{
+	cacheP0 = transformMat * p0;
+	cacheP1 = transformMat * p1;
+	cacheP2 = transformMat * p2;
+	cacheN = transformMat * n;
 }
 
