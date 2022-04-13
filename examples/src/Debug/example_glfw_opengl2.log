@@ -1,19 +1,9 @@
-﻿  CornellBoxWorldBuilder.cpp
-J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\Matrix.h(46,40): warning C5054: operator '&': deprecated between enumerations of different types
-J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\Array.h(18): message : see reference to class template instantiation 'Eigen::internal::traits<Eigen::Matrix<_Scalar,1,-1,1,1,-1>>' being compiled
-          with
-          [
-              _Scalar=Eigen::Index
-          ]
-J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\PlainObjectBase.h(98): message : see reference to class template instantiation 'Eigen::internal::traits<Derived>' being compiled
-          with
-          [
-              Derived=Eigen::Array<Eigen::Index,1,-1,1,1,-1>
-          ]
-J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\Array.h(47): message : see reference to class template instantiation 'Eigen::PlainObjectBase<Eigen::Array<Eigen::Index,1,-1,1,1,-1>>' being compiled
-J:\poorPBRT\examples\ext\eigen\Eigen\src\Core\util\ForwardDeclarations.h(119): message : see reference to class template instantiation 'Eigen::Array<Eigen::Index,1,-1,1,1,-1>' being compiled
-J:\poorPBRT\examples\ext\eigen\Eigen\src\SVD\BDCSVD.h(217): message : see reference to class template instantiation 'Eigen::BDCSVD<_MatrixType>' being compiled
+﻿  draw.cpp
+J:\poorPBRT\examples\src\draw.cpp(67,33): warning C4458: declaration of 'nx' hides class member
+J:\poorPBRT\examples\src\draw.h(19,16): message : see declaration of 'util::nx'
+J:\poorPBRT\examples\src\draw.cpp(67,41): warning C4458: declaration of 'ny' hides class member
+J:\poorPBRT\examples\src\draw.h(20,16): message : see declaration of 'util::ny'
+J:\poorPBRT\examples\src\draw.cpp(67,89): warning C4458: declaration of 'progressDone' hides class member
+J:\poorPBRT\examples\src\draw.h(35,19): message : see declaration of 'util::progressDone'
+J:\poorPBRT\examples\src\draw.cpp(67,49): warning C4100: 'ns': unreferenced formal parameter
   example_glfw_opengl2.vcxproj -> J:\poorPBRT\examples\src\Debug\poorPBRT.exe
